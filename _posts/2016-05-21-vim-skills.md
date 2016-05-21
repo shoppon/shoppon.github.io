@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      "vi实用技巧"
+subtitle:   "vim神技"
+date:       2016-05-21 12:00:00
+author:     "Shoppon"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - 生活
+---
+
+
 ##VI实用技巧##
 
 
