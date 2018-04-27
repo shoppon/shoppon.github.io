@@ -1,6 +1,6 @@
 ---
-title: Reading List
-subtitle: a list of books I read
+title: 阅读清单
+subtitle: 我正在阅读的书籍
 layout: "page"
 icon: fa-book
 order: 3
