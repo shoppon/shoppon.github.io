@@ -1,0 +1,19 @@
+## gettext简介
+gettext是GNU国际化与本地化（i18n）函数库。它常被用于编写多语言程序。
+
+python的gettext实现实际上是将Mo文件读取成一个dict，```msgid```是key，```msgstr```是value，翻译时直接通过```dict.get```获取译文。
+
+## oslo.i18n使用
+oslo.i18n提供lazy和非lazy模式，可以在程序启动时指定```i18n.enable_lazy(enable=True)```。如果是lazy模式，则仅生成Message对象；如果是非lazy模式，则会从os.environ中获取环境变量中的语言，并且翻译成目标语言。
+
+oslo.i18n提供了```_```函数，在程序中可以通过```_("this is english")```生成Message对象。
+
+oslo.i18n提供了```translate(value, user_locale=None)```函数，可以将文本翻译成指定语言。
+
+## 国际化2.0：通过gettext国际化
+- 调用Rest接口时通过```x-language```或者```accept-language```指定语言。
+- 针对不同语言定义不同的mo文件，mo文件是key-value形式，指定在不同场景下如何翻译，并且在打包时编译成po文件。
+- 在API的```Fault filter```中将程序的expection message调用```i18n.translate```翻译成指定语言。
+
+**存在的问题：**
+如果待翻译的文本中包含参数，并且在调用```i18n.translate```之前已经通过```_```函数将参数展开，将在翻译时无法取到正确的译文。
