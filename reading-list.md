@@ -12,3 +12,4 @@ Stay hungry. Stay foolish.
 2. Shantanu Tushar: *Linux Shell脚本攻略*
 3. 林语堂: *吾国与吾民*
 4. 林语堂: *生活的艺术*
+5. Jon Bentley： *编程珠玑*
