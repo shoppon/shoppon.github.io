@@ -34,26 +34,26 @@ if utils.is_private_scene():
 
 ```python
 cfg.BoolOpt('workload_enable',
-     default=False,
-     help='workload switch'),
+    default=False,
+    help='workload switch'),
 ```
 
 然后在使用流控的地方根据开关添加相应的业务逻辑：
 
 ```python
-if workload.is_support_action_workload(**kwargs):
-       operation_log = kwargs.get('operation_log')
-       id = operation_log.get('id')
-       LOG.debug('Tenant: %s backup resource: %s enter flow, '
-                 'job_id:%s .' % (context.project_id, resource.id, id))
-       workload.wait_and_query_job_status(context, id, resource)
+if workload.is_supported(**kwargs):
+    operation_log = kwargs.get('operation_log')
+    op_id = operation_log.get('id')
+    LOG.debug('Tenant: %s backup resource: %s enter flow, '
+              'job_id:%s .' % (context.project_id, resource.id, op_id))
+    workload.wait_and_query_job_status(context, op_id, resource)
 ```
 
 正如前面所讲，这种方式的问题在于可能需要在多处代码中添加开关判断，流控也是如此，需要在所有的正常、异常流程都需要释放流控：
 
 ```python
-if workload.is_support_action_workload(**kwargs):
-     workload.update_workload(context, context.project_id)
+if workload.is_supported(**kwargs):
+    workload.update_workload(context, context.project_id)
 ```
 
 
