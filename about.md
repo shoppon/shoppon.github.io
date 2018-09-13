@@ -1,18 +1,91 @@
 ---
 layout: page
-title: About
+title: 我的简历
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+## 基本资料
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+姓名：肖鹏
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+出生日期：1990/01
 
+籍贯：湖北咸宁
 
-[jekyll-organization]: https://github.com/jekyll
+户籍：四川成都
+
+婚姻状况：已婚
+
+工作年限：5年以上
+
+## 工作经历
+
+> 2013.07~至今  华为技术有限公司
+
+​	公司行业：计算机软件
+
+​	职位：高级软件工程师
+
+​	工作地点：成都
+
+​	职责业绩：
+
+## 教育经历
+
+四川大学（2009.09~2013.06）
+
+专业名称：计算机科学与技术
+
+学历：本科
+
+## 项目经历
+
+> 云备份服务
+
+​	项目职务：
+
+​	项目描述：
+
+​	项目职责：
+
+​	项目业绩：
+
+​		1. 格式
+
+​		2. 格式
+
+> 存储资料管理软件
+
+​	项目职务：
+
+​	项目描述：
+
+​	项目职责：
+
+​	项目业绩：
+
+> 存储设备管理软件
+
+​	项目职务：
+
+​	项目描述：
+
+​	项目职责：
+
+​	项目业绩：
+
+## 自我评价
+
+1. 技术扎实，精通Python、Linux shell编程，对云计算开源软件openstack有较深理解。
+2. 热爱编码，工程师情结严重，有代码洁癖，No warings no errors，对每个命名一丝不苟，乐于重构代码。
+3. 善于学习，对于新鲜事务（容器、jenkins、llt）上手快，能够给团队引入各种先进开发模式。
+4. 思维敏捷，善于寻找解决问题的办法，解决工作中遇到的各种疑难问题。
+5. 效率至上，精通git、sublilme、postman、typora、pycharm、ansible、onenote、altrun等各种工具的使用。
+
+## 附加信息
+
+1. 获得2017年华为IT产品线“民间大师”称号。
+2. 两次获得华为“明日之星”荣誉。
+3. 2018年获得华为成都研究所“优秀讲师”称号。
+4. 多次获得版本之星及部长奖等荣誉。
+
