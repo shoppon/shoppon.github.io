@@ -2,18 +2,22 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "minima"
-  spec.version       = "0.1.0"
-  spec.authors       = [""]
-  spec.email         = [""]
+  spec.version       = "2.5.0"
+  spec.authors       = ["Joel Glovier"]
+  spec.email         = ["jglovier@github.com"]
 
-  spec.summary       = "TODO: Write a short summary, because Rubygems requires one."
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "A beautiful, minimal theme for Jekyll."
+  spec.homepage      = "https://github.com/jekyll/minima"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|_sass|LICENSE|README)!i) }
+  spec.metadata["plugin_type"] = "theme"
 
-  spec.add_runtime_dependency "jekyll", "~> 3.7"
+  spec.files = `git ls-files -z`.split("\x0").select do |f|
+    f.match(%r!^(assets|_(includes|layouts|sass)/|(LICENSE|README)((\.(txt|md|markdown)|$)))!i)
+  end
 
-  spec.add_development_dependency "bundler", "~> 1.16"
-  spec.add_development_dependency "rake", "~> 12.0"
+  spec.add_runtime_dependency "jekyll", "~> 3.5"
+  spec.add_runtime_dependency "jekyll-feed", "~> 0.9"
+  spec.add_runtime_dependency "jekyll-seo-tag", "~> 2.1"
+  spec.add_development_dependency "bundler", "~> 1.15"
 end
