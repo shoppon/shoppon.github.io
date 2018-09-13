@@ -70,7 +70,7 @@ Patch生成方法：
 - 全局变量的命名全部大写，每个单词之间使用_分割。
 - 数据库方法的命名，采用操作对象_方法的方式，例如创建plan，操作对象是plan，方法是create。
 
-备份服务统一编码规范[模板文件路径](http://code.huawei.com/csbs/dev/blob/master/tools/pycharm/csbs_standard_codestyle.jar)，使用方法：
+备份服务统一编码规范[模板文件路径]()，使用方法：
 
 1. 打开pycharm
 2. 选择```File```-->```Import Settings```，指定统一的模板文件
