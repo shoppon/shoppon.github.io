@@ -76,7 +76,7 @@ C++开发，前端基于 AngularJS 开发的 html5 webapp，前后端通过 Rest
 
 1. 思维敏捷，善于寻找解决问题的办法，解决工作中遇到的各种疑难问题。
 2. 效率至上，利用```git```、```sublilme```、```postman```、```jenkins```、```typora```、```pycharm```、```ansible```、```onenote```等各种工具提高工作效率。
-3. 技术扎实，精通```Python```、```Linux shell```编程，对云计算开源软件```openstack```有较深理解。
+3. 技术扎实，熟悉```Python```、```Linux shell```编程，对云计算开源软件```openstack```有较深理解。
 4. 热爱编码，工程师情结严重，有代码洁癖，No warings no errors，对每个命名一丝不苟，乐于重构代码。
 5. 善于学习，对于新鲜事务（容器、```jenkins```、```llt```）上手快，能够给团队引入各种先进开发模式。
 
