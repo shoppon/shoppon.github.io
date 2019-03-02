@@ -1,4 +1,10 @@
+---
+title: 数据库锁
+layout: post
+---
+
 ## 场景：并发更新
+
 Karbor原生代码更新Plan的Resource是先把Plan的所有Resource置为```deleted```，然后再创建新的创建接口。当并发在Plan在添加同一个资源时，由于没有锁机制，可能导致该资源被添加两次。具体代码如下：
 ```python
 def _plan_resources_update(context, plan_id, resources, session=None):

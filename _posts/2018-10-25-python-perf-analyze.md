@@ -1,3 +1,8 @@
+---
+title: Python性能分析
+layout: post
+---
+
 # Python性能分析
 
 性能分析的关键是根据系统运行时间统计找出性能瓶颈。Python自带的```CProfile```运行一段代码可生成该代码的运行时间统计的性能文件。
