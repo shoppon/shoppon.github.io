@@ -1,3 +1,10 @@
 {
-  "plugins": ["page-treeview", "splitter", "chapter-fold", "expandable-chapters"]
+  "pluginsConfig": {
+    "plugins": [
+      "page-treeview",
+      "splitter",
+      "chapter-fold",
+      "expandable-chapters"
+    ]
+  }
 }
