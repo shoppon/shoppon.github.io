@@ -1,10 +1,7 @@
 # 目录
 
-- [开发环境]()
-  - [计算云常用配置](devops/ecs.md)
-  - [基础开发工具手工编译指南](devops/dev_tools_build.md)
+- 开发环境
   - docker
-    - [基于docker搭建HDRS编译调试环境](devops/docker/dra_dev.md)
   - vscode
     - [vscode remote使用方法](devops/vscode/remote.md)
   - jenkins
@@ -13,14 +10,12 @@
   - 辅助工具
     - [使用clang-format进行clean code整改](devops/tools/clang-format.md)
     - [ansible简单使用](devops/ansible.md)
-  - [本地调试openstack项目](devops/openstack_dev.md)
 - [ 编程语言]()
   - python
     - [性能分析](python/perf_analyze.md)
   - c++
     - [c/c++基础](c++/base.md)
     - [gtest单元测试](c++/ut.md)
-    - [CleanCode修改总结](c++/cleancode.md)
   - javascript
   - shell
     - [正则表达式](shell/regrex.md)
@@ -33,8 +28,6 @@
     - [DGW集成](hdrs/dgw_integrate.md)
     - [性能监控](hdrs/perf_collect.md)
     - [V2C](hdrs/v2c.md)
-  - 环境
-    - [黄区计算云调试环境](hdrs/dev_env.md)
   - 工具
     - [DPP Python调试命令行使用](hdrs/debug_client.md)
   - 总结
@@ -50,4 +43,3 @@
   - [架构合一](cbs/architecture_unify.md)
 - 数据库
   - [Gaussdb常用操作](database/gaussdb_cookbook.md)
-- 设计模式
