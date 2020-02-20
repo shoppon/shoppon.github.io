@@ -1,10 +1,17 @@
 {
+  "structure": {
+    "readme": "README.md"
+  },
+  "plugins": [
+    "ancre-navigation",
+    "chapter-fold",
+    "code",
+    "expandable-chapters",
+    "splitter"
+  ],
   "pluginsConfig": {
-    "plugins": [
-      "page-treeview",
-      "splitter",
-      "chapter-fold",
-      "expandable-chapters"
-    ]
+    "theme-default": {
+      "showLevel": true
+    }
   }
 }
