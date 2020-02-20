@@ -10,7 +10,7 @@ Karbor业务代码都是以进程方式运行的，如需针对单个业务操�
 
 以备份为例，```kangaroo/tests/debug/perf.py```为样例代码。
 
-Karbor进程以性能模式运行```karbor-apiControl -S STOP;python -m cProfile -o /opt/huawei/dj/DJSecurity/privkey/api.perf /usr/bin/karbor-api```
+Karbor进程以性能模式运行```karbor-apiControl -S STOP;python -m cProfile -o api.perf /usr/bin/karbor-api```
 
 ## 性能文件分析
 
@@ -126,21 +126,3 @@ sysbench --test=fileio --num-threads=16 --file-total-size=3G --file-test-mode=rn
 sysbench --test=fileio --num-threads=16 --file-total-size=3G --file-test-mode=rndrw run
 sysbench --test=fileio --num-threads=16 --file-total-size=3G --file-test-mode=rndrw cleanup
 ```
-
-
-
-### 使用mockserver
-
-配置docker代理```/etc/systemd/system/docker.service.d/https-proxy.conf```
-
-```ini
-[Service]
-Environment="HTTP_PROXY=http://x00250203:xxx@proxyhk.huawei.com:8080/"
-Environment="HTTPS_PROXY=http://x00250203:xxx@proxyhk.huawei.com:8080/"
-```
-
-登陆docker服务器```docker login hub.witcloud.huawei.com```，输入域账号密码。
-
-镜像标签```docker tag 521e07377dd8 hub.witcloud.huawei.com/x00250203/mockserver```
-
-推送镜像```docker push hub.witcloud.huawei.com/x00250203/mockserver```

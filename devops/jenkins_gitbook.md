@@ -2,7 +2,7 @@
 
 ### 安装nodejs
 
-1. 执行```echo "registry = http://cmc-cd-mirror.rnd.huawei.com/npm" >> ~/.npmrc``` ，设置npm源为华为内源。
+1. 执行```echo "registry = http://mirror/npm" >> ~/.npmrc``` ，设置npm源为内源。
 
 ### 安装gitbook
 

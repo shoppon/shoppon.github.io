@@ -20,8 +20,8 @@ vscode remote的方法非常简单，首先你要拥有一台与本地windows办
 
    ```shell
    check_certificate=off
-   https_proxy=http://{your_name}:{your_password}@proxy.huawei.com:8080
-   http_proxy=http://{your_name}:{your_password}@proxy.huawei.com:8080
+   https_proxy=http://{your_name}:{your_password}@proxy.xxx.com:8080
+   http_proxy=http://{your_name}:{your_password}@proxy.xxx.com:8080
    use_proxy=on
    ```
 
