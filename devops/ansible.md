@@ -17,6 +17,7 @@
 [host:vars]
 ansible_ssh_user=user
 ansible_ssh_pass=pass
+ansible_ssh_private_key_file=id_rsa
 ansible_become=yes
 ansible_become_method=su
 ansible_become_user=root
@@ -51,3 +52,10 @@ ansible_become_pass=pass
 ## 常用ansible命令
 
 **运行指定play-book：**```ansible-playbook -i /home/x00250203/env/fsb/hosts install_dra.yaml```
+
+**执行指定命令：**```ansible -i hosts ebackup -m shell -a "route -n"```
+
+**设置连续IP：**```172.18.0.[1:2]```
+
+**设置不严格检查：**在hosts文件中配置```ansible_ssh_extra_args='-o StrictHostKeyChecking=no'```
+
