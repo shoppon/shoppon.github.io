@@ -8,10 +8,12 @@
 ## 开发环境
 
 - docker
-  - [编排工具](devops/docker/docker-compose.md)
+  - [容器编排工具](devops/docker/docker-compose.md)
+  - [搭建开发环境](devops/docker/docker_env.md)
 - vscode
   - [vscode remote使用方法](devops/vscode/remote.md)
   - [快捷键](devops/vscode/keymap.md)
+  - [常用配置](devops/vscode/config.md)
 - jenkins
   - [jenkins安装、配置](devops/jenkins.md)
   - [gitlab集成jenkins自动编译gitbook](devops/jenkins_gitbook.md)
@@ -32,7 +34,8 @@
 - javascript
 - shell
   - [正则表达式](shell/regrex.md)
-  - [syslog](shell/syslog.md)
+  - [syslog](linux/log.md)
+  - [常用命令及其用法举例](linux/shell.md)
 - 算法
   - [leetcode题解](algorithm/leetcode.md)
 - 数据库

@@ -6,6 +6,12 @@ typora-root-url: ../../shoppon.github.io
 
 ## 动态规划
 
+### 概念
+
+
+
+### 练习
+
 #### [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)
 
 思路：对于所有的拐点，依次找出接水区间；接水区间可以描述为左右能找到的最大值。区间能接的水为两边的**较小值**减去区间点的值。
@@ -41,6 +47,8 @@ f(n)连续序列、长度、上下限
 
 ## 字符串
 
+### 练习
+
 #### [140. 单词拆分 II](https://leetcode-cn.com/problems/word-break-ii/)
 
 遍历单词，如果当前子串在字典中能找到，则从下一位置开始重新查找；如果找不到则继续添加子串，如果到最后还找不到则说明无解。
@@ -54,6 +62,8 @@ wordDict = ["cat", "cats", "and", "sand", "dog"]
 
 ## 数组
 
+### 练习
+
 #### [4.寻找两个有序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
 
 要求算法的时间复杂度为 O(log(m + n))
@@ -62,13 +72,41 @@ wordDict = ["cat", "cats", "and", "sand", "dog"]
 
 每次比较两个数组的前两个数，POP出较小的数，直到达到(m+n)/2个。
 
+## 树
+
+### 概念
+
+#### 树的遍历 
+
+![tree](/imgs/tree.jpg)
+
+树的遍历有4种方法：后序、前序、中序、广度优先
+
+### 练习
+
+#### [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)
+
+
+
 ## 图
 
 ### 概念
 
 #### 欧拉图
 
+能通过所有的边且仅通过一次的图，该路径称为欧拉回路。
+
+弗洛伊德算法：
+
 #### 环
+
+拓扑排序：**有向无环图**（DAG）排序
+
+#### 最短路径
+
+迪杰斯特拉算法：最短路径
+
+#### 最大连通图
 
 ### 图的表示
 
@@ -161,7 +199,22 @@ n=2,k=2
 
 全排列去重。
 
-## 回溯
+#### [827. 最大人工岛](https://leetcode-cn.com/problems/making-a-large-island/)
+
+![827](/imgs/827.jpg)
+
+求面积方法：
+
+- 并查集的大小。
+- 1与1连通，与0不连通，搜索节点个数。
+
+暴力：将每一个空地变成岛屿，计算之后的面积，找最大值。
+
+优化：记录每块地方所在岛屿的面积，变化时加上其大小即可。
+
+## 搜索
+
+### 回溯
 
 #### [46. 全排列](https://leetcode-cn.com/problems/permutations/)
 
@@ -173,14 +226,27 @@ n=2,k=2
 
 。。。
 
+# 排序
+
+### 调度
+
+#### [621. 任务调度器](https://leetcode-cn.com/problems/task-scheduler/)
+
+![621](/imgs/621.jpg)
+
+记录任务冷却时间，每次取冷却时间最小的任务进行执行
+
+先按间隔安排A任务，再安排B，再安排C。。。是否是最优解？不是，如果任务个数大于间隔。。
+
+ABCDABCDABCDABCD
+
+ABCABCABCABCDXXDXXD
+
+思路：找出可以执行任务中个数量最多的。。。
+
+桶思想：设置桶大小为n+1，桶个数为最多任务出现的次数。如果有相同次数，则个数加1。
+
 ## 待做列表
 
-- [827. 最大人工岛](https://leetcode-cn.com/problems/making-a-large-island/)
-
 - [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)
-
-- [695. 岛屿的最大面积](https://leetcode-cn.com/problems/max-area-of-island/)
-
-- [621. 任务调度器](https://leetcode-cn.com/problems/task-scheduler/)
-
 
