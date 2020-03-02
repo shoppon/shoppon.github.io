@@ -17,9 +17,10 @@
 - jenkins
   - [jenkins安装、配置](devops/jenkins.md)
   - [gitlab集成jenkins自动编译gitbook](devops/jenkins_gitbook.md)
-- 辅助工具
+- 其他工具
   - [使用clang-format进行clean code整改](devops/tools/clang-format.md)
   - [ansible简单使用](devops/ansible.md)
+  - [vim相关](devops/tools/vim.md)
 
 ---
 
@@ -28,18 +29,22 @@
 - python
   - [性能分析](python/perf_analyze.md)
   - [面试题](python/interview.md)
+  - [openstack本地调式环境搭建](python/dev-env.md)
+  - [单元测试](python/ut.md)
+  - [代码隔离](python/code-isolation.md)
+  - [数据库锁](python/database-lock.md)
 - c++
   - [c/c++基础](c++/base.md)
   - [gtest单元测试](c++/ut.md)
 - javascript
 - shell
-  - [正则表达式](shell/regrex.md)
+  - [正则表达式](linux/regrex.md)
   - [syslog](linux/log.md)
   - [常用命令及其用法举例](linux/shell.md)
 - 算法
   - [leetcode题解](algorithm/leetcode.md)
 - 数据库
-  - [Gaussdb常用操作](database/gaussdb_cookbook.md)
+  - [Gaussdb常用操作](database/database-operation.md)
 
 ---
 
@@ -73,6 +78,8 @@
 ## 云备份
 
 - [架构合一](cbs/unify.md)
+- [编程规范](cbs/coding-rule.md)
+- [运作思考](cbs/team-thought.md)
 
 ---
 
