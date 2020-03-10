@@ -38,7 +38,7 @@
   - [gtest单元测试](c++/ut.md)
 - javascript
 - shell
-  - [正则表达式](linux/regrex.md)
+  - [正则表达式](linux/regex.md)
   - [syslog](linux/log.md)
   - [常用命令及其用法举例](linux/shell.md)
 - 算法

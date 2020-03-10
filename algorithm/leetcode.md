@@ -3,23 +3,21 @@ typora-root-url: ../../shoppon.github.io
 ---
 
 # leetcode题解
+# 动态规划
+## 概念
+符合动态规划思想的几个条件：
 
-## 动态规划
+1. 求极值。
+2. 能够划分成子问题
+3. 无后向性
 
-### 概念
-
-
-
-### 练习
-
-#### [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)
-
+## 练习
+### [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)
 思路：对于所有的拐点，依次找出接水区间；接水区间可以描述为左右能找到的最大值。区间能接的水为两边的**较小值**减去区间点的值。
 
 当前这个点能接的雨水量为从最左边到该点的最大值与从最右边到该点的最大值中较小值与其值的差。
 
-#### [887. 鸡蛋掉落](https://leetcode-cn.com/problems/super-egg-drop/)
-
+### [887. 鸡蛋掉落](https://leetcode-cn.com/problems/super-egg-drop/)
 鸡蛋足够的情况下，二分应该是最快的。
 
 k=1, n=2时，ans=1
@@ -33,8 +31,7 @@ k=2, n=3时，ans=max((1,2),(2,2)+1=2
 1. 能够拆分成子问题，并且能降低问题的规模
 2. 子问题的解不影响父问题的解，无后向性
 
-#### [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence/)
-
+### [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence/)
 ```
 [100, 4, 200, 1, 3, 2]
 ```
@@ -45,12 +42,15 @@ f(n)连续序列、长度、上下限
 
 遍历数组，对于每个元素，其最长序列的值为缓存中相邻最长续列的和加一，如果不存在则为0。同时该数字出现后有可能将其他序列连接起来了，因此需要更新左边序列的**下限**和右边序列的**上限**。
 
-## 字符串
+### [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/)
+记f(m,n)为到m,n点的步数
 
-### 练习
+f(m,n)=f(m-1,n)+f(m, n-1)
 
-#### [140. 单词拆分 II](https://leetcode-cn.com/problems/word-break-ii/)
-
+如果用递归明显会栈溢出和超时，需要从底向上。
+# 字符串
+## 练习
+### [140. 单词拆分 II](https://leetcode-cn.com/problems/word-break-ii/)
 遍历单词，如果当前子串在字典中能找到，则从下一位置开始重新查找；如果找不到则继续添加子串，如果到最后还找不到则说明无解。
 
 如何找出所有的解？
@@ -59,57 +59,119 @@ f(n)连续序列、长度、上下限
 s = "catsanddog"
 wordDict = ["cat", "cats", "and", "sand", "dog"]
 ```
+### [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/)
 
-## 数组
+如何判断"cba"是"abc"排列的一种？字符种类一样。。
 
-### 练习
+思路：
 
-#### [4.寻找两个有序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
+1. 先统计子串中各字符出现的次数（配额）。
+2. 子串长度前一个要出队，如果**使用过**则次数加1。
+3. 遍历父串，当前还有配额时，配额减1，总次数减1
+4. 如果配额为0，需要用当前字符替换该字符最早出现的字符。可以用**队列**存储出现的顺序。
+5. 如果最后次数减为0，说明是子串。
 
+总结：情况太多了，太容易遗漏了！！！
+
+复杂度较高的方法：使用数组统计每个字符出现的次数，比较次数是否一样
+
+实际上效率更高。。好吧，想多了。。。
+
+### [1239. 串联字符串的最大长度](https://leetcode-cn.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/)
+
+数组长度最大16，所以共2**16种情况，暴力遍历这些情况竟然过了。。。
+
+另一种DFS暴力方法：
+
+如果遍历完了则返回**结果字符串**的长度，否则**判断结果字符串能否加上当前字符串**，如果不能加则DFS下一个；如果能加则还要**判断加与不加两种情况下**的最大值，因为加了可能导致反而更小。
+
+# 数组
+
+## 练习
+### [4.寻找两个有序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
 要求算法的时间复杂度为 O(log(m + n))
 
 找出前(m+n)/2最小的数
 
 每次比较两个数组的前两个数，POP出较小的数，直到达到(m+n)/2个。
+# 数据结构
+## 栈
+### [895. 最大频率栈](https://leetcode-cn.com/problems/maximum-frequency-stack/)
+很明显要设计```push```和```pop```操作均为O1的数据结构。
 
-## 树
+使用频率字典记录每个字符的频率，使用元素字典记录频率为X的字母栈。同时更新当前最大频率。
 
-### 概念
+### [503. 下一个更大元素 II](https://leetcode-cn.com/problems/next-greater-element-ii/)
+对于每一个元素，遍历找到其下一个更大的元素。明显可能会超时。
 
-#### 树的遍历 
+**单调栈：**元素从栈顶到栈底依次递增或者递减。解决类似*最近*、*下一个*这种问题。
 
+### [631. 设计 Excel 求和公式](https://leetcode-cn.com/problems/design-excel-sum-formula/)
+
+难点应该在于修改了值之后如何联动。。。并且公式嵌套时如何联动。。
+
+## 前缀和
+
+### [1109. 航班预订统计](https://leetcode-cn.com/problems/corporate-flight-bookings/)
+
+明显，使用暴力求和会超时。。
+
+一个航班从[i, j, k]的航班记录可以表示为res[i] = k, res[j+1] = -k，统计时res[i] = res[i] + res[i-1]，j+1由于记为负数，加起则为0。每个记录都可以如此处理。
+
+技巧性太强了呀，还是很难想出来的。
+
+# 树
+
+## 概念
+树是一种特殊的图。
+
+### 树的遍历 
 ![tree](/imgs/tree.jpg)
 
 树的遍历有4种方法：后序、前序、中序、广度优先
 
-### 练习
+## 练习
+### [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)
 
-#### [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)
-
-
-
-## 图
-
-### 概念
-
-#### 欧拉图
-
+# 图
+## 概念
+### 欧拉图
 能通过所有的边且仅通过一次的图，该路径称为欧拉回路。
 
 弗洛伊德算法：
+### 图的搜索
+**广度优先：**使用队列
 
-#### 环
+**深度优先：**递归或者使用栈
+### 环
+**拓扑排序：**节点依赖顺序，所有有向边均从前面的元素指向后面的元素，**有向无环图**（DAG）排序
 
-拓扑排序：**有向无环图**（DAG）排序
+可能深搜实现，具体有三种方式：
 
-#### 最短路径
+1. 前序，递归调用之前将顶点加入队列
+2. 后序，递归调用之后将顶点加入队列
+3. 逆后序，递归调用之后将顶点压入栈
 
-迪杰斯特拉算法：最短路径
+### 最短路径
+迪杰斯特拉算法：
 
-#### 最大连通图
+1. 找出最便宜的节点
+2. 更新该节点的邻居（松弛）
+3. 重复这个过程，直到所有节点遍历
+4. 计算最终路径
+
+### 连通性
+**最大连通分量：**
+**连通分量计算：**并查集、深度优先搜索
+
+### 最小生成树
+图的生成树是包含所有顶点的**无环连通子图**。
+
+Prim算法：
+
+Kruskal算法：
 
 ### 图的表示
-
 <img src="/imgs/dag.png" alt="dag" style="zoom:67%;" />
 
 邻接矩阵：
@@ -141,65 +203,36 @@ graph = {
 }
 ```
 
-### 练习
-
-#### [329. 矩阵中的最长递增路径](https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix/)
-
+## 练习
+### [329. 矩阵中的最长递增路径](https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix/)
 将二维矩阵转换成有向图，目标比当前点的值大则有路径，否则不可达无路径。
 
 暴力：从最小的节点进行深搜，获取最大值，直到所有的节点均被遍历
 
 #### 深搜非递归实现步骤：
-
 1. 使用栈保存待访问的节点，使用集合保存已访问节点
 2. 从栈中POP出下一个要访问的节点
 3. 当栈非空时，依次访问当前节点的邻居，如果存在可访问的邻居节点，则将邻居加入到栈中
 
 #### 解决超时
-
 1. 使用记忆数组保存遍历结果？？为什么下一次访问时可以用上一次结果？
 
-#### [207. 课程表](https://leetcode-cn.com/problems/course-schedule/)
-
+### [207. 课程表](https://leetcode-cn.com/problems/course-schedule/)
 如果一个课程不被其他课程依赖则将其移除出去。如果一个顶点没有入度，则移除。
-
 使用bfs进行拓扑排序
 
-#### [753. 破解保险箱](https://leetcode-cn.com/problems/cracking-the-safe/)
-
+### [753. 破解保险箱](https://leetcode-cn.com/problems/cracking-the-safe/)
 密码位数n，范围0~k-1，共有k^n种可能，需要将这k^n种可能放到一个长度最小的字符串中。
 
 n=3,k=3
 
 0001002001101112---
 
-每次添加1位、2位形成一个未保存的新解，直到所有解都添加。
-
-动态规划？？
-
-n=3,k=2，共8种可能
-
-所有的解：000001010011100101110111
-
-如何压缩：00010100111
-
-n=2,k=3，共9种可能性
-
-所有的解：000102101112202122
-
-可能的解：00112021022
-
-如何压缩：
-
-n=2,k=2
-
-所有的解：000110
-
 压缩后：00110
 
 全排列去重。
 
-#### [827. 最大人工岛](https://leetcode-cn.com/problems/making-a-large-island/)
+### [827. 最大人工岛](https://leetcode-cn.com/problems/making-a-large-island/)
 
 ![827](/imgs/827.jpg)
 
@@ -212,11 +245,19 @@ n=2,k=2
 
 优化：记录每块地方所在岛屿的面积，变化时加上其大小即可。
 
-## 搜索
+### [547. 朋友圈](https://leetcode-cn.com/problems/friend-circles/)
 
-### 回溯
+使用长度为n的数组保存每个人所在的朋友圈，如果后期与前面的为朋友则将其置为前个的编号。
 
-#### [46. 全排列](https://leetcode-cn.com/problems/permutations/)
+![547](/imgs/547.jpg)
+
+关键点在于合并朋友圈，
+
+**并查集：动态连通性。**
+
+# 搜索
+## 回溯
+### [46. 全排列](https://leetcode-cn.com/problems/permutations/)
 
 两个元素时，全排列为交换位置。
 
@@ -226,11 +267,17 @@ n=2,k=2
 
 。。。
 
+## 其他
+### [503. 下一个更大元素 II](https://leetcode-cn.com/problems/next-greater-element-ii/)
+
+最直观的方式：每一个遍历一遍，复杂度N2。
+
+如何优化？扫一遍记录到当前位置的最大值。。
+
 # 排序
+## 调度
 
-### 调度
-
-#### [621. 任务调度器](https://leetcode-cn.com/problems/task-scheduler/)
+### [621. 任务调度器](https://leetcode-cn.com/problems/task-scheduler/)
 
 ![621](/imgs/621.jpg)
 
@@ -246,7 +293,44 @@ ABCABCABCABCDXXDXXD
 
 桶思想：设置桶大小为n+1，桶个数为最多任务出现的次数。如果有相同次数，则个数加1。
 
-## 待做列表
+### [253. 会议室 II](https://leetcode-cn.com/problems/meeting-rooms-ii/)
+
+先按开始时间将会议室排序。。
+
+**贪心算法：**每次选在上一个会议结束时间后开始最早的会议进行安排，安排不下了会议室加一。
+
+### [315. 计算右侧小于当前元素的个数](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/)
+
+暴力查找，复杂度O(N2)，明显会超时。
+
+线段数组：
+
+归并排序：
+
+树状数组：
+
+# 数学
+
+## 概念
+
+### 位操作
+
+| 操作 | 符号 | 举例                                         |
+| ---- | ---- | -------------------------------------------- |
+| 与   | &    | 0b11\|0b00=0b00 3\|0=0                       |
+| 或   | \|   | 0b10\|0b01=0b11  2\|1=3                      |
+| 非   | ~    | ~0b101=0b010                                 |
+| 异或 | ^    | 0b10^0b01=0b11 2^1=3<br>0b11^0b00=0b00 3^0=3 |
+| 左移 | <<   | 8<<2=32                                      |
+| 右移 | >>   | 8>>2=2                                       |
+
+## 练习
+
+### [1224. 最大相等频率](https://leetcode-cn.com/problems/maximum-equal-frequency/)
+
+基础算是个数学逻辑题，需要分析清楚可以变成相等的几种情况。在没有用例的情况下把所有情况考虑全其实还是挺难的。
+
+# 待做列表
 
 - [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)
 
