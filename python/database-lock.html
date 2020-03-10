@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>架构合一 · GitBook</title>
+        <title>数据库锁 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="coding-rule.html" />
     
-    
-    <link rel="prev" href="../hdrs/asr_data_sync.md" />
+    <link rel="prev" href="code-isolation.html" />
     
 
     </head>
@@ -405,9 +403,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.1.1" data-path="../python/perf_analyze.html">
+        <li class="chapter " data-level="3.1.1" data-path="perf_analyze.html">
             
-                <a href="../python/perf_analyze.html">
+                <a href="perf_analyze.html">
             
                     
                         <b>3.1.1.</b>
@@ -420,9 +418,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2" data-path="../python/interview.html">
+        <li class="chapter " data-level="3.1.2" data-path="interview.html">
             
-                <a href="../python/interview.html">
+                <a href="interview.html">
             
                     
                         <b>3.1.2.</b>
@@ -435,9 +433,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.3" data-path="../python/dev-env.html">
+        <li class="chapter " data-level="3.1.3" data-path="dev-env.html">
             
-                <a href="../python/dev-env.html">
+                <a href="dev-env.html">
             
                     
                         <b>3.1.3.</b>
@@ -450,9 +448,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.4" data-path="../python/ut.html">
+        <li class="chapter " data-level="3.1.4" data-path="ut.html">
             
-                <a href="../python/ut.html">
+                <a href="ut.html">
             
                     
                         <b>3.1.4.</b>
@@ -465,9 +463,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.5" data-path="../python/code-isolation.html">
+        <li class="chapter " data-level="3.1.5" data-path="code-isolation.html">
             
-                <a href="../python/code-isolation.html">
+                <a href="code-isolation.html">
             
                     
                         <b>3.1.5.</b>
@@ -480,9 +478,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.6" data-path="../python/database-lock.html">
+        <li class="chapter active" data-level="3.1.6" data-path="database-lock.html">
             
-                <a href="../python/database-lock.html">
+                <a href="database-lock.html">
             
                     
                         <b>3.1.6.</b>
@@ -1012,9 +1010,9 @@
         
         
     
-        <li class="chapter active" data-level="5.1" data-path="unify.html">
+        <li class="chapter " data-level="5.1" data-path="../cbs/unify.html">
             
-                <a href="unify.html">
+                <a href="../cbs/unify.html">
             
                     
                         <b>5.1.</b>
@@ -1027,9 +1025,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="coding-rule.html">
+        <li class="chapter " data-level="5.2" data-path="../cbs/coding-rule.html">
             
-                <a href="coding-rule.html">
+                <a href="../cbs/coding-rule.html">
             
                     
                         <b>5.2.</b>
@@ -1042,9 +1040,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="team-thought.html">
+        <li class="chapter " data-level="5.3" data-path="../cbs/team-thought.html">
             
-                <a href="team-thought.html">
+                <a href="../cbs/team-thought.html">
             
                     
                         <b>5.3.</b>
@@ -1175,7 +1173,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >架构合一</a>
+        <a href=".." >数据库锁</a>
     </h1>
 </div>
 
@@ -1190,7 +1188,55 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h2 id="&#x573A;&#x666F;&#xFF1A;&#x5E76;&#x53D1;&#x66F4;&#x65B0;"><a name="&#x573A;&#x666F;&#xFF1A;&#x5E76;&#x53D1;&#x66F4;&#x65B0;" class="anchor-navigation-ex-anchor" href="#&#x573A;&#x666F;&#xFF1A;&#x5E76;&#x53D1;&#x66F4;&#x65B0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x573A;&#x666F;&#xFF1A;&#x5E76;&#x53D1;&#x66F4;&#x65B0;</h2>
+<p>Karbor&#x539F;&#x751F;&#x4EE3;&#x7801;&#x66F4;&#x65B0;Plan&#x7684;Resource&#x662F;&#x5148;&#x628A;Plan&#x7684;&#x6240;&#x6709;Resource&#x7F6E;&#x4E3A;<code>deleted</code>&#xFF0C;&#x7136;&#x540E;&#x518D;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x521B;&#x5EFA;&#x63A5;&#x53E3;&#x3002;&#x5F53;&#x5E76;&#x53D1;&#x5728;Plan&#x5728;&#x6DFB;&#x52A0;&#x540C;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#x65F6;&#xFF0C;&#x7531;&#x4E8E;&#x6CA1;&#x6709;&#x9501;&#x673A;&#x5236;&#xFF0C;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x8BE5;&#x8D44;&#x6E90;&#x88AB;&#x6DFB;&#x52A0;&#x4E24;&#x6B21;&#x3002;&#x5177;&#x4F53;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_plan_resources_update</span><span class="hljs-params">(context, plan_id, resources, session=None)</span>:</span>
+    session = session <span class="hljs-keyword">or</span> get_session()
+    now = timeutils.utcnow()
+    <span class="hljs-keyword">with</span> session.begin():
+        model_query(
+            context,
+            models.Resource,
+            session=session
+        ).filter_by(
+            plan_id=plan_id
+        ).update({
+            <span class="hljs-string">&apos;deleted&apos;</span>: <span class="hljs-keyword">True</span>,
+            <span class="hljs-string">&apos;deleted_at&apos;</span>: now,
+            <span class="hljs-string">&apos;updated_at&apos;</span>: literal_column(<span class="hljs-string">&apos;updated_at&apos;</span>)
+        })
+    resources_list = []
+    <span class="hljs-keyword">for</span> resource <span class="hljs-keyword">in</span> resources:
+        resource[<span class="hljs-string">&apos;plan_id&apos;</span>] = plan_id
+        resource[<span class="hljs-string">&apos;resource_id&apos;</span>] = resource.pop(<span class="hljs-string">&apos;id&apos;</span>)
+        resource[<span class="hljs-string">&apos;resource_type&apos;</span>] = resource.pop(<span class="hljs-string">&apos;type&apos;</span>)
+        resource[<span class="hljs-string">&apos;resource_name&apos;</span>] = resource.pop(<span class="hljs-string">&apos;name&apos;</span>)
+        resource[<span class="hljs-string">&apos;resource_extra_info&apos;</span>] = resource.pop(
+            <span class="hljs-string">&apos;extra_info&apos;</span>, <span class="hljs-keyword">None</span>)
+        resource_ref = _resource_create(context, resource)
+        resources_list.append(resource_ref)
+
+    <span class="hljs-keyword">return</span> resources_list
+</code></pre>
+<p>&#x89E3;&#x51B3;&#x8BE5;&#x95EE;&#x9898;&#x53EF;&#x4EE5;&#x7528;&#x884C;&#x9501;&#x673A;&#x5236;&#xFF0C;&#x9650;&#x5236;&#x5BF9;&#x540C;&#x4E00;&#x4E2A;Plan&#x8FDB;&#x884C;&#x5E76;&#x53D1;&#x66F4;&#x65B0;&#xFF0C;&#x5177;&#x4F53;&#x8BB2;&#x5C31;&#x662F;Plan&#x66F4;&#x65B0;&#x63A5;&#x53E3;&#x4F1A;&#x8D77;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#xFF08;Python&#x91CC;&#x9762;&#x662F;session&#xFF09;&#xFF0C;&#x8FD9;&#x4E2A;session&#x4F1A;&#x4F7F;&#x7528;<code>with_for_update</code>&#x63A5;&#x53E3;&#x67E5;&#x8BE2;&#x8BE5;Plan&#xFF0C;&#x8FD9;&#x6837;&#x5728;&#x4E8B;&#x52A1;&#x7ED3;&#x675F;&#x524D;&#xFF0C;&#x65E0;&#x6CD5;&#x5E76;&#x53D1;&#x5BF9;&#x8BE5;Plan&#x8FDB;&#x884C;&#x67E5;&#x8BE2;&#x6216;&#x4FEE;&#x6539;&#x3002;&#x5177;&#x4F53;&#x4FEE;&#x6539;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plan_update</span><span class="hljs-params">(context, plan_id, values)</span>:</span>
+    session = get_session()
+    <span class="hljs-keyword">with</span> session.begin():
+        session.query(models.Plan).filter_by(id=plan_id). \
+            with_for_update().first()
+        resources = values.get(<span class="hljs-string">&apos;resources&apos;</span>)
+        <span class="hljs-keyword">if</span> resources <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+            _plan_resources_update(context,
+                                   plan_id,
+                                   values.pop(<span class="hljs-string">&apos;resources&apos;</span>),
+                                   session=session)
+
+        plan_ref = _plan_get(context, plan_id, session=session)
+        plan_ref.update(values)
+
+        <span class="hljs-keyword">return</span> plan_ref
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1217,14 +1263,10 @@
 
             
                 
-                <a href="../hdrs/asr_data_sync.md" class="navigation navigation-prev " aria-label="Previous page: ASR数据同步">
+                <a href="code-isolation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 代码隔离">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="coding-rule.html" class="navigation navigation-next " aria-label="Next page: 编程规范">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -1233,7 +1275,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"架构合一","level":"5.1","depth":1,"next":{"title":"编程规范","level":"5.2","depth":1,"path":"cbs/coding-rule.md","ref":"cbs/coding-rule.md","articles":[]},"previous":{"title":"ASR数据同步","level":"4.5.1","depth":2,"path":"hdrs/asr_data_sync.md","ref":"hdrs/asr_data_sync.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ancre-navigation","chapter-fold","code","expandable-chapters","splitter","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cbs/unify.md","mtime":"2020-02-28T09:12:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:15:52.143Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"数据库锁","layout":"post","level":"3.1.6","depth":2,"next":{"title":"c++","level":"3.2","depth":1,"ref":"","articles":[{"title":"c/c++基础","level":"3.2.1","depth":2,"path":"c++/base.md","ref":"c++/base.md","articles":[]},{"title":"gtest单元测试","level":"3.2.2","depth":2,"path":"c++/ut.md","ref":"c++/ut.md","articles":[]}]},"previous":{"title":"代码隔离","level":"3.1.5","depth":2,"path":"python/code-isolation.md","ref":"python/code-isolation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ancre-navigation","chapter-fold","code","expandable-chapters","splitter","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"python/database-lock.md","mtime":"2020-02-28T09:12:43.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:15:52.143Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

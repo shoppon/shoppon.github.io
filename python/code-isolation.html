@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>架构合一 · GitBook</title>
+        <title>代码隔离 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="coding-rule.html" />
+    <link rel="next" href="database-lock.html" />
     
     
-    <link rel="prev" href="../hdrs/asr_data_sync.md" />
+    <link rel="prev" href="ut.html" />
     
 
     </head>
@@ -405,9 +405,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.1.1" data-path="../python/perf_analyze.html">
+        <li class="chapter " data-level="3.1.1" data-path="perf_analyze.html">
             
-                <a href="../python/perf_analyze.html">
+                <a href="perf_analyze.html">
             
                     
                         <b>3.1.1.</b>
@@ -420,9 +420,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2" data-path="../python/interview.html">
+        <li class="chapter " data-level="3.1.2" data-path="interview.html">
             
-                <a href="../python/interview.html">
+                <a href="interview.html">
             
                     
                         <b>3.1.2.</b>
@@ -435,9 +435,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.3" data-path="../python/dev-env.html">
+        <li class="chapter " data-level="3.1.3" data-path="dev-env.html">
             
-                <a href="../python/dev-env.html">
+                <a href="dev-env.html">
             
                     
                         <b>3.1.3.</b>
@@ -450,9 +450,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.4" data-path="../python/ut.html">
+        <li class="chapter " data-level="3.1.4" data-path="ut.html">
             
-                <a href="../python/ut.html">
+                <a href="ut.html">
             
                     
                         <b>3.1.4.</b>
@@ -465,9 +465,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.5" data-path="../python/code-isolation.html">
+        <li class="chapter active" data-level="3.1.5" data-path="code-isolation.html">
             
-                <a href="../python/code-isolation.html">
+                <a href="code-isolation.html">
             
                     
                         <b>3.1.5.</b>
@@ -480,9 +480,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.6" data-path="../python/database-lock.html">
+        <li class="chapter " data-level="3.1.6" data-path="database-lock.html">
             
-                <a href="../python/database-lock.html">
+                <a href="database-lock.html">
             
                     
                         <b>3.1.6.</b>
@@ -1012,9 +1012,9 @@
         
         
     
-        <li class="chapter active" data-level="5.1" data-path="unify.html">
+        <li class="chapter " data-level="5.1" data-path="../cbs/unify.html">
             
-                <a href="unify.html">
+                <a href="../cbs/unify.html">
             
                     
                         <b>5.1.</b>
@@ -1027,9 +1027,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="coding-rule.html">
+        <li class="chapter " data-level="5.2" data-path="../cbs/coding-rule.html">
             
-                <a href="coding-rule.html">
+                <a href="../cbs/coding-rule.html">
             
                     
                         <b>5.2.</b>
@@ -1042,9 +1042,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="team-thought.html">
+        <li class="chapter " data-level="5.3" data-path="../cbs/team-thought.html">
             
-                <a href="team-thought.html">
+                <a href="../cbs/team-thought.html">
             
                     
                         <b>5.3.</b>
@@ -1175,7 +1175,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >架构合一</a>
+        <a href=".." >代码隔离</a>
     </h1>
 </div>
 
@@ -1190,7 +1190,112 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h2 id="&#x4EE3;&#x7801;&#x9694;&#x79BB;&#x6280;&#x672F;"><a name="&#x4EE3;&#x7801;&#x9694;&#x79BB;&#x6280;&#x672F;" class="anchor-navigation-ex-anchor" href="#&#x4EE3;&#x7801;&#x9694;&#x79BB;&#x6280;&#x672F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4EE3;&#x7801;&#x9694;&#x79BB;&#x6280;&#x672F;</h2>
+<h4 id="&#x76EE;&#x5F55;&#x9694;&#x79BB;"><a name="&#x76EE;&#x5F55;&#x9694;&#x79BB;" class="anchor-navigation-ex-anchor" href="#&#x76EE;&#x5F55;&#x9694;&#x79BB;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x76EE;&#x5F55;&#x9694;&#x79BB;</h4>
+<p>&#x76EE;&#x5F55;&#x9694;&#x79BB;&#x65B9;&#x6CD5;&#x7684;&#x9002;&#x7528;&#x573A;&#x666F;&#x5FC5;&#x987B;&#x6EE1;&#x8DB3;&#x4E09;&#x4E2A;&#x6761;&#x4EF6;&#xFF1A;</p>
+<ol>
+<li>&#x7EBF;&#x4E0A;&#x7EBF;&#x4E0B;&#x4EE3;&#x7801;&#x5B8C;&#x5168;&#x4E0D;&#x4E00;&#x6837;&#x3002;</li>
+<li>&#x6240;&#x9694;&#x79BB;&#x7684;&#x4EE3;&#x7801;&#x6CA1;&#x6709;&#x4F9D;&#x8D56;&#x3002;</li>
+<li>&#x53EF;&#x901A;&#x8FC7;&#x6253;&#x5305;&#x8FC7;&#x7A0B;&#x9694;&#x79BB;&#x3002;</li>
+</ol>
+<p>&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x4E00;&#x822C;&#x9002;&#x7528;&#x4E8E;&#x811A;&#x672C;&#x4EE3;&#x7801;&#xFF0C;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x7531;&#x4E8E;&#x4F9D;&#x8D56;&#x8F83;&#x591A;&#xFF0C;&#x51E0;&#x4E4E;&#x65E0;&#x6CD5;&#x9002;&#x7528;&#x3002;&#x76EE;&#x524D;&#x7EBF;&#x4E0A;&#x7EBF;&#x4E0B;&#x7684;CLI&#x4EE3;&#x7801;&#x662F;&#x901A;&#x8FC7;&#x8BE5;&#x79CD;&#x65B9;&#x6CD5;&#x9694;&#x79BB;&#x7684;&#x3002;</p>
+<h4 id="&#x573A;&#x666F;&#x5F00;&#x5173;"><a name="&#x573A;&#x666F;&#x5F00;&#x5173;" class="anchor-navigation-ex-anchor" href="#&#x573A;&#x666F;&#x5F00;&#x5173;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x573A;&#x666F;&#x5F00;&#x5173;</h4>
+<p>&#x7EBF;&#x4E0A;&#x7EBF;&#x4E0B;<strong>&#x7531;&#x4E8E;&#x4E1A;&#x52A1;&#x573A;&#x666F;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x5BFC;&#x81F4;&#x540C;&#x4E00;&#x4E2A;&#x529F;&#x80FD;&#x5728;&#x7EBF;&#x4E0A;&#x7EBF;&#x4E0B;&#x4E0D;&#x4E00;&#x6837;</strong>&#x3002;&#x4F8B;&#x5982;&#x521B;&#x5EFA;&#x7B56;&#x7565;&#x529F;&#x80FD;&#x5728;&#x79C1;&#x6709;&#x4E91;&#x652F;&#x6301;&#x62F7;&#x8D1D;&#x7B56;&#x7565;&#x3001;&#x5168;&#x5907;&#x7B56;&#x7565;&#xFF0C;&#x516C;&#x6709;&#x4E91;&#x652F;&#x6301;&#x590D;&#x5236;&#x7B56;&#x7565;&#x3002;&#x7531;&#x4E8E;&#x63A5;&#x53E3;&#x3001;&#x4EE3;&#x7801;&#x662F;&#x4E00;&#x5957;&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x80FD;&#x57FA;&#x4E8E;&#x573A;&#x666F;&#x505A;&#x76F8;&#x5E94;&#x5224;&#x65AD;&#x3002;&#x5F53;&#x524D;<code>cbs_utils.py</code>&#x5DF2;&#x7ECF;&#x63D0;&#x4F9B;&#x4E86;&#x5224;&#x65AD;&#x662F;&#x5426;&#x662F;&#x516C;&#x6709;&#x4E91;&#x548C;&#x79C1;&#x6709;&#x4E91;&#x7684;&#x516C;&#x5171;&#x63A5;&#x53E3;<code>is_public_scene</code>&#x548C;<code>is_private_scene</code>&#xFF0C;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x6839;&#x636E;&#x573A;&#x666F;&#x505A;&#x76F8;&#x5E94;&#x9002;&#x914D;&#x5373;&#x53EF;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x6700;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">if</span> utils.is_private_scene():
+    self.check_policy_az_is_supported_protect(service_args)
+</code></pre>
+<p>&#x573A;&#x666F;&#x5F00;&#x5173;&#x4E00;&#x79CD;&#x8F83;&#x4E3A;&#x9AD8;&#x7EA7;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x662F;&#x901A;&#x8FC7;<code>&#x88C5;&#x9970;&#x5668;</code>&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x907F;&#x514D;&#x5BF9;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x8FC7;&#x5EA6;&#x4FB5;&#x5165;&#x3002;&#x6574;&#x673A;&#x548C;&#x5377;&#x63A5;&#x53E3;&#x5C31;&#x662F;&#x901A;&#x8FC7;<code>cbs_common</code>&#x4E2D;&#x7684;<code>set_api_req_type</code>&#x6765;&#x533A;&#x5206;&#x63A5;&#x53E3;&#x7C7B;&#x578B;&#x3002;</p>
+<h4 id="&#x7279;&#x6027;&#x5F00;&#x5173;"><a name="&#x7279;&#x6027;&#x5F00;&#x5173;" class="anchor-navigation-ex-anchor" href="#&#x7279;&#x6027;&#x5F00;&#x5173;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7279;&#x6027;&#x5F00;&#x5173;</h4>
+<p><strong>&#x76EE;&#x524D;&#x6700;&#x4E3A;&#x5E38;&#x7528;&#x7684;&#x9694;&#x79BB;&#x624B;&#x6BB5;&#x8FD8;&#x662F;&#x7279;&#x6027;&#x5F00;&#x5173;&#x7684;&#x65B9;&#x5F0F;&#x3002;</strong>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x9694;&#x79BB;&#x8F83;&#x4E3A;&#x5F7B;&#x5E95;&#xFF0C;&#x5982;&#x679C;&#x67D0;&#x79CD;&#x573A;&#x666F;&#x4E0D;&#x9700;&#x8981;&#x8BE5;&#x7279;&#x6027;&#xFF0C;&#x76F4;&#x63A5;&#x5173;&#x95ED;&#x5F00;&#x5173;&#x5373;&#x53EF;&#xFF0C;&#x7F3A;&#x70B9;&#x4E4B;&#x4E8E;&#x4EE3;&#x7801;&#x4E2D;&#x53EF;&#x80FD;&#x4F1A;&#x5B58;&#x5728;&#x8BB8;&#x591A;&#x5F00;&#x5173;&#x903B;&#x8F91;&#x3002;&#x4EE5;&#x6D41;&#x63A7;&#x7279;&#x6027;&#x4E3A;&#x4F8B;&#xFF1A;</p>
+<p>&#x9996;&#x5148;&#x9700;&#x8981;&#x5728;<code>config.py</code>&#x4E2D;&#x6CE8;&#x518C;&#x76F8;&#x5E94;&#x7684;&#x7279;&#x6027;&#x5F00;&#x5173;&#xFF08;&#x5176;&#x5B9E;&#x66F4;&#x52A0;&#x5EFA;&#x8BAE;&#x5728;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x4E2D;&#x6DFB;&#x52A0;&#x5F00;&#x5173;&#xFF0C;&#x6240;&#x8C13;&#x7684;&#x9AD8;&#x5185;&#x805A;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-python">cfg.BoolOpt(<span class="hljs-string">&apos;workload_enable&apos;</span>,
+    default=<span class="hljs-keyword">False</span>,
+    help=<span class="hljs-string">&apos;workload switch&apos;</span>),
+</code></pre>
+<p>&#x7136;&#x540E;&#x5728;&#x4F7F;&#x7528;&#x6D41;&#x63A7;&#x7684;&#x5730;&#x65B9;&#x6839;&#x636E;&#x5F00;&#x5173;&#x6DFB;&#x52A0;&#x76F8;&#x5E94;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">if</span> workload.is_supported(**kwargs):
+    operation_log = kwargs.get(<span class="hljs-string">&apos;operation_log&apos;</span>)
+    op_id = operation_log.get(<span class="hljs-string">&apos;id&apos;</span>)
+    LOG.debug(<span class="hljs-string">&apos;Tenant: %s backup resource: %s enter flow, &apos;</span>
+              <span class="hljs-string">&apos;job_id:%s .&apos;</span> % (context.project_id, resource.id, op_id))
+    workload.wait_and_query_job_status(context, op_id, resource)
+</code></pre>
+<p>&#x6B63;&#x5982;&#x524D;&#x9762;&#x6240;&#x8BB2;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x7684;&#x95EE;&#x9898;&#x5728;&#x4E8E;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x5728;&#x591A;&#x5904;&#x4EE3;&#x7801;&#x4E2D;&#x6DFB;&#x52A0;&#x5F00;&#x5173;&#x5224;&#x65AD;&#xFF0C;&#x6D41;&#x63A7;&#x4E5F;&#x662F;&#x5982;&#x6B64;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x6240;&#x6709;&#x7684;&#x6B63;&#x5E38;&#x3001;&#x5F02;&#x5E38;&#x6D41;&#x7A0B;&#x90FD;&#x9700;&#x8981;&#x91CA;&#x653E;&#x6D41;&#x63A7;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">if</span> workload.is_supported(**kwargs):
+    workload.update_workload(context, context.project_id)
+</code></pre>
+<h4 id="&#x4E07;&#x80FD;&#x5BF9;&#x8C61;"><a name="&#x4E07;&#x80FD;&#x5BF9;&#x8C61;" class="anchor-navigation-ex-anchor" href="#&#x4E07;&#x80FD;&#x5BF9;&#x8C61;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E07;&#x80FD;&#x5BF9;&#x8C61;</h4>
+<p>&#x7279;&#x6027;&#x5F00;&#x5173;&#x7684;&#x65B9;&#x5F0F;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x5F88;&#x591A;&#x4EE3;&#x7801;&#x6D41;&#x7A0B;&#x4E2D;&#x6DFB;&#x52A0;&#x5224;&#x65AD;&#x903B;&#x8F91;&#xFF0C;&#x5BFC;&#x81F4;&#x4EE3;&#x7801;&#x903B;&#x8F91;&#x975E;&#x5E38;&#x4E0D;&#x8FDE;&#x7EED;&#xFF0C;&#x5230;&#x5904;&#x88AB;&#x5272;&#x88C2;&#x3002;&#x80FD;&#x5426;&#x652F;&#x6301;&#x5728;&#x5728;&#x4E0D;&#x540C;&#x7279;&#x6027;&#x5F00;&#x5173;&#x3001;&#x4E0D;&#x540C;&#x573A;&#x666F;&#x4E0B;&#x4F7F;&#x4EE3;&#x7801;&#x903B;&#x8F91;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#x5462;&#xFF1F;&#x7B54;&#x6848;&#x662F;&#x53EF;&#x4EE5;&#x7684;&#xFF0C;&#x8FD9;&#x8981;&#x6C42;&#x4EE3;&#x7801;&#x4E2D;&#x5BF9;&#x8C61;&#x7684;&#x884C;&#x4E3A;&#x5728;&#x4E0D;&#x540C;&#x573A;&#x666F;&#x4E0B;&#x662F;&#x4E00;&#x81F4;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<strong>&#x4E07;&#x80FD;&#x5BF9;&#x8C61;</strong>&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
+<p>&#x4EFB;&#x52A1;&#x7279;&#x6027;&#x7684;&#x9694;&#x79BB;&#x5C31;&#x4F7F;&#x7528;&#x8FD9;<strong>&#x4E07;&#x80FD;&#x5BF9;&#x8C61;</strong>&#x8FD9;&#x79CD;&#x9694;&#x79BB;&#x65B9;&#x5F0F;&#x3002;&#x4EFB;&#x52A1;&#x5BF9;&#x8C61;&#x662F;&#x4E2D;<code>flow</code>&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;&#x4E2D;&#x521B;&#x5EFA;&#x7684;&#xFF0C;&#x7136;&#x540E;&#x5728;<code>resource_flow</code>&#x904D;&#x5386;&#x7684;&#x65F6;&#x5019;<code>inject</code>&#x5230;&#x63D2;&#x4EF6;&#x4E2D;&#xFF0C;&#x6700;&#x7EC8;&#x5728;&#x63D2;&#x4EF6;&#x4E2D;&#x8DDF;&#x8E2A;&#x4EFB;&#x52A1;&#x7684;&#x72B6;&#x6001;&#x3001;&#x8FDB;&#x5EA6;&#x7B49;&#x3002;&#x4EFB;&#x52A1;&#x7279;&#x6027;&#x6D89;&#x53CA;&#x6240;&#x6709;<code>Karbor</code>&#x6D41;&#x7A0B;&#x4EE3;&#x7801;&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x603B;&#x8BA1;&#x8D85;&#x8FC7;60+&#x6587;&#x4EF6;&#x3002;&#x5982;&#x679C;&#x8FD8;&#x662F;&#x91C7;&#x7528;&#x4F20;&#x7EDF;&#x7684;&#x7279;&#x6027;&#x5F00;&#x5173;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x5927;&#x91CF;&#x4EE3;&#x7801;&#x4E2D;&#x5B58;&#x5728;<code>if</code>&#x3001;<code>else</code>&#x7B49;&#x5224;&#x65AD;&#xFF0C;&#x6781;&#x5176;&#x4E11;&#x964B;&#x3002;&#x90A3;&#x662F;&#x4E0D;&#x662F;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x652F;&#x6301;&#x4EFB;&#x52A1;&#x7684;&#x65F6;&#x5019;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5047;&#x7684;&#x4EFB;&#x52A1;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x5916;&#x4E5F;&#x652F;&#x6301;&#x4EFB;&#x52A1;&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x63A5;&#x53E3;&#x5462;&#xFF1F;&#x8FD9;&#x5C31;&#x662F;<strong>&#x4E07;&#x80FD;&#x5BF9;&#x8C61;</strong>&#x7684;&#x601D;&#x7EF4;&#xFF0C;&#x4EFB;&#x52A1;&#x7279;&#x6027;&#x6B63;&#x662F;&#x57FA;&#x4E8E;&#x6B64;&#x8BBE;&#x8BA1;&#x3002;&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x4E00;&#x4E0B;&#x5177;&#x4F53;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E86;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DummyOperationLog</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getattr__</span><span class="hljs-params">(self, item)</span>:</span>
+        <span class="hljs-keyword">if</span> item == <span class="hljs-string">&apos;id&apos;</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">return</span> self
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__setattr__</span><span class="hljs-params">(self, key, value)</span>:</span>
+        <span class="hljs-keyword">return</span> self
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getitem__</span><span class="hljs-params">(self, item)</span>:</span>
+        <span class="hljs-keyword">return</span> self
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__setitem__</span><span class="hljs-params">(self, key, value)</span>:</span>
+        <span class="hljs-keyword">return</span> self
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__call__</span><span class="hljs-params">(self, *args, **kwargs)</span>:</span>
+        <span class="hljs-keyword">return</span> self
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x590D;&#x5199;&#x4E86;<code>__getattr__</code>&#x3001;<code>__setattr__</code>&#x3001;<code>__getitem__</code>&#x3001;<code>__setitem__</code>&#x548C;<code>__call__</code>&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x901A;&#x8FC7;<code>DummyOperationLog()</code>&#x6784;&#x9020;&#x51FA;&#x6765;&#x7684;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>operation_log.status</code>&#x3001;<code>operation_log[&apos;backup&apos;]</code>&#x7684;&#x65B9;&#x5F0F;&#x83B7;&#x53D6;&#x5176;&#x4EFB;&#x610F;&#x5C5E;&#x6027;&#xFF0C;&#x53EF;&#x901A;&#x8FC7;<code>operation_log.save()</code>&#x7B49;&#x8C03;&#x7528;&#x4EFB;&#x610F;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x5728;<code>protect.py</code>&#x3001;<code>restore.py</code>&#x3001;<code>delelte.py</code>&#x7B49;<code>flow</code>&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;&#x4E2D;&#x6839;&#x636E;&#x7279;&#x6027;&#x5F00;&#x5173;&#x521B;&#x5EFA;&#x4E0D;&#x540C;&#x7684;<code>operation_log</code>&#x5BF9;&#x8C61;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">create_operation_logs</span><span class="hljs-params">(ctx, checkpoint, graph, op_type, restore_id=None)</span>:</span>
+    op_logs = {}
+    <span class="hljs-keyword">for</span> g <span class="hljs-keyword">in</span> graph:
+        resource = g.value
+        key = resource.type + <span class="hljs-string">&quot;#&quot;</span> + resource.id
+        <span class="hljs-keyword">if</span> is_support_op_log():
+            op_log = utils.create_operation_log(ctx, checkpoint, op_type)
+            op_log.restore_id = restore_id
+            op_log.extra_info = {
+                <span class="hljs-string">&apos;resource&apos;</span>: {
+                    <span class="hljs-string">&apos;id&apos;</span>: resource.id,
+                    <span class="hljs-string">&apos;type&apos;</span>: resource.type,
+                    <span class="hljs-string">&apos;name&apos;</span>: resource.name
+                },
+                <span class="hljs-string">&apos;common&apos;</span>: {
+                    <span class="hljs-string">&apos;progress&apos;</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-string">&apos;request_id&apos;</span>: ctx.request_id
+                }}
+            op_log.error_info = {
+                <span class="hljs-string">&apos;code&apos;</span>: <span class="hljs-string">&apos;&apos;</span>,
+                <span class="hljs-string">&apos;message&apos;</span>: <span class="hljs-string">&apos;&apos;</span>
+            }
+            op_log.status = get_initial_status(ctx, op_type=op_type)
+            op_log.save()
+        <span class="hljs-keyword">else</span>:
+            op_log = DummyOperationLog()
+        op_logs.update({key: {<span class="hljs-string">&quot;operation_log&quot;</span>: op_log.id}})
+    <span class="hljs-keyword">return</span> op_logs
+</code></pre>
+<p>&#x5E76;&#x4E14;&#x63D0;&#x4F9B;<code>get_op_log</code>&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x4EFB;&#x52A1;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4E5F;&#x8FD4;&#x56DE;<code>DummyOperationLog</code>&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_op_log</span><span class="hljs-params">(context, op_log_id=None)</span>:</span>
+    <span class="hljs-keyword">if</span> op_log_id <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+        op_log_object = DummyOperationLog()
+    <span class="hljs-keyword">else</span>:
+        op_log_object = objects.OperationLog.get_by_id(context,
+                                                       op_log_id)
+    <span class="hljs-keyword">return</span> op_log_object
+</code></pre>
+<p>&#x5982;&#x6B64;&#x4E00;&#x6765;&#xFF0C;&#x5728;&#x63D2;&#x4EF6;&#x4E1A;&#x52A1;&#x5C42;&#x65E0;&#x8BBA;&#x54EA;&#x79CD;&#x573A;&#x666F;&#x90FD;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;<code>operation_log</code>&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x4E14;&#x5176;&#x884C;&#x4E3A;&#x90FD;&#x662F;&#x4E00;&#x81F4;&#x7684;&#xFF0C;&#x83B7;&#x53D6;&#x4EFB;&#x52A1;&#x5C5E;&#x6027;&#x3001;&#x8C03;&#x7528;&#x4EFB;&#x52A1;&#x65B9;&#x6CD5;&#x90FD;&#x4E0D;&#x4F1A;&#x62A5;&#x9519;&#xFF1A;</p>
+<pre><code class="lang-python">self.operation_log.extra_info[<span class="hljs-string">&apos;backup&apos;</span>] = {
+    <span class="hljs-string">&apos;checkpoint_item_id&apos;</span>: new_item_id,
+    <span class="hljs-string">&apos;checkpoint_item_name&apos;</span>: checkpoint_item.name,
+}
+self.operation_log.save()
+</code></pre>
+<p>&#x7EFC;&#x4E0A;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x4EE3;&#x7801;&#x9694;&#x79BB;&#x662F;&#x4E0D;&#x662F;&#x5F88;&#x70AB;&#x9177;&#x5462;&#xFF1F;</p>
+
                                 
                                 </section>
                             
@@ -1217,12 +1322,12 @@
 
             
                 
-                <a href="../hdrs/asr_data_sync.md" class="navigation navigation-prev " aria-label="Previous page: ASR数据同步">
+                <a href="ut.html" class="navigation navigation-prev " aria-label="Previous page: 单元测试">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="coding-rule.html" class="navigation navigation-next " aria-label="Next page: 编程规范">
+                <a href="database-lock.html" class="navigation navigation-next " aria-label="Next page: 数据库锁">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1233,7 +1338,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"架构合一","level":"5.1","depth":1,"next":{"title":"编程规范","level":"5.2","depth":1,"path":"cbs/coding-rule.md","ref":"cbs/coding-rule.md","articles":[]},"previous":{"title":"ASR数据同步","level":"4.5.1","depth":2,"path":"hdrs/asr_data_sync.md","ref":"hdrs/asr_data_sync.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ancre-navigation","chapter-fold","code","expandable-chapters","splitter","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cbs/unify.md","mtime":"2020-02-28T09:12:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:15:52.143Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"代码隔离","layout":"post","level":"3.1.5","depth":2,"next":{"title":"数据库锁","level":"3.1.6","depth":2,"path":"python/database-lock.md","ref":"python/database-lock.md","articles":[]},"previous":{"title":"单元测试","level":"3.1.4","depth":2,"path":"python/ut.md","ref":"python/ut.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ancre-navigation","chapter-fold","code","expandable-chapters","splitter","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"python/code-isolation.md","mtime":"2020-02-28T09:12:43.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:15:52.143Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

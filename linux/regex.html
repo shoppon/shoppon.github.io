@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>架构合一 · GitBook</title>
+        <title>正则表达式 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="coding-rule.html" />
+    <link rel="next" href="log.html" />
     
-    
-    <link rel="prev" href="../hdrs/asr_data_sync.md" />
     
 
     </head>
@@ -582,9 +580,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.4.1" data-path="../linux/regex.html">
+        <li class="chapter active" data-level="3.4.1" data-path="regex.html">
             
-                <a href="../linux/regex.html">
+                <a href="regex.html">
             
                     
                         <b>3.4.1.</b>
@@ -597,9 +595,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.4.2" data-path="../linux/log.html">
+        <li class="chapter " data-level="3.4.2" data-path="log.html">
             
-                <a href="../linux/log.html">
+                <a href="log.html">
             
                     
                         <b>3.4.2.</b>
@@ -612,9 +610,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.4.3" data-path="../linux/shell.html">
+        <li class="chapter " data-level="3.4.3" data-path="shell.html">
             
-                <a href="../linux/shell.html">
+                <a href="shell.html">
             
                     
                         <b>3.4.3.</b>
@@ -1012,9 +1010,9 @@
         
         
     
-        <li class="chapter active" data-level="5.1" data-path="unify.html">
+        <li class="chapter " data-level="5.1" data-path="../cbs/unify.html">
             
-                <a href="unify.html">
+                <a href="../cbs/unify.html">
             
                     
                         <b>5.1.</b>
@@ -1027,9 +1025,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="coding-rule.html">
+        <li class="chapter " data-level="5.2" data-path="../cbs/coding-rule.html">
             
-                <a href="coding-rule.html">
+                <a href="../cbs/coding-rule.html">
             
                     
                         <b>5.2.</b>
@@ -1042,9 +1040,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="team-thought.html">
+        <li class="chapter " data-level="5.3" data-path="../cbs/team-thought.html">
             
-                <a href="team-thought.html">
+                <a href="../cbs/team-thought.html">
             
                     
                         <b>5.3.</b>
@@ -1175,7 +1173,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >架构合一</a>
+        <a href=".." >正则表达式</a>
     </h1>
 </div>
 
@@ -1190,7 +1188,75 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h3 id="&#x57FA;&#x672C;&#x7528;&#x6CD5;"><a name="&#x57FA;&#x672C;&#x7528;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x672C;&#x7528;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x57FA;&#x672C;&#x7528;&#x6CD5;</h3>
+<p>&#x57FA;&#x672C;&#x7528;&#x6CD5;&#x53EF;&#x4EE5;&#x81EA;&#x884C;google&#x3002;</p>
+<h3 id="&#x96F6;&#x5BBD;&#x65AD;&#x8A00;"><a name="&#x96F6;&#x5BBD;&#x65AD;&#x8A00;" class="anchor-navigation-ex-anchor" href="#&#x96F6;&#x5BBD;&#x65AD;&#x8A00;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x96F6;&#x5BBD;&#x65AD;&#x8A00;</h3>
+<p>&#x96F6;&#x5BBD;&#x65AD;&#x8A00;&#x7B80;&#x800C;&#x8A00;&#x4E4B;&#x5C31;&#x662F;&#x9650;&#x5236;&#x5F85;&#x5339;&#x914D;&#x89C4;&#x5219;&#x7684;&#x524D;&#x540E;&#x5FC5;&#x987B;&#x662F;&#x4EC0;&#x4E48;&#x6216;&#x8005;&#x5FC5;&#x987B;&#x4E0D;&#x662F;&#x4EC0;&#x4E48;&#xFF0C;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x6982;&#x62EC;&#x5982;&#x4E0B;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>&#x89C4;&#x5219;</th>
+<th>&#x8868;&#x8FBE;&#x5F0F;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x524D;&#x9762;&#x5FC5;&#x987B;&#x662F;</td>
+<td>?&lt;=</td>
+</tr>
+<tr>
+<td>&#x540E;&#x9762;&#x5FC5;&#x987B; &#x662F;</td>
+<td>?=</td>
+</tr>
+<tr>
+<td>&#x524D;&#x9762;&#x5FC5;&#x987B;&#x4E0D;&#x662F;</td>
+<td>?&lt;!</td>
+</tr>
+<tr>
+<td>&#x540E;&#x9762;&#x5FC5;&#x987B;&#x4E0D;&#x662F;</td>
+<td>?!</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6709;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">Name:</span> demo
+<span class="hljs-attr">Version:</span> <span class="hljs-string">&quot;1.0&quot;</span>
+<span class="hljs-attr">Des:</span> this is demo
+</code></pre>
+<p>&#x9700;&#x8981;&#x5C06;&#x6587;&#x4EF6;&#x4E2D;&#x7684;<code>Version</code>&#x89E3;&#x6790;&#x51FA;&#x6765;&#xFF0C;&#x6B63;&#x5219;&#x53EF;&#x4EE5;&#x6982;&#x62EC;&#x4E3A;<code>&#x524D;&#x9762;&#x5FC5;&#x987B;&#x662F;Version: &quot;&#x5F00;&#x5934;&#xFF0C;&#x7248;&#x672C;&#x53F7;&#x662F;&#x6570;&#x5B57;&#xFF0C;&#x5FC5;&#x987B;&#x662F;&#x201C;&#x7ED3;&#x5C3E;&#x3002;</code></p>
+<p>&#x6240;&#x4EE5;&#x8BE5;&#x6B63;&#x5219;&#x53EF;&#x4EE5;&#x8868;&#x8FBE;&#x4E3A;<code>grep -Po &apos;(?&lt;=Version:\s&quot;)[0-9.]+(?=&quot;)&apos; $CONFIG_PATH</code></p>
+<h3 id="&#x9AD8;&#x7EA7;&#x6B63;&#x5219;&#x6837;&#x4F8B;"><a name="&#x9AD8;&#x7EA7;&#x6B63;&#x5219;&#x6837;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#&#x9AD8;&#x7EA7;&#x6B63;&#x5219;&#x6837;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9AD8;&#x7EA7;&#x6B63;&#x5219;&#x6837;&#x4F8B;</h3>
+<p><strong>FCS&#x5BB9;&#x5668;&#x5316;etcd&#x5207;dcm</strong></p>
+<p><code>find . -name *.tmpl|xargs -n1 -I{} bash -c &apos;sed -i &quot;s/{{\s*if\s*exists\s*\(&quot;.*&quot;\)\s*}}/{[if keyExists \1]}/g&quot; {};sed -i &quot;s/{{\s*\(else\|end\)\s*}}/{[\1]}/g&quot; {};sed -i &quot;s/{{\s*getv\s*\(&quot;.*&quot;\)\s*}}/{[key \1]}/g&quot; {}&apos;</code> </p>
+<p>sed&#x4E0D;&#x652F;&#x6301;&#x975E;&#x8D2A;&#x5A6A;&#x6A21;&#x5F0F;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x884C;&#x6709;&#x591A;&#x4E2A;&#x5339;&#x914D;&#x53EF;&#x80FD;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x53EF;&#x4EE5;&#x7528;<code>perl</code>&#x66FF;&#x6362;&#x3002;</p>
+<p><code>find . -name *.tmpl|xargs -n1 -I{} bash -c &apos;perl -pi -e &quot;s|{{\s*if\s*exists\s*(&quot;.*?&quot;)\s*}}|{[if keyExists \1]}|g&quot; {};perl -pi -e &quot;s|{{\s*(else\|end)\s*}}|{[\1]}|g&quot; {};perl -pi -e &quot;s|{{\s*getv\s*(&quot;.*?&quot;)\s*}}|{[key \1]}|g&quot; {}&apos;</code></p>
+<h4 id="&#x5C06;&#x4EE3;&#x7801;&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x8F6C;&#x5316;&#x6210;dcm&#x914D;&#x7F6E;"><a name="&#x5C06;&#x4EE3;&#x7801;&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x8F6C;&#x5316;&#x6210;dcm&#x914D;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#&#x5C06;&#x4EE3;&#x7801;&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x8F6C;&#x5316;&#x6210;dcm&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5C06;&#x4EE3;&#x7801;&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x8F6C;&#x5316;&#x6210;DCM&#x914D;&#x7F6E;</h4>
+<p>toggle.js&#x6587;&#x4EF6;&#x4E2D;&#x5728;&#x5F88;&#x591A;&#x5F00;&#x5173;&#xFF0C;&#x683C;&#x5F0F;&#x6837;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;IS_SUPPORTED_CSBS_DEC&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">&quot;IS_SUPPORTED_CSBS_OP_LOG&quot;</span>: <span class="hljs-literal">false</span>
+}
+</code></pre>
+<p>&#x9700;&#x8981;&#x5C06;&#x5199;&#x6B7B;&#x7684;&#x5F00;&#x5173;&#x53D8;&#x6210;Consul&#x914D;&#x7F6E;&#x9879;&#xFF0C;&#x53EF;&#x7528;&#x5982;&#x4E0B;&#x6B63;&#x5219;&#xFF1A;</p>
+<p><code>sed -i &apos;s#\(IS_SUPPORTED_CSBS.*\)&quot;.*$#\1&quot;: {[ keyOrDefault &quot;DCM/REGION_ID_XX/SERVICE/ecsui/{{version}}/{{cluster_name}}/CONFIG/\L\1&quot; &quot;false&quot; }],#g&apos; toggle.js</code></p>
+<h4 id="icaldendar&#x5C0F;&#x65F6;&#x683C;&#x5F0F;&#x68C0;&#x67E5;"><a name="icaldendar&#x5C0F;&#x65F6;&#x683C;&#x5F0F;&#x68C0;&#x67E5;" class="anchor-navigation-ex-anchor" href="#icaldendar&#x5C0F;&#x65F6;&#x683C;&#x5F0F;&#x68C0;&#x67E5;"><i class="fa fa-link" aria-hidden="true"></i></a>icaldendar&#x5C0F;&#x65F6;&#x683C;&#x5F0F;&#x68C0;&#x67E5;</h4>
+<p>&#x901A;&#x8FC7;&#x6B63;&#x5219;&#x5339;&#x914D;<code>BYHOUR</code>&#x540E;&#x9762;&#x4E0D;&#x80FD;&#x51FA;&#x73B0;&#x975E;00~23&#x7684;&#x503C;&#x3002;</p>
+<pre><code class="lang-shell">p = re.compile(r&quot;BYHOUR=(?!(([0-1][0-9]|2[0-3])(,([0-1][0-9]|2[0-3])){0,23})(;|\r))&quot;)
+re.findall(p, &quot;xxx;BYHOUR=22,12,23;xxx;BYHOUR=22\r;xxx;&quot;) # legal
+re.findall(p, &quot;xxx;BYHOUR=24;xxx;&quot;) # illegal
+</code></pre>
+<h3 id="&#x6587;&#x672C;&#x53BB;&#x91CD;"><a name="&#x6587;&#x672C;&#x53BB;&#x91CD;" class="anchor-navigation-ex-anchor" href="#&#x6587;&#x672C;&#x53BB;&#x91CD;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6587;&#x672C;&#x53BB;&#x91CD;</h3>
+<p>&#x5047;&#x5B9A;&#x6709;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;metadata.txt&#xFF0C;&#x5176;&#x5185;&#x5BB9;&#x4E3A;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-txt">blablabla\&quot;key\&quot;: \&quot;foo\&quot;blablabla\&quot;value\&quot;: \&quot;bar9\&quot;blablabla
+blablabla\&quot;key\&quot;: \&quot;foo1\&quot;blablabla\&quot;value\&quot;: \&quot;bar\&quot;blablabla
+blablabla\&quot;key\&quot;: \&quot;foo1\&quot;blablabla\&quot;value\&quot;: \&quot;bar\&quot;blablabla
+blablabla\&quot;key\&quot;: \&quot;foo2\&quot;blablabla\&quot;value\&quot;: \&quot;bar5\&quot;blablabla
+blablabla\&quot;key\&quot;: \&quot;foo3\&quot;blablabla\&quot;value\&quot;: \&quot;bar7\&quot;blablabla
+</code></pre>
+<p>&#x73B0;&#x9700;&#x8981;&#x5C06;key&#x548C;value&#x6309;&#x7167;key&#x53BB;&#x91CD;&#x540E;&#x7EDF;&#x8BA1;value&#x7684;&#x6570;&#x91CF;&#x3002;</p>
+<pre><code class="lang-shell">sed -r &apos;s/^.*?\\&quot;key\\&quot;:\s\\&quot;(.*?)\\&quot;.*\\&quot;value\\&quot;:\s\\&quot;(.*?)\\&quot;.*$/\1 \2/g&apos; metadata.txt |uniq|sort
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1217,12 +1283,8 @@
 
             
                 
-                <a href="../hdrs/asr_data_sync.md" class="navigation navigation-prev " aria-label="Previous page: ASR数据同步">
-                    <i class="fa fa-angle-left"></i>
-                </a>
                 
-                
-                <a href="coding-rule.html" class="navigation navigation-next " aria-label="Next page: 编程规范">
+                <a href="log.html" class="navigation navigation-next navigation-unique" aria-label="Next page: syslog">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1233,7 +1295,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"架构合一","level":"5.1","depth":1,"next":{"title":"编程规范","level":"5.2","depth":1,"path":"cbs/coding-rule.md","ref":"cbs/coding-rule.md","articles":[]},"previous":{"title":"ASR数据同步","level":"4.5.1","depth":2,"path":"hdrs/asr_data_sync.md","ref":"hdrs/asr_data_sync.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ancre-navigation","chapter-fold","code","expandable-chapters","splitter","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cbs/unify.md","mtime":"2020-02-28T09:12:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:15:52.143Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"正则表达式","layout":"post","level":"3.4.1","depth":2,"next":{"title":"syslog","level":"3.4.2","depth":2,"path":"linux/log.md","ref":"linux/log.md","articles":[]},"previous":{"title":"shell","level":"3.4","depth":1,"ref":"","articles":[{"title":"正则表达式","level":"3.4.1","depth":2,"path":"linux/regex.md","ref":"linux/regex.md","articles":[]},{"title":"syslog","level":"3.4.2","depth":2,"path":"linux/log.md","ref":"linux/log.md","articles":[]},{"title":"常用命令及其用法举例","level":"3.4.3","depth":2,"path":"linux/shell.md","ref":"linux/shell.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ancre-navigation","chapter-fold","code","expandable-chapters","splitter","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"linux/regex.md","mtime":"2020-02-28T09:44:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:15:52.143Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

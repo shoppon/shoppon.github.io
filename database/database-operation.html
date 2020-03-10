@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>架构合一 · GitBook</title>
+        <title>Gaussdb常用操作 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="coding-rule.html" />
+    <link rel="next" href="../hdrs/architecture.html" />
     
-    
-    <link rel="prev" href="../hdrs/asr_data_sync.md" />
     
 
     </head>
@@ -684,9 +682,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.6.1" data-path="../database/database-operation.html">
+        <li class="chapter active" data-level="3.6.1" data-path="database-operation.html">
             
-                <a href="../database/database-operation.html">
+                <a href="database-operation.html">
             
                     
                         <b>3.6.1.</b>
@@ -1012,9 +1010,9 @@
         
         
     
-        <li class="chapter active" data-level="5.1" data-path="unify.html">
+        <li class="chapter " data-level="5.1" data-path="../cbs/unify.html">
             
-                <a href="unify.html">
+                <a href="../cbs/unify.html">
             
                     
                         <b>5.1.</b>
@@ -1027,9 +1025,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="coding-rule.html">
+        <li class="chapter " data-level="5.2" data-path="../cbs/coding-rule.html">
             
-                <a href="coding-rule.html">
+                <a href="../cbs/coding-rule.html">
             
                     
                         <b>5.2.</b>
@@ -1042,9 +1040,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="team-thought.html">
+        <li class="chapter " data-level="5.3" data-path="../cbs/team-thought.html">
             
-                <a href="team-thought.html">
+                <a href="../cbs/team-thought.html">
             
                     
                         <b>5.3.</b>
@@ -1175,7 +1173,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >架构合一</a>
+        <a href=".." >Gaussdb常用操作</a>
     </h1>
 </div>
 
@@ -1190,7 +1188,49 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h2 id="&#x6570;&#x636E;&#x5E93;&#x6307;&#x5357;"><a name="&#x6570;&#x636E;&#x5E93;&#x6307;&#x5357;" class="anchor-navigation-ex-anchor" href="#&#x6570;&#x636E;&#x5E93;&#x6307;&#x5357;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6570;&#x636E;&#x5E93;&#x6307;&#x5357;</h2>
+<h4 id="&#x5E38;&#x7528;&#x547D;&#x4EE4;"><a name="&#x5E38;&#x7528;&#x547D;&#x4EE4;" class="anchor-navigation-ex-anchor" href="#&#x5E38;&#x7528;&#x547D;&#x4EE4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5E38;&#x7528;&#x547D;&#x4EE4;</h4>
+<p>&#x67E5;&#x8BE2;&#x7528;&#x6237;&#xFF1A;<code>\du</code></p>
+<p>&#x521B;&#x5EFA;&#x7528;&#x6237;&#xFF1A;<code>CREATE USER karbor_a WITH CREATEDB PASSWORD &quot;passowrd&quot;;</code></p>
+<p>&#x89E3;&#x9501;&#x7528;&#x6237;&#xFF1A;<code>alter user xxx login;</code></p>
+<p>&#x4FEE;&#x6539;&#x8868;&#x7528;&#x6237;&#xFF1A;<code>alter table xxx owner to xxx;</code></p>
+<h4 id="&#x6839;&#x636E;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x66F4;&#x65B0;text&#x5B57;&#x6BB5;&#x4E2D;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x5185;&#x5BB9;"><a name="&#x6839;&#x636E;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x66F4;&#x65B0;text&#x5B57;&#x6BB5;&#x4E2D;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x5185;&#x5BB9;" class="anchor-navigation-ex-anchor" href="#&#x6839;&#x636E;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x66F4;&#x65B0;text&#x5B57;&#x6BB5;&#x4E2D;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x5185;&#x5BB9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6839;&#x636E;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x66F4;&#x65B0;Text&#x5B57;&#x6BB5;&#x4E2D;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x5185;&#x5BB9;</h4>
+<pre><code class="lang-sql"><span class="hljs-keyword">UPDATE</span> checkpoint_item <span class="hljs-keyword">SET</span> EXTEND_INFO = <span class="hljs-keyword">REPLACE</span>(EXTEND_INFO, <span class="hljs-string">&apos;&quot;auto_trigger&quot;: false&apos;</span>, <span class="hljs-string">&apos;&quot;auto_trigger&quot;: true&apos;</span>) <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">id</span>=<span class="hljs-string">&apos;ae140853-2c58-4182-b874-c27a5bf59434&apos;</span>;
+</code></pre>
+<h4 id="&#x5BFC;&#x51FA;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x5E93;"><a name="&#x5BFC;&#x51FA;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x5E93;" class="anchor-navigation-ex-anchor" href="#&#x5BFC;&#x51FA;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x5E93;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5BFC;&#x51FA;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x5E93;</h4>
+<pre><code class="lang-sql">export LD_LIBRARY_PATH=/opt/gaussdb/app/lib/;/opt/gaussdb/app/bin/gs_dump karbor -W CloudService@123! -f /home/karbor.sql
+</code></pre>
+<h4 id="&#x5BFC;&#x5165;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x5E93;"><a name="&#x5BFC;&#x5165;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x5E93;" class="anchor-navigation-ex-anchor" href="#&#x5BFC;&#x5165;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x5E93;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5BFC;&#x5165;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x5E93;</h4>
+<pre><code class="lang-sql">export LD_LIBRARY_PATH=/opt/gaussdb/app/lib/;/opt/gaussdb/app/bin/gsql -W CloudService@123! karbor <span class="hljs-comment">--set ON_ERROR_STOP=on --single-transaction -f /opt/huawei/dj/etc/gaussdb/karbor.sql</span>
+</code></pre>
+<h4 id="&#x6279;&#x91CF;&#x63D2;&#x5165;"><a name="&#x6279;&#x91CF;&#x63D2;&#x5165;" class="anchor-navigation-ex-anchor" href="#&#x6279;&#x91CF;&#x63D2;&#x5165;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6279;&#x91CF;&#x63D2;&#x5165;</h4>
+<pre><code class="lang-sql"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> resources <span class="hljs-keyword">SELECT</span> <span class="hljs-string">&apos;2018-10-19 08:46:47.616534&apos;</span> <span class="hljs-keyword">AS</span> CREATED_AT, <span class="hljs-string">&apos;2018-10-19 08:46:47.616534&apos;</span> <span class="hljs-keyword">AS</span> UPDATED_AT, <span class="hljs-literal">NULL</span> <span class="hljs-keyword">AS</span> DELETED_AT, <span class="hljs-string">&apos;f&apos;</span> <span class="hljs-keyword">AS</span> DELETED, i <span class="hljs-keyword">AS</span> <span class="hljs-keyword">ID</span>, <span class="hljs-string">&apos;79ca9cb8-4078-4e64-8439-73cb0e1229c9&apos;</span> <span class="hljs-keyword">AS</span> PLAN_ID, <span class="hljs-string">&apos;8ec26d2d-4bd2-4fb2-bff7-5dd675883c31&apos;</span> <span class="hljs-keyword">AS</span> RESOURCE_ID, <span class="hljs-string">&apos;OS::Nova::Server&apos;</span> <span class="hljs-keyword">AS</span> RESOURCE_TYPE, <span class="hljs-string">&apos;ecs-xp&apos;</span> <span class="hljs-keyword">AS</span> RESOURCE_NAME, <span class="hljs-string">&apos;&apos;</span> <span class="hljs-keyword">AS</span> RESOURCE_EXTRA_INFO <span class="hljs-keyword">FROM</span> generate_series(<span class="hljs-number">80000</span>, <span class="hljs-number">80000</span>) <span class="hljs-keyword">AS</span> i;
+</code></pre>
+<pre><code class="lang-sql"><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> resources <span class="hljs-keyword">where</span> <span class="hljs-keyword">id</span> ~ <span class="hljs-string">&apos;^\d{5,5}$&apos;</span>;
+</code></pre>
+<h4 id="&#x901A;&#x8FC7;&#x5DE6;&#x5916;&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;&#x5DF2;&#x5220;&#x9664;plans&#x7684;&#x526F;&#x672C;"><a name="&#x901A;&#x8FC7;&#x5DE6;&#x5916;&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;&#x5DF2;&#x5220;&#x9664;plans&#x7684;&#x526F;&#x672C;" class="anchor-navigation-ex-anchor" href="#&#x901A;&#x8FC7;&#x5DE6;&#x5916;&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;&#x5DF2;&#x5220;&#x9664;plans&#x7684;&#x526F;&#x672C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x901A;&#x8FC7;&#x5DE6;&#x5916;&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;&#x5DF2;&#x5220;&#x9664;Plans&#x7684;&#x526F;&#x672C;</h4>
+<pre><code class="lang-sql"><span class="hljs-keyword">select</span> checkpoint_item.<span class="hljs-keyword">id</span> <span class="hljs-keyword">from</span> checkpoint_item <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">OUTER</span> <span class="hljs-keyword">JOIN</span> checkpoint <span class="hljs-keyword">ON</span> checkpoint.<span class="hljs-keyword">id</span> = checkpoint_item.checkpoint_id <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">OUTER</span> <span class="hljs-keyword">JOIN</span> plans <span class="hljs-keyword">ON</span> checkpoint.plan_id = plans.<span class="hljs-keyword">id</span> <span class="hljs-keyword">where</span> plans.deleted = <span class="hljs-number">1</span>
+</code></pre>
+<pre><code>select checkpoint_item.id from checkpoint_item LEFT OUTER JOIN checkpoint ON checkpoint.id = checkpoint_item.checkpoint_id where checkpoint.plan_id in (select id from plans where plans.deleted = 1)
+</code></pre><h4 id="&#x4FEE;&#x6539;&#x6267;&#x884C;&#x65F6;&#x95F4;"><a name="&#x4FEE;&#x6539;&#x6267;&#x884C;&#x65F6;&#x95F4;" class="anchor-navigation-ex-anchor" href="#&#x4FEE;&#x6539;&#x6267;&#x884C;&#x65F6;&#x95F4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4FEE;&#x6539;&#x6267;&#x884C;&#x65F6;&#x95F4;</h4>
+<pre><code class="lang-sql"><span class="hljs-keyword">update</span> TRIGGER_EXECUTIONS <span class="hljs-keyword">set</span> EXECUTION_TIME=<span class="hljs-string">&apos;2018-10-27 09:30:00&apos;</span> <span class="hljs-keyword">where</span> <span class="hljs-keyword">id</span> <span class="hljs-keyword">in</span> (<span class="hljs-keyword">select</span> <span class="hljs-keyword">id</span> <span class="hljs-keyword">from</span> TRIGGER_EXECUTIONS <span class="hljs-keyword">where</span> EXECUTION_TIME&gt;<span class="hljs-string">&apos;2018-10-27 09:00:00&apos;</span> <span class="hljs-keyword">and</span> EXECUTION_TIME&lt;<span class="hljs-string">&apos;2018-10-27 10:00:00&apos;</span> <span class="hljs-keyword">limit</span> <span class="hljs-number">10</span>);
+</code></pre>
+<h4 id="&#x5BFC;&#x5165;&#x6570;&#x636E;&#x5230;&#x6587;&#x4EF6;"><a name="&#x5BFC;&#x5165;&#x6570;&#x636E;&#x5230;&#x6587;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#&#x5BFC;&#x5165;&#x6570;&#x636E;&#x5230;&#x6587;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5BFC;&#x5165;&#x6570;&#x636E;&#x5230;&#x6587;&#x4EF6;</h4>
+<pre><code class="lang-sql">copy (<span class="hljs-keyword">select</span> checkpoint_item.<span class="hljs-keyword">id</span> <span class="hljs-keyword">from</span> checkpoint_item) <span class="hljs-keyword">to</span> <span class="hljs-string">&apos;/home/gaussdba/tbl.csv&apos;</span> <span class="hljs-keyword">with</span> csv header;
+</code></pre>
+<h4 id="&#x67E5;&#x8BE2;&#x7A7A;&#x95F2;&#x4E8B;&#x52A1;"><a name="&#x67E5;&#x8BE2;&#x7A7A;&#x95F2;&#x4E8B;&#x52A1;" class="anchor-navigation-ex-anchor" href="#&#x67E5;&#x8BE2;&#x7A7A;&#x95F2;&#x4E8B;&#x52A1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x67E5;&#x8BE2;&#x7A7A;&#x95F2;&#x4E8B;&#x52A1;</h4>
+<pre><code class="lang-sql"><span class="hljs-keyword">select</span> <span class="hljs-keyword">count</span>(<span class="hljs-number">1</span>) <span class="hljs-keyword">from</span> pg_stat_activity <span class="hljs-keyword">where</span> state=<span class="hljs-string">&apos;idle&apos;</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">query</span>!=<span class="hljs-string">&apos;&apos;</span>;
+</code></pre>
+<h4 id="&#x67E5;&#x770B;&#x662F;&#x5426;&#x6709;&#x9501;"><a name="&#x67E5;&#x770B;&#x662F;&#x5426;&#x6709;&#x9501;" class="anchor-navigation-ex-anchor" href="#&#x67E5;&#x770B;&#x662F;&#x5426;&#x6709;&#x9501;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x67E5;&#x770B;&#x662F;&#x5426;&#x6709;&#x9501;</h4>
+<pre><code class="lang-sql"><span class="hljs-keyword">select</span> <span class="hljs-keyword">QUERY</span>,QUERY_START,STATE_CHANGE,WAITING,STATE <span class="hljs-keyword">from</span> pg_stat_activity <span class="hljs-keyword">where</span> WAITING=<span class="hljs-string">&apos;t&apos;</span>;
+</code></pre>
+<h4 id="&#x67E5;&#x770B;&#x603B;&#x8FDE;&#x63A5;&#x6570;&#xFF1A;"><a name="&#x67E5;&#x770B;&#x603B;&#x8FDE;&#x63A5;&#x6570;&#xFF1A;" class="anchor-navigation-ex-anchor" href="#&#x67E5;&#x770B;&#x603B;&#x8FDE;&#x63A5;&#x6570;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x67E5;&#x770B;&#x603B;&#x8FDE;&#x63A5;&#x6570;&#xFF1A;</h4>
+<pre><code class="lang-sql"><span class="hljs-keyword">select</span> <span class="hljs-keyword">count</span>(<span class="hljs-number">1</span>) <span class="hljs-keyword">from</span> V$<span class="hljs-keyword">SESSION</span>;
+</code></pre>
+<h4 id="&#x67E5;&#x770B;karbor-a&#x8FDB;&#x7A0B;&#x5360;&#x7684;&#x8FDE;&#x63A5;&#x6570;&#xFF1A;"><a name="&#x67E5;&#x770B;karbor-a&#x8FDB;&#x7A0B;&#x5360;&#x7684;&#x8FDE;&#x63A5;&#x6570;&#xFF1A;" class="anchor-navigation-ex-anchor" href="#&#x67E5;&#x770B;karbor-a&#x8FDB;&#x7A0B;&#x5360;&#x7684;&#x8FDE;&#x63A5;&#x6570;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x67E5;&#x770B;karbor-a&#x8FDB;&#x7A0B;&#x5360;&#x7684;&#x8FDE;&#x63A5;&#x6570;&#xFF1A;</h4>
+<pre><code class="lang-sql"><span class="hljs-keyword">select</span> <span class="hljs-keyword">count</span>(<span class="hljs-number">1</span>) <span class="hljs-keyword">from</span> V$<span class="hljs-keyword">SESSION</span> <span class="hljs-keyword">where</span> USERNAME=<span class="hljs-string">&apos;KARBOR_A&apos;</span>;
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1217,12 +1257,8 @@
 
             
                 
-                <a href="../hdrs/asr_data_sync.md" class="navigation navigation-prev " aria-label="Previous page: ASR数据同步">
-                    <i class="fa fa-angle-left"></i>
-                </a>
                 
-                
-                <a href="coding-rule.html" class="navigation navigation-next " aria-label="Next page: 编程规范">
+                <a href="../hdrs/architecture.html" class="navigation navigation-next navigation-unique" aria-label="Next page: OMA架构">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1233,7 +1269,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"架构合一","level":"5.1","depth":1,"next":{"title":"编程规范","level":"5.2","depth":1,"path":"cbs/coding-rule.md","ref":"cbs/coding-rule.md","articles":[]},"previous":{"title":"ASR数据同步","level":"4.5.1","depth":2,"path":"hdrs/asr_data_sync.md","ref":"hdrs/asr_data_sync.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ancre-navigation","chapter-fold","code","expandable-chapters","splitter","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cbs/unify.md","mtime":"2020-02-28T09:12:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:15:52.143Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Gaussdb常用操作","layout":"post","level":"3.6.1","depth":2,"next":{"title":"OMA架构","level":"4.1","depth":1,"path":"hdrs/architecture.md","ref":"hdrs/architecture.md","articles":[]},"previous":{"title":"数据库","level":"3.6","depth":1,"ref":"","articles":[{"title":"Gaussdb常用操作","level":"3.6.1","depth":2,"path":"database/database-operation.md","ref":"database/database-operation.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ancre-navigation","chapter-fold","code","expandable-chapters","splitter","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"database/database-operation.md","mtime":"2020-02-28T09:12:43.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:15:52.143Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

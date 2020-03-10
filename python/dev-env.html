@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>架构合一 · GitBook</title>
+        <title>openstack本地调式环境搭建 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="coding-rule.html" />
+    <link rel="next" href="ut.html" />
     
     
-    <link rel="prev" href="../hdrs/asr_data_sync.md" />
+    <link rel="prev" href="interview.html" />
     
 
     </head>
@@ -405,9 +405,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.1.1" data-path="../python/perf_analyze.html">
+        <li class="chapter " data-level="3.1.1" data-path="perf_analyze.html">
             
-                <a href="../python/perf_analyze.html">
+                <a href="perf_analyze.html">
             
                     
                         <b>3.1.1.</b>
@@ -420,9 +420,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2" data-path="../python/interview.html">
+        <li class="chapter " data-level="3.1.2" data-path="interview.html">
             
-                <a href="../python/interview.html">
+                <a href="interview.html">
             
                     
                         <b>3.1.2.</b>
@@ -435,9 +435,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.3" data-path="../python/dev-env.html">
+        <li class="chapter active" data-level="3.1.3" data-path="dev-env.html">
             
-                <a href="../python/dev-env.html">
+                <a href="dev-env.html">
             
                     
                         <b>3.1.3.</b>
@@ -450,9 +450,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.4" data-path="../python/ut.html">
+        <li class="chapter " data-level="3.1.4" data-path="ut.html">
             
-                <a href="../python/ut.html">
+                <a href="ut.html">
             
                     
                         <b>3.1.4.</b>
@@ -465,9 +465,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.5" data-path="../python/code-isolation.html">
+        <li class="chapter " data-level="3.1.5" data-path="code-isolation.html">
             
-                <a href="../python/code-isolation.html">
+                <a href="code-isolation.html">
             
                     
                         <b>3.1.5.</b>
@@ -480,9 +480,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.6" data-path="../python/database-lock.html">
+        <li class="chapter " data-level="3.1.6" data-path="database-lock.html">
             
-                <a href="../python/database-lock.html">
+                <a href="database-lock.html">
             
                     
                         <b>3.1.6.</b>
@@ -1012,9 +1012,9 @@
         
         
     
-        <li class="chapter active" data-level="5.1" data-path="unify.html">
+        <li class="chapter " data-level="5.1" data-path="../cbs/unify.html">
             
-                <a href="unify.html">
+                <a href="../cbs/unify.html">
             
                     
                         <b>5.1.</b>
@@ -1027,9 +1027,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="coding-rule.html">
+        <li class="chapter " data-level="5.2" data-path="../cbs/coding-rule.html">
             
-                <a href="coding-rule.html">
+                <a href="../cbs/coding-rule.html">
             
                     
                         <b>5.2.</b>
@@ -1042,9 +1042,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="team-thought.html">
+        <li class="chapter " data-level="5.3" data-path="../cbs/team-thought.html">
             
-                <a href="team-thought.html">
+                <a href="../cbs/team-thought.html">
             
                     
                         <b>5.3.</b>
@@ -1175,7 +1175,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >架构合一</a>
+        <a href=".." >openstack本地调式环境搭建</a>
     </h1>
 </div>
 
@@ -1190,7 +1190,155 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x642D;&#x5EFA;"><b></b>&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x642D;&#x5EFA;</a></li></ul></div><a href="#&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x642D;&#x5EFA;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x642D;&#x5EFA;"><a name="&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x642D;&#x5EFA;" class="anchor-navigation-ex-anchor" href="#&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x642D;&#x5EFA;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x642D;&#x5EFA;</h1>
+<h4 id="python&#x73AF;&#x5883;&#x8BBE;&#x7F6E;"><a name="python&#x73AF;&#x5883;&#x8BBE;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#python&#x73AF;&#x5883;&#x8BBE;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>python&#x73AF;&#x5883;&#x8BBE;&#x7F6E;</h4>
+<ol>
+<li>&#x5B89;&#x88C5;pip&#xFF0C;&#x5177;&#x4F53;&#x65B9;&#x5F0F;google</li>
+<li>&#x5B89;&#x88C5;<a href="https://www.microsoft.com/en-us/download/details.aspx?id=44266" target="_blank">VCForPython27</a>&#xFF0C;&#x7528;&#x4E8E;&#x7F16;&#x8BD1;c&#x8BED;&#x8A00;</li>
+<li>&#x7531;&#x4E8E;&#x7F51;&#x7EDC;&#x539F;&#x56E0;&#x65E0;&#x6CD5;&#x4ECE;&#x5916;&#x7F51;pip&#x6E90;&#x4E0B;&#x8F7D;&#x4E09;&#x65B9;&#x5305;&#xFF0C;&#x9700;&#x8981;&#x5C06;pip&#x6E90;&#x8BBE;&#x7F6E;&#x4E3A;&#x534E;&#x4E3A;&#x5185;&#x6E90;&#x3002;<ul>
+<li>&#x5728;&#x4E2A;&#x4EBA;&#x76EE;&#x5F55;&#xFF08;C:\Users\x00250203\pip&#xFF09;&#x521B;&#x5EFA;pip&#x76EE;&#x5F55;&#xFF0C;&#x6DFB;&#x52A0;pip.ini&#x6587;&#x4EF6;</li>
+<li>&#x5C06;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x8BBE;&#x7F6E;&#x4E3A;&#xFF1A;<pre><code>[global]
+index-url=http://rnd-mirrors.huawei.com/pypi/simple/
+[install]
+trusted-host=rnd-mirrors.huawei.com
+</code></pre></li>
+</ul>
+</li>
+<li>&#x4ECE;requirments&#x5B89;&#x88C5;&#x4E09;&#x65B9;&#x5305;&#xFF0C;&#x8FDB;&#x5165;karbor/src/karbor&#xFF0C; &#x7F16;&#x8F91;requirements.txt&#xFF0C;&#x7531;&#x4E8E;&#x5185;&#x90E8;&#x6E90;&#x8F6F;&#x4EF6;&#x7F3A;&#x5C11;&#x65B0;&#x7248;&#x672C;&#xFF0C;&#x9700;&#x8981;&#x964D;&#x4F4E;&#x7248;&#x672C;&#x9700;&#x6C42;&#x6216;&#x76F4;&#x63A5;&#x6CE8;&#x91CA;&#x6389;&#x7248;&#x672C;&#x9700;&#x6C42;&#xFF0C;&#x7136;&#x540E;&#x6267;&#x884C;<code>pip install -r requirments.txt</code></li>
+<li>mock kmc&#xFF0C;&#x8FDB;&#x5165;python&#x7684;site-packages&#x76EE;&#x5F55;&#xFF0C;&#x521B;&#x5EFA;kmc&#x76EE;&#x5F55;&#x548C;<strong>init</strong>.py&#x5C06;&#xFF0C;&#x5C06;<a href="http://code.huawei.com/csbs/dev/blob/master/dev/kmc/kmc.py" target="_blank">kmc.py</a>&#x62F7;&#x8D1D;&#x5230;kmc&#x76EE;&#x5F55;</li>
+<li>&#x5982;&#x679C;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x62A5;<code>cannot import module xxx</code>&#xFF0C;&#x76F4;&#x63A5;&#x4F7F;&#x7528;<code>pip install xxx</code>&#x5B89;&#x88C5;&#x5373;&#x53EF;&#xFF0C;<strong>&#x7279;&#x6B8A;&#x8BF4;&#x660E;&#xFF1A;openstack client xxxclient&#x9700;&#x8981;&#x5B89;&#x88C5;python-xxxclient</strong>&#x3002;</li>
+</ol>
+<h4 id="pycharm&#x8BBE;&#x7F6E;"><a name="pycharm&#x8BBE;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#pycharm&#x8BBE;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>pycharm&#x8BBE;&#x7F6E;</h4>
+<ul>
+<li>&#x6362;&#x884C;&#x7B26;&#x8BBE;&#x7F6E;&#x4E3A;LF(Linux&#x683C;&#x5F0F;)&#xFF1A;<code>File</code>--&gt;<code>Keymap</code>--&gt;<code>Main menu</code>--&gt;<code>File</code>--&gt;<code>Line Separators</code>--&gt;<code>LF</code></li>
+<li>&#x7F16;&#x7801;&#x683C;&#x5F0F;&#x8BBE;&#x7F6E;&#x4E3A;UTF-8&#xFF0C;python&#x5934;&#x6587;&#x4EF6;&#x6DFB;&#x52A0;<code>code: utf-8</code></li>
+<li>&#x8BBE;&#x7F6E;&#x5355;&#x884C;&#x6587;&#x4EF6;&#x6700;&#x5927;79&#x5B57;&#x7B26;&#xFF08;PEP8&#x89C4;&#x8303;&#xFF09;&#xFF1A;<code>File</code>--&gt;<code>Setting</code>--&gt;<code>Editor</code>--&gt;<code>Code Style</code>--&gt;<code>Right margin</code></li>
+<li>pycharm&#x5BFC;&#x5165;&#x5DE5;&#x7A0B;&#x5F3A;&#x70C8;&#x5EFA;&#x8BAE;&#x4E0D;&#x8981;&#x628A;&#x6574;&#x4E2A;&#x4EE3;&#x7801;&#x76EE;&#x5F55;&#x5BFC;&#x5165;&#x8FDB;&#x6765;&#xFF0C;&#x5BFC;&#x5165;karbor&#x548C;kangaroo&#x4E24;&#x4E2A;&#x5DE5;&#x7A0B;&#x5373;&#x53EF;&#xFF0C;&#x5E76;&#x8BBE;&#x7F6E;&#x4F9D;&#x8D56;&#x3002;</li>
+</ul>
+<h4 id="git&#x8BBE;&#x7F6E;"><a name="git&#x8BBE;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#git&#x8BBE;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>git&#x8BBE;&#x7F6E;</h4>
+<ul>
+<li>&#x8BBE;&#x7F6E;&#x4E0D;&#x628A;LF&#x8F6C;&#x5316;&#x6210;CRLF&#xFF08;&#x9ED8;&#x8BA4;&#x4F1A;&#x8F6C;&#xFF09;&#xFF1A;<code>git config --global core.autocrlf false</code></li>
+<li>&#x8BBE;&#x7F6E;ignore&#x6587;&#x4EF6;&#xFF1A;<code>git config --global core.excludesfile &apos;~/.gitignore&apos;</code></li>
+<li>&#x8BBE;&#x7F6E;&#x4E2D;&#x6587;&#x4E0D;&#x4E71;&#x7801;&#xFF1A;<code>git config --global core.quotepath false</code></li>
+</ul>
+<h4 id="rabbitmq&#x642D;&#x5EFA;"><a name="rabbitmq&#x642D;&#x5EFA;" class="anchor-navigation-ex-anchor" href="#rabbitmq&#x642D;&#x5EFA;"><i class="fa fa-link" aria-hidden="true"></i></a>rabbitmq&#x642D;&#x5EFA;</h4>
+<ul>
+<li>rabbitmq&#x662F;erlang&#x7F16;&#x5199;&#xFF0C;&#x9996;&#x5148;&#x9700;&#x8981;&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;<a href="http://www.erlang.org/downloads" target="_blank">erlang</a>&#xFF0C;<a href="http://code.huawei.com/csbs/dev/tree/master/tools/erlang" target="_blank">codeclub&#x4E0B;&#x8F7D;</a></li>
+<li>&#x5B89;&#x88C5;windows&#x7248;<a href="https://www.rabbitmq.com/install-windows-manual.html" target="_blank">rabbitmq</a>&#xFF0C;<a href="http://code.huawei.com/csbs/dev/tree/master/tools/Rabbitmq" target="_blank">codeclub&#x4E0B;&#x8F7D;</a></li>
+<li>&#x53CC;&#x51FB;<code>rabbitmq-service.bat</code>&#x8FD0;&#x884C;rabbitmq</li>
+</ul>
+<h4 id="mysql&#x73AF;&#x5883;&#x642D;&#x5EFA;"><a name="mysql&#x73AF;&#x5883;&#x642D;&#x5EFA;" class="anchor-navigation-ex-anchor" href="#mysql&#x73AF;&#x5883;&#x642D;&#x5EFA;"><i class="fa fa-link" aria-hidden="true"></i></a>mysql&#x73AF;&#x5883;&#x642D;&#x5EFA;</h4>
+<p>&#x7531;&#x4E8E;&#x539F;&#x751F;postgres&#x4E0D;&#x652F;&#x6301;bool&#x503C;&#x548C;integer&#x503C;&#x8F6C;&#x6362;&#xFF0C;&#x5BFC;&#x81F4;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;postgres&#x6570;&#x636E;&#x5E93;&#x8FDB;&#x884C;&#x8C03;&#x8BD5;&#x3002;<a href="https://dev.mysql.com/downloads/mysql/" target="_blank">mysql&#x4E0B;&#x8F7D;</a> <a href="http://code.huawei.com/csbs/dev/tree/master/tools/Mysql" target="_blank">codeclub&#x4E0B;&#x8F7D;</a></p>
+<p>&#x5B89;&#x88C5;Python&#x7684;mysql&#x9A71;&#x52A8;<code>pip install mysql-connector==2.1.6</code>&#xFF08;&#x9AD8;&#x7248;&#x672C;&#x6709;BUG&#xFF09;</p>
+<p>&#x8BBE;&#x7F6E;&#x5916;&#x952E;&#x4E0D;&#x68C0;&#x67E5;&#xFF1A;<code>SET GLOBAL FOREIGN_KEY_CHECKS=0;</code></p>
+<h4 id="openssl&#x642D;&#x5EFA;"><a name="openssl&#x642D;&#x5EFA;" class="anchor-navigation-ex-anchor" href="#openssl&#x642D;&#x5EFA;"><i class="fa fa-link" aria-hidden="true"></i></a>openssl&#x642D;&#x5EFA;</h4>
+<p>token&#x7684;&#x89E3;&#x5BC6;&#x4F1A;&#x7528;&#x5230;openssl&#x76F8;&#x5173;&#x547D;&#x4EE4;&#xFF0C;&#x56E0;&#x4E3A;&#x9700;&#x8981;&#x5728;&#x672C;&#x5730;&#x5B89;&#x88C5;openssl&#xFF0C;<a href="http://code.huawei.com/csbs/dev/tree/master/tools/openssl" target="_blank">&#x4E0B;&#x8F7D;&#x5730;&#x5740;</a></p>
+<h4 id="python&#x8FD0;&#x884C;&#x8BBE;&#x7F6E;"><a name="python&#x8FD0;&#x884C;&#x8BBE;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#python&#x8FD0;&#x884C;&#x8BBE;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>python&#x8FD0;&#x884C;&#x8BBE;&#x7F6E;</h4>
+<p>openstack&#x672C;&#x8EAB;&#x662F;&#x8FD0;&#x884C;&#x5728;linux&#x4E0A;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x8FD0;&#x884C;&#x5728;windows&#x4E0A;&#x9700;&#x8981;&#x505A;&#x5982;&#x4E0B;&#x9002;&#x914D;&#xFF1A;</p>
+<ol>
+<li><p>&#x4FEE;&#x6539;<code>site-packages\keystonemiddleware\auth_token\__init__.py</code>&#x6587;&#x4EF6;&#x91CC;&#x7684;<code>_cms_verify</code>&#x51FD;&#x6570;&#x91CC;&#x7684;<code>verify</code>&#x51FD;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> kangaroo.tests.debug <span class="hljs-keyword">import</span> token
+verified_data = token.verify(data)
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> verified_data:
+    <span class="hljs-keyword">raise</span> ksc_exceptions.CertificateConfigError(<span class="hljs-string">&quot;fake&quot;</span>)
+<span class="hljs-keyword">return</span> verified_data
+</code></pre>
+</li>
+<li><p>&#x4FEE;&#x6539;<code>site-packages\keystonemiddleware\auth_token\_signing_dir.py</code>&#x6587;&#x4EF6;&#x91CC;&#x7684;<code>_verify_signing_dir</code>&#x51FD;&#x6570;&#xFF0C;&#x5728;&#x7B2C;&#x4E00;&#x53E5;<code>if os.path.isdir(self._directory_name): return 0</code>&#xFF08;&#x65B0;&#x589E;&#xFF09;&#xFF0C;&#x5426;&#x5219;&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#x5931;&#x8D25;&#x3002;</p>
+</li>
+<li><p>&#x4FEE;&#x6539;<code>site-packages\eventlet\greenio\base.py</code>&#x6587;&#x4EF6;&#x91CC;&#x7684; <code>set_nonblocking</code>&#x51FD;&#x6570;, &#x5728;<code>except AttributeError</code>&#x7684;&#x6CE8;&#x91CA;&#x540E;&#x52A0;return</p>
+</li>
+<li><p>&#x4FEE;&#x6539;<code>site-packages\keystonemiddleware\auth_token\__init__.py</code>&#x6587;&#x4EF6;&#x91CC;&#x7684;<code>_validate_offline</code>&#x51FD;&#x6570;&#xFF0C;&#x7ED9;&#x8BED;&#x53E5;<code>self._revocations.check(token_hashes)</code>&#x4E4B;&#x524D;&#x52A0;&#x5224;&#x65AD;&#x6761;&#x4EF6;<code>if self._check_revocations_for_cached:</code></p>
+</li>
+<li><p>&#x4FEE;&#x6539;<code>site-packages\keystoneauth1\identity\base.py</code>&#x6587;&#x4EF6;&#x91CC;&#x7684;get_endpoint_data&#x51FD;&#x6570;&#xFF0C;&#x628A;<code>if interface is plugin.AUTH_INTERFACE:</code>&#x4FEE;&#x6539;&#x4E3A;<code>if True or interface is plugin.AUTH_INTERFACE:</code></p>
+</li>
+<li><p>&#x4FEE;&#x6539;<code>kangaroo\src\kangaroo\etc\debug\karbor.conf</code>&#x6587;&#x4EF6;&#x7684;<code>[keystone_authtoken] insecure = true</code>&#xFF1B;</p>
+</li>
+<li><p>&#x4FEE;&#x6539;<code>kangaroo\src\kangaroo\etc\debug\api_paste.ini</code>&#x6587;&#x4EF6;&#x91CC;<code>[filter:authtoken]   signing_dir = D:\runtime\keystone-signing\</code></p>
+</li>
+<li><p>&#x4FEE;&#x6539;<code>karbor\src\karbor\karbor\utils.py</code>&#x91CC;&#x7684;<code>find_config</code>&#x51FD;&#x6570;&#xFF0C;&#x5728;<code>possible_locations</code>&#x6570;&#x7EC4;&#x91CC;&#x52A0;&#x4E00;&#x6761;<code>os.path.join(&quot;etc\\debug&quot;, config_path)</code></p>
+</li>
+</ol>
+<h4 id="&#x672C;&#x5730;&#x8FD0;&#x884C;karboropenstack"><a name="&#x672C;&#x5730;&#x8FD0;&#x884C;karboropenstack" class="anchor-navigation-ex-anchor" href="#&#x672C;&#x5730;&#x8FD0;&#x884C;karboropenstack"><i class="fa fa-link" aria-hidden="true"></i></a>&#x672C;&#x5730;&#x8FD0;&#x884C;karbor(openstack)</h4>
+<p>&#x5982;&#x679C;&#x60F3;&#x6DF1;&#x5165;&#x7814;&#x7A76;openstack wsgi&#x6846;&#x67B6;&#xFF0C;oslo&#x76F8;&#x5173;&#x7C7B;&#x5E93;&#xFF0C;&#x672C;&#x5730;&#x8C03;&#x8BD5;&#x662F;&#x6700;&#x597D;&#x7684;&#x624B;&#x6BB5;&#xFF0C;&#x5177;&#x4F53;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#x3002;</p>
+<ol>
+<li><p>&#x751F;&#x6210;entry_point
+ &#x62F7;&#x8D1D;<code>/kangaroo/src/kangaroo/build</code>&#x4E0B;&#x6587;&#x4EF6;&#x5230;Karbor&#x6839;&#x76EE;&#x5F55;<code>karbor/src/karbor</code>&#x4E2D;&#xFF0C;&#x5206;&#x522B;&#x8FDB;&#x5165;&#x5230;<code>karbor/src/karbor</code>&#x548C;<code>/kangaroo/src/kangaroo</code>&#x6839;&#x76EE;&#x5F55;&#xFF0C;&#x6267;&#x884C;<code>python setup.py egg_info</code>&#x751F;&#x6210;Karbor&#x548C;Kangaroo&#x7684;entry_point&#x3002;</p>
+</li>
+<li><p>&#x62F7;&#x8D1D;<code>/kangaroo/src/kangaroo/karbor_extend</code>&#x76EE;&#x5F55;&#x4E0B;&#x6587;&#x4EF6;&#x5230;karbor&#x76EE;&#x5F55;<code>karbor\src\karbor\karbor</code>&#x4E2D;&#xFF0C;&#x8986;&#x76D6;karbor&#x539F;&#x751F;&#x4EE3;&#x7801;</p>
+</li>
+<li><p>&#x5E94;&#x7528;Karbor&#x8865;&#x4E01;
+ &#x5229;&#x7528;git bash&#x8FDB;&#x5165;CSBS&#x6839;&#x76EE;&#x5F55;&#xFF0C;&#x6267;&#x884C;<code>git apply kangaroo/src/kangaroo/patches/*</code></p>
+</li>
+<li><p>&#x751F;&#x6210;Karbor&#x6570;&#x636E;&#x5E93;</p>
+<p>&#x672C;&#x5730;&#x767B;&#x5F55;mysql&#xFF0C;&#x65B0;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x53D6;&#x540D;&#x4E3A;karbor</p>
+<p>&#x7F16;&#x8F91;<code>kangaroo/src/kangaroo/etc/debug/karbor.conf</code>&#xFF0C;&#x4FEE;&#x6539;connection&#x4E2D;&#x7684;&#x7528;&#x6237;&#x540D;&#x5BC6;&#x7801;&#x4E3A;&#x672C;&#x5730;mysql&#x7684;&#x7528;&#x6237;&#x540D;&#x5BC6;&#x7801;</p>
+</li>
+<li><p>&#x672C;&#x5730;&#x6DFB;&#x52A0;host&#xFF0C;&#x5177;&#x4F53;&#x8DEF;&#x5F84;<code>C:\Windows\System32\drivers\etc\hosts</code>&#xFF0C;&#x6DFB;&#x52A0;&#x57DF;&#x540D;&#x89E3;&#x6790;<code>iam-cache-proxy.domainname.com</code>&#x4E3A;<code>100.130.41.73</code>&#xFF08;IP&#x5730;&#x5740;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x4FEE;&#x6539;&#xFF09;
+ &#x6CE8;&#x610F;&#xFF1A;&#x5982;&#x679C;IE&#x914D;&#x7F6E;&#x4E86;http&#x4EE3;&#x7406;&#xFF0C;&#x9700;&#x8981;&#x5C06;&#x8BE5;&#x57DF;&#x540D;&#x6392;&#x9664;&#x5728;&#x5916;</p>
+</li>
+<li><p>&#x8FDE;&#x63A5;VPN</p>
+</li>
+<li>&#x542F;&#x52A8;karbor&#x76F8;&#x5173;&#x8FDB;&#x7A0B;<ul>
+<li>&#x53F3;&#x952E;<code>kangaroo/tests/debug/api.py</code>&#x6587;&#x4EF6;&#xFF0C;&#x9009;&#x62E9;<code>run api.py</code>&#x3002;</li>
+<li>&#x8BBE;&#x7F6E;&#x8FD0;&#x884C;&#x53C2;&#x6570;&#x4E3A;<code>--config-file=D:\CSBS_code\CSBS\kangaroo\src\kangaroo\etc\debug\karbor.conf</code>&#x3002;&#xFF08;&#x9700;&#x6839;&#x636E;&#x672C;&#x5730;&#x8DEF;&#x5F84;&#x8C03;&#x6574;&#xFF09;</li>
+<li>&#x8BBE;&#x7F6E;&#x5DE5;&#x4F5C;&#x8DEF;&#x5F84;&#x4E3A;<code>D:\CSBS_code\CSBS\kangaroo\src\kangaroo</code>&#x3002;&#xFF08;&#x9700;&#x6839;&#x636E;&#x672C;&#x5730;&#x8DEF;&#x5F84;&#x8C03;&#x6574;&#xFF09;</li>
+<li>&#x5BF9;<code>kangaroo/tests/debug/protection.py</code>&#x548C;<code>kangaroo/tests/debug/operationengine.py</code>&#x6267;&#x884C;&#x76F8;&#x540C;&#x64CD;&#x4F5C;&#x3002;</li>
+</ul>
+</li>
+</ol>
+<h3 id="&#x901A;&#x8FC7;postman&#x8C03;&#x7528;&#x672C;&#x5730;&#x63A5;&#x53E3;"><a name="&#x901A;&#x8FC7;postman&#x8C03;&#x7528;&#x672C;&#x5730;&#x63A5;&#x53E3;" class="anchor-navigation-ex-anchor" href="#&#x901A;&#x8FC7;postman&#x8C03;&#x7528;&#x672C;&#x5730;&#x63A5;&#x53E3;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x901A;&#x8FC7;postman&#x8C03;&#x7528;&#x672C;&#x5730;&#x63A5;&#x53E3;</h3>
+<ol>
+<li>&#x4E0B;&#x8F7D;postman(&#x81EA;&#x884C;google)&#xFF0C;&#x5BFC;&#x5165;<a href="http://code.huawei.com/csbs/dev/tree/master/tools/PostMan" target="_blank">postman&#x914D;&#x7F6E;&#x6587;&#x4EF6;</a></li>
+<li>Postman&#x4E2D;&#x70B9;&#x51FB;File-&gt;Settings&#x6253;&#x5F00;&#x8BBE;&#x7F6E;&#xFF0C;&#x5728;General&#x9875;&#x4E0B;&#x5C06;SSL&#x8BC1;&#x4E66;&#x9A8C;&#x8BC1;&#x5173;&#x95ED;&#xFF0C;&#x5728;Proxy&#x9875;&#x4E0B;&#x5C06;&#x4EE3;&#x7406;&#x5173;&#x95ED;</li>
+<li>&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x4E3A;Local&#xFF0C;&#x9ED8;&#x8BA4;&#x5DF2;&#x8BBE;&#x7F6E;&#x9274;&#x6743;&#x76F8;&#x5173;<code>IAM_DOMAIN</code>&#x3001;<code>PROJECT_ID</code>&#x3001;<code>USERNAME</code>&#x3001;<code>DOMAIN_NAME</code>&#x7B49;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x6839;&#x636E;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x3002;</li>
+<li>&#x901A;&#x8FC7;keystone&#x4E2D;<code>IAM&#x83B7;&#x53D6;&#x79DF;&#x6237;Token</code>&#x63A5;&#x53E3;&#x83B7;&#x53D6;&#x7528;&#x6237;token&#xFF0C;&#x5E76;&#x4E14;&#x8BBE;&#x7F6E;&#x5230;&#x73AF;&#x5883;&#x53D8;&#x91CF;<code>TOKEN</code>&#x4E2D;&#x3002;</li>
+<li>&#x901A;&#x8FC7;csbs&#x63A5;&#x53E3;&#x8C03;&#x7528;&#x672C;&#x5730;&#x63A5;&#x53E3;&#x8FDB;&#x884C;&#x8C03;&#x8BD5;&#x3002;</li>
+</ol>
+<h3 id="&#x5E38;&#x89C1;&#x95EE;&#x9898;"><a name="&#x5E38;&#x89C1;&#x95EE;&#x9898;" class="anchor-navigation-ex-anchor" href="#&#x5E38;&#x89C1;&#x95EE;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5E38;&#x89C1;&#x95EE;&#x9898;</h3>
+<ul>
+<li><p>&#x8FD0;&#x884C;api&#x65F6;&#x62A5;kmc&#x4E0D;&#x5B58;&#x5728;&#xFF1A;</p>
+<blockquote>
+<p> &#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF1A;&#x5C06;kmc&#x538B;&#x7F29;&#x5305;&#x4E2D;&#x7684;kmc&#x76EE;&#x5F55;&#x89E3;&#x538B;&#x5230;python&#x7684;Lib\site-packages&#x76EE;&#x5F55;&#x4E2D;&#xFF0C;<a href="../uploads/782491278b2742d2f6748997629ab830/kmc.rar">kmc.rar</a></p>
+</blockquote>
+</li>
+<li><p>&#x652F;&#x6301;&#x65F6;&#x62A5;&#x4E09;&#x65B9;&#x5305;&#x4E0D;&#x5B58;&#x5728;&#xFF1A;</p>
+<blockquote>
+<p> &#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF1A;pip install python-XXXmoduleName&#x3002;  <a href="http://code.huawei.com/csbs/dev/wikis/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA" target="_blank">pip&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</a></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="ci-llt&#x73AF;&#x5883;&#x642D;&#x5EFA;"><a name="ci-llt&#x73AF;&#x5883;&#x642D;&#x5EFA;" class="anchor-navigation-ex-anchor" href="#ci-llt&#x73AF;&#x5883;&#x642D;&#x5EFA;"><i class="fa fa-link" aria-hidden="true"></i></a>CI LLT&#x73AF;&#x5883;&#x642D;&#x5EFA;</h3>
+<ul>
+<li>&#x5B89;&#x88C5;pbr&#xFF0C;<code>pip install pbr</code></li>
+<li>&#x5B89;&#x88C5;nosetest&#x6240;&#x9700;&#x4E09;&#x65B9;&#x5305;<code>pip install --upgrade flake8 flake8-junit-report hacking pep8-naming testtools nose coverage mock nose-cov nose_xunitmp</code></li>
+<li>&#x5B89;&#x88C5;Karbor&#x8FD0;&#x884C;&#x65F6;&#x6240;&#x9700;&#x8981;&#x7684;&#x4E09;&#x65B9;&#x5305;<ul>
+<li>&#x89E3;&#x538B;CSBS&#x8F6F;&#x4EF6;&#x5B89;&#x88C5;&#x5305;</li>
+<li>&#x8FDB;&#x5165;<code>CSBS/repo/python</code>&#x76EE;&#x5F55;&#xFF0C;&#x6267;&#x884C;<code>rpm -ivh *.rpm --force --nodeps</code>&#x5B89;&#x88C5;&#x6240;&#x6709;rpm&#x5305;</li>
+<li>&#x8FDB;&#x5165;<code>CSBS/repo</code>&#x76EE;&#x5F55;&#xFF0C;&#x6267;&#x884C;<code>rpm -ivh *.rpm --force --nodeps</code>&#x5B89;&#x88C5;&#x6240;&#x6709;rpm&#x5305;</li>
+<li>&#x8FDB;&#x5165;<code>/installfiles/repo</code>&#x76EE;&#x5F55;&#xFF0C;&#x6267;&#x884C;<code>rpm -ivh *.rpm --force --nodeps</code></li>
+<li>&#x5728;<code>/usr/lib/python2.7/site-pakcages</code>&#x76EE;&#x5F55;&#x65B0;&#x5EFA;<code>kmc</code>&#x76EE;&#x5F55;&#xFF0C;&#x5C06;kmc mock</li>
+</ul>
+</li>
+<li>&#x5C06;kangaroo&#x76EE;&#x5F55;&#x52A0;&#x5165;&#x5230;python&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E2D;<code>echo `pwd` &gt;  /usr/lib/python2.7/site-packages/kangaroo.pth</code></li>
+<li>&#x5B89;&#x88C5;obs sdk<ul>
+<li>&#x5C06;platform&#x76EE;&#x5F55;&#x4E0B;&#x7684;OBS SDK&#x62F7;&#x5230;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x76EE;&#x5F55;&#x7136;&#x540E;&#x89E3;&#x538B;&#xFF0C;&#x8FDB;&#x5165;src&#x76EE;&#x5F55;&#x6267;&#x884C; <code>python setup.py install</code> </li>
+</ul>
+</li>
+<li>&#x8FDE;&#x63A5;openvpn&#xFF1A;<code>openvpn --cd /etc/openvpn/l2/ --config /etc/openvpn/l2/client.ovpn daemon</code></li>
+</ul>
+<h3 id="jenkins&#x73AF;&#x5883;&#x642D;&#x5EFA;"><a name="jenkins&#x73AF;&#x5883;&#x642D;&#x5EFA;" class="anchor-navigation-ex-anchor" href="#jenkins&#x73AF;&#x5883;&#x642D;&#x5EFA;"><i class="fa fa-link" aria-hidden="true"></i></a>Jenkins&#x73AF;&#x5883;&#x642D;&#x5EFA;</h3>
+<p>&#x7531;&#x4E8E;&#x7CFB;&#x7EDF;&#x76D8;&#x7A7A;&#x95F4;&#x8F83;&#x5C0F;&#xFF0C;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;jenkins&#x76EE;&#x5F55;&#xFF0C;&#x6267;&#x884C;<code>export CATALINA_OPTS=&quot;-DJENKINS_HOME=/home/.jenkins/ -Xmx512m&quot;</code>&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x542F;jenkins&#xFF0C;&#x6267;&#x884C;<code>/usr/local/src/apache-tomcat-7.0.77/bin/catalina.sh start</code></p>
+<h3 id="jenkins-ci&#x4E0E;codeclub&#x96C6;&#x6210;"><a name="jenkins-ci&#x4E0E;codeclub&#x96C6;&#x6210;" class="anchor-navigation-ex-anchor" href="#jenkins-ci&#x4E0E;codeclub&#x96C6;&#x6210;"><i class="fa fa-link" aria-hidden="true"></i></a>Jenkins CI&#x4E0E;Codeclub&#x96C6;&#x6210;</h3>
+<ul>
+<li><a href="http://3ms.huawei.com/km/blogs/details/2168171?l=zh-cn" target="_blank">Jenkis&#x63D2;&#x4EF6;&#x914D;&#x7F6E;</a></li>
+</ul>
+<h4 id="ci&#x6302;&#x8F7D;cifs&#x5171;&#x4EAB;&#xFF0C;&#x81EA;&#x52A8;&#x63A8;&#x5305;"><a name="ci&#x6302;&#x8F7D;cifs&#x5171;&#x4EAB;&#xFF0C;&#x81EA;&#x52A8;&#x63A8;&#x5305;" class="anchor-navigation-ex-anchor" href="#ci&#x6302;&#x8F7D;cifs&#x5171;&#x4EAB;&#xFF0C;&#x81EA;&#x52A8;&#x63A8;&#x5305;"><i class="fa fa-link" aria-hidden="true"></i></a>CI&#x6302;&#x8F7D;CIFS&#x5171;&#x4EAB;&#xFF0C;&#x81EA;&#x52A8;&#x63A8;&#x5305;</h4>
+<ul>
+<li>&#x5B89;&#x88C5;samba&#x548C;cifs&#x5DE5;&#x5177;&#x5305;<code>yum install cifs-utils</code>&#x3001;<code>yum install samba-client</code></li>
+<li>&#x4F7F;&#x7528;mount&#x547D;&#x4EE4;&#x6302;&#x8F7D;<code>mount.cifs //10.156.17.188/CTU_CI_NAS/Storage_DP_OceanStor_BCManager_eBackup/karbor /opt/archive/  -o user=xxx</code></li>
+</ul>
+
                                 
                                 </section>
                             
@@ -1217,12 +1365,12 @@
 
             
                 
-                <a href="../hdrs/asr_data_sync.md" class="navigation navigation-prev " aria-label="Previous page: ASR数据同步">
+                <a href="interview.html" class="navigation navigation-prev " aria-label="Previous page: 面试题">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="coding-rule.html" class="navigation navigation-next " aria-label="Next page: 编程规范">
+                <a href="ut.html" class="navigation navigation-next " aria-label="Next page: 单元测试">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1233,7 +1381,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"架构合一","level":"5.1","depth":1,"next":{"title":"编程规范","level":"5.2","depth":1,"path":"cbs/coding-rule.md","ref":"cbs/coding-rule.md","articles":[]},"previous":{"title":"ASR数据同步","level":"4.5.1","depth":2,"path":"hdrs/asr_data_sync.md","ref":"hdrs/asr_data_sync.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ancre-navigation","chapter-fold","code","expandable-chapters","splitter","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cbs/unify.md","mtime":"2020-02-28T09:12:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:15:52.143Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"openstack本地调式环境搭建","layout":"post","level":"3.1.3","depth":2,"next":{"title":"单元测试","level":"3.1.4","depth":2,"path":"python/ut.md","ref":"python/ut.md","articles":[]},"previous":{"title":"面试题","level":"3.1.2","depth":2,"path":"python/interview.md","ref":"python/interview.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ancre-navigation","chapter-fold","code","expandable-chapters","splitter","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"python/dev-env.md","mtime":"2020-02-29T01:24:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:15:52.143Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

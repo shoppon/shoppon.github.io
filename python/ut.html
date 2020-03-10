@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>架构合一 · GitBook</title>
+        <title>单元测试 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="coding-rule.html" />
+    <link rel="next" href="code-isolation.html" />
     
     
-    <link rel="prev" href="../hdrs/asr_data_sync.md" />
+    <link rel="prev" href="dev-env.html" />
     
 
     </head>
@@ -405,9 +405,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.1.1" data-path="../python/perf_analyze.html">
+        <li class="chapter " data-level="3.1.1" data-path="perf_analyze.html">
             
-                <a href="../python/perf_analyze.html">
+                <a href="perf_analyze.html">
             
                     
                         <b>3.1.1.</b>
@@ -420,9 +420,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2" data-path="../python/interview.html">
+        <li class="chapter " data-level="3.1.2" data-path="interview.html">
             
-                <a href="../python/interview.html">
+                <a href="interview.html">
             
                     
                         <b>3.1.2.</b>
@@ -435,9 +435,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.3" data-path="../python/dev-env.html">
+        <li class="chapter " data-level="3.1.3" data-path="dev-env.html">
             
-                <a href="../python/dev-env.html">
+                <a href="dev-env.html">
             
                     
                         <b>3.1.3.</b>
@@ -450,9 +450,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.4" data-path="../python/ut.html">
+        <li class="chapter active" data-level="3.1.4" data-path="ut.html">
             
-                <a href="../python/ut.html">
+                <a href="ut.html">
             
                     
                         <b>3.1.4.</b>
@@ -465,9 +465,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.5" data-path="../python/code-isolation.html">
+        <li class="chapter " data-level="3.1.5" data-path="code-isolation.html">
             
-                <a href="../python/code-isolation.html">
+                <a href="code-isolation.html">
             
                     
                         <b>3.1.5.</b>
@@ -480,9 +480,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.6" data-path="../python/database-lock.html">
+        <li class="chapter " data-level="3.1.6" data-path="database-lock.html">
             
-                <a href="../python/database-lock.html">
+                <a href="database-lock.html">
             
                     
                         <b>3.1.6.</b>
@@ -1012,9 +1012,9 @@
         
         
     
-        <li class="chapter active" data-level="5.1" data-path="unify.html">
+        <li class="chapter " data-level="5.1" data-path="../cbs/unify.html">
             
-                <a href="unify.html">
+                <a href="../cbs/unify.html">
             
                     
                         <b>5.1.</b>
@@ -1027,9 +1027,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="coding-rule.html">
+        <li class="chapter " data-level="5.2" data-path="../cbs/coding-rule.html">
             
-                <a href="coding-rule.html">
+                <a href="../cbs/coding-rule.html">
             
                     
                         <b>5.2.</b>
@@ -1042,9 +1042,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="team-thought.html">
+        <li class="chapter " data-level="5.3" data-path="../cbs/team-thought.html">
             
-                <a href="team-thought.html">
+                <a href="../cbs/team-thought.html">
             
                     
                         <b>5.3.</b>
@@ -1175,7 +1175,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >架构合一</a>
+        <a href=".." >单元测试</a>
     </h1>
 </div>
 
@@ -1190,7 +1190,124 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h2 id="llt&#x539F;&#x5219;"><a name="llt&#x539F;&#x5219;" class="anchor-navigation-ex-anchor" href="#llt&#x539F;&#x5219;"><i class="fa fa-link" aria-hidden="true"></i></a>LLT&#x539F;&#x5219;</h2>
+<h4 id="&#x7528;&#x4F8B;&#x4E00;&#x5B9A;&#x8981;&#x7528;&#x573A;&#x666F;&#x548C;&#x9884;&#x671F;"><a name="&#x7528;&#x4F8B;&#x4E00;&#x5B9A;&#x8981;&#x7528;&#x573A;&#x666F;&#x548C;&#x9884;&#x671F;" class="anchor-navigation-ex-anchor" href="#&#x7528;&#x4F8B;&#x4E00;&#x5B9A;&#x8981;&#x7528;&#x573A;&#x666F;&#x548C;&#x9884;&#x671F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x4F8B;&#x4E00;&#x5B9A;&#x8981;&#x7528;&#x573A;&#x666F;&#x548C;&#x9884;&#x671F;</h4>
+<p>&#x6240;&#x8C13;&#x573A;&#x666F;&#xFF0C;&#x5C31;&#x662F;&#x7528;&#x4F8B;&#x4E00;&#x5B9A;&#x8981;&#x6709;&#x76EE;&#x7684;&#xFF0C;&#x6BD4;&#x5982;&#x68C0;&#x67E5;&#x8C03;&#x7528;cinder&#x7F51;&#x7EDC;&#x5F02;&#x5E38;&#x600E;&#x4E48;&#x5904;&#x7406;&#xFF0C;&#x521B;&#x5EFA;&#x5FEB;&#x7167;&#x5931;&#x8D25;&#x600E;&#x4E48;&#x5904;&#x7406;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_create_backup_status_error</span><span class="hljs-params">(self, factory_mock)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x573A;&#x666F;&#xFF1A;&#x521B;&#x5EFA;&#x5907;&#x4EFD;&#x72B6;&#x6001;&#x4E3A;error
+        &#x9884;&#x671F;&#xFF1A;checkpoint&#x548C;checkpoint item&#x72B6;&#x6001;&#x5747;&#x4E3A;error&#xFF0C;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x975E;&#x7A33;&#x6001;&#x73B0;&#x8C61;
+        &#x4E34;&#x65F6;&#x5FEB;&#x7167;&#x88AB;&#x6E05;&#x7406;&#xFF0C;&#x4E34;&#x65F6;&#x5907;&#x4EFD;&#x88AB;&#x6E05;&#x7406;
+        &#x526F;&#x672C;&#x4E2D;fail_reason&#x4E3A;cinder backup&#x4E2D;&#x7684;fail_reason
+        :return:
+        &quot;&quot;&quot;</span>
+</code></pre>
+<p>&#x6240;&#x8C13;&#x9884;&#x671F;&#xFF0C;&#x5C31;&#x662F;&#x7528;&#x4F8B;&#x4E00;&#x5B9A;&#x8981;&#x6709;<strong>&#x68C0;&#x67E5;&#x70B9;</strong>&#xFF0C;&#x68C0;&#x67E5;&#x70B9;&#x4E00;&#x822C;&#x662F;&#x901A;&#x8FC7;&#x65AD;&#x8A00;&#x6765;&#x8868;&#x8FBE;&#x3002;<strong>&#x7EDD;&#x5BF9;&#x4E0D;&#x5141;&#x8BB8;&#x6CA1;&#x6709;&#x68C0;&#x67E5;&#x70B9;&#x7684;&#x7528;&#x4F8B;</strong>&#xFF0C;&#x4E4B;&#x524D;&#x6574;&#x673A;&#x5907;&#x4EFD;plugin&#x5C31;&#x6709;&#x5F88;&#x591A;&#x8FD9;&#x6837;&#x7684;&#x53CD;&#x4F8B;&#xFF0C;
+&#x5217;&#x4E3E;&#x4E00;&#x4F8B;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test2</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-keyword">try</span>:
+        backup_service.on_main(checkpoint_object,resource_object,context_object,<span class="hljs-keyword">None</span>)
+    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+        self.failIf(plugin_common.PLUGIN_EXCEPTION_STR != e.__str__())
+        <span class="hljs-keyword">return</span>
+    self.failIf(<span class="hljs-keyword">True</span>)
+</code></pre>
+<h3 id="db&#x53EF;&#x4EE5;&#x4E0D;&#x7528;mock&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;sqlite-memory-db&#xFF0C;&#x5FC5;&#x8981;&#x65F6;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;sqlite&#x672C;&#x5730;&#x6570;&#x636E;&#x5E93;&#xFF08;&#x65B9;&#x4FBF;&#x67E5;&#x770B;db&#x6570;&#x636E;&#xFF09;"><a name="db&#x53EF;&#x4EE5;&#x4E0D;&#x7528;mock&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;sqlite-memory-db&#xFF0C;&#x5FC5;&#x8981;&#x65F6;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;sqlite&#x672C;&#x5730;&#x6570;&#x636E;&#x5E93;&#xFF08;&#x65B9;&#x4FBF;&#x67E5;&#x770B;db&#x6570;&#x636E;&#xFF09;" class="anchor-navigation-ex-anchor" href="#db&#x53EF;&#x4EE5;&#x4E0D;&#x7528;mock&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;sqlite-memory-db&#xFF0C;&#x5FC5;&#x8981;&#x65F6;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;sqlite&#x672C;&#x5730;&#x6570;&#x636E;&#x5E93;&#xFF08;&#x65B9;&#x4FBF;&#x67E5;&#x770B;db&#x6570;&#x636E;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>db&#x53EF;&#x4EE5;&#x4E0D;&#x7528;mock&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;sqlite memory db&#xFF0C;&#x5FC5;&#x8981;&#x65F6;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;sqlite&#x672C;&#x5730;&#x6570;&#x636E;&#x5E93;&#xFF08;&#x65B9;&#x4FBF;&#x67E5;&#x770B;db&#x6570;&#x636E;&#xFF09;</h3>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setup_dummy_db</span><span class="hljs-params">()</span>:</span>
+    options.cfg.set_defaults(options.database_opts, sqlite_synchronous=<span class="hljs-keyword">False</span>)
+    CONF.database.connection = <span class="hljs-string">&apos;sqlite:///:memory:&apos;</span>
+    CONF.disable_process_locking = <span class="hljs-keyword">True</span>
+
+    engine = get_engine()
+
+    karbor_migration.db_sync()
+    migration.db_sync(engine)
+    engine = get_engine()
+    engine.connect()
+</code></pre>
+<h2 id="mock&#x539F;&#x5219;"><a name="mock&#x539F;&#x5219;" class="anchor-navigation-ex-anchor" href="#mock&#x539F;&#x5219;"><i class="fa fa-link" aria-hidden="true"></i></a>Mock&#x539F;&#x5219;</h2>
+<h4 id="&#x5982;&#x4F55;&#x786E;&#x5B9A;&#x8981;mock&#x7684;&#x8DEF;&#x5F84;"><a name="&#x5982;&#x4F55;&#x786E;&#x5B9A;&#x8981;mock&#x7684;&#x8DEF;&#x5F84;" class="anchor-navigation-ex-anchor" href="#&#x5982;&#x4F55;&#x786E;&#x5B9A;&#x8981;mock&#x7684;&#x8DEF;&#x5F84;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5982;&#x4F55;&#x786E;&#x5B9A;&#x8981;mock&#x7684;&#x8DEF;&#x5F84;<br></h4>
+<p>&#x603B;&#x7ED3;&#x5C31;&#x4E00;&#x53E5;&#x8BDD;&#xFF1A;<strong>&#x5728;&#x54EA;&#x91CC;&#x5F15;&#x7528;&#x5C31;mock&#x54EA;&#x4E2A;&#x8DEF;&#x5F84;</strong>&#x3002;&#x4E3E;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;<br>
+&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#xFF1A;<code>kangaroo/kangaroo/plugin/volume/backup_operation.py</code><br></p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> karbor.services.protection.client_factory <span class="hljs-keyword">import</span> ClientFactory
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BackupOperation</span><span class="hljs-params">(protection_plugin.Operation)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">on_main</span><span class="hljs-params">(self, checkpoint, resource, context, parameters, **kwargs)</span>:</span>
+        cc = ClientFactory.create_client(<span class="hljs-string">&quot;cinder&quot;</span>, context)
+        snap = cc.volume_snapshots.create(volume_id=volume_id)
+</code></pre>
+<p>&#x5982;&#x679C;&#x60F3;mock <code>ClientFactory</code>&#x5C31;&#x5FC5;&#x987B;<code>mock kangaroo/plugin/volume/backup_operation.ClientFactory</code>&#xFF0C;&#x800C;&#x4E0D;&#x662F;<code>karbor.services.protection.client_factory.ClientFactory</code></p>
+<h4 id="&#x8DE8;&#x670D;&#x52A1;&#x8C03;&#x7528;&#x65F6;mock-client&#xFF0C;&#x56E0;&#x4E3A;llt&#x8FD0;&#x884C;&#x65F6;&#x5468;&#x8FB9;&#x7F51;&#x7EDC;&#x80AF;&#x5B9A;&#x662F;&#x65E0;&#x6CD5;&#x8FDE;&#x901A;&#x7684;&#x3002;"><a name="&#x8DE8;&#x670D;&#x52A1;&#x8C03;&#x7528;&#x65F6;mock-client&#xFF0C;&#x56E0;&#x4E3A;llt&#x8FD0;&#x884C;&#x65F6;&#x5468;&#x8FB9;&#x7F51;&#x7EDC;&#x80AF;&#x5B9A;&#x662F;&#x65E0;&#x6CD5;&#x8FDE;&#x901A;&#x7684;&#x3002;" class="anchor-navigation-ex-anchor" href="#&#x8DE8;&#x670D;&#x52A1;&#x8C03;&#x7528;&#x65F6;mock-client&#xFF0C;&#x56E0;&#x4E3A;llt&#x8FD0;&#x884C;&#x65F6;&#x5468;&#x8FB9;&#x7F51;&#x7EDC;&#x80AF;&#x5B9A;&#x662F;&#x65E0;&#x6CD5;&#x8FDE;&#x901A;&#x7684;&#x3002;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8DE8;&#x670D;&#x52A1;&#x8C03;&#x7528;&#x65F6;mock client&#xFF0C;&#x56E0;&#x4E3A;LLT&#x8FD0;&#x884C;&#x65F6;&#x5468;&#x8FB9;&#x7F51;&#x7EDC;&#x80AF;&#x5B9A;&#x662F;&#x65E0;&#x6CD5;&#x8FDE;&#x901A;&#x7684;&#x3002;</h4>
+<pre><code class="lang-python"><span class="hljs-meta">@mock.patch(&quot;kangaroo.plugin.volume.backup_operation.ClientFactory&quot;)</span>
+</code></pre>
+<h4 id="&#x957F;&#x65F6;&#x95F4;&#x4EFB;&#x52A1;&#x6709;&#x8F6E;&#x8BE2;&#x64CD;&#x4F5C;&#x65F6;&#x4E00;&#x5B9A;&#x8981;&#x5C06;interval-mock&#x6389;&#xFF0C;&#x5426;&#x5219;llt&#x6267;&#x884C;&#x4F1A;&#x5F88;&#x6162;&#x3002;"><a name="&#x957F;&#x65F6;&#x95F4;&#x4EFB;&#x52A1;&#x6709;&#x8F6E;&#x8BE2;&#x64CD;&#x4F5C;&#x65F6;&#x4E00;&#x5B9A;&#x8981;&#x5C06;interval-mock&#x6389;&#xFF0C;&#x5426;&#x5219;llt&#x6267;&#x884C;&#x4F1A;&#x5F88;&#x6162;&#x3002;" class="anchor-navigation-ex-anchor" href="#&#x957F;&#x65F6;&#x95F4;&#x4EFB;&#x52A1;&#x6709;&#x8F6E;&#x8BE2;&#x64CD;&#x4F5C;&#x65F6;&#x4E00;&#x5B9A;&#x8981;&#x5C06;interval-mock&#x6389;&#xFF0C;&#x5426;&#x5219;llt&#x6267;&#x884C;&#x4F1A;&#x5F88;&#x6162;&#x3002;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x957F;&#x65F6;&#x95F4;&#x4EFB;&#x52A1;&#x6709;&#x8F6E;&#x8BE2;&#x64CD;&#x4F5C;&#x65F6;<strong>&#x4E00;&#x5B9A;&#x8981;&#x5C06;<code>interval</code> mock&#x6389;</strong>&#xFF0C;&#x5426;&#x5219;LLT&#x6267;&#x884C;&#x4F1A;&#x5F88;&#x6162;&#x3002;</h4>
+<pre><code class="lang-python"><span class="hljs-meta">@mock.patch(&quot;kangaroo.plugin.volume.backup_operation.POLL_INTERVAL&quot;, 0)</span>
+</code></pre>
+<h4 id="&#x5F02;&#x6B65;&#x6267;&#x884C;&#x65F6;&#x9700;&#x8981;&#x5C06;&#x534F;&#x7A0B;mock&#xFF0C;&#x5E76;&#x4E14;&#x6355;&#x83B7;&#x534F;&#x7A0B;&#x4E2D;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x56E0;&#x4E3A;&#x534F;&#x7A0B;&#x7684;&#x5F02;&#x5E38;&#x5BF9;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E0D;&#x611F;&#x77E5;&#x3002;"><a name="&#x5F02;&#x6B65;&#x6267;&#x884C;&#x65F6;&#x9700;&#x8981;&#x5C06;&#x534F;&#x7A0B;mock&#xFF0C;&#x5E76;&#x4E14;&#x6355;&#x83B7;&#x534F;&#x7A0B;&#x4E2D;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x56E0;&#x4E3A;&#x534F;&#x7A0B;&#x7684;&#x5F02;&#x5E38;&#x5BF9;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E0D;&#x611F;&#x77E5;&#x3002;" class="anchor-navigation-ex-anchor" href="#&#x5F02;&#x6B65;&#x6267;&#x884C;&#x65F6;&#x9700;&#x8981;&#x5C06;&#x534F;&#x7A0B;mock&#xFF0C;&#x5E76;&#x4E14;&#x6355;&#x83B7;&#x534F;&#x7A0B;&#x4E2D;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x56E0;&#x4E3A;&#x534F;&#x7A0B;&#x7684;&#x5F02;&#x5E38;&#x5BF9;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E0D;&#x611F;&#x77E5;&#x3002;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5F02;&#x6B65;&#x6267;&#x884C;&#x65F6;&#x9700;&#x8981;&#x5C06;&#x534F;&#x7A0B;mock&#xFF0C;&#x5E76;&#x4E14;&#x6355;&#x83B7;&#x534F;&#x7A0B;&#x4E2D;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x56E0;&#x4E3A;&#x534F;&#x7A0B;&#x7684;&#x5F02;&#x5E38;&#x5BF9;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E0D;&#x611F;&#x77E5;&#x3002;</h4>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mock_spawn</span><span class="hljs-params">(cls, func, *args, **kwargs)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    mock spawn&#xFF0C;&#x6539;&#x6210;&#x540C;&#x6B65;&#x8C03;&#x7528;
+    :param func:
+    :param args:
+    :param kwargs:
+    :return:
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">try</span>:
+        func(*args)
+    <span class="hljs-keyword">except</span> Exception:
+        <span class="hljs-comment"># &#x534F;&#x7A0B;&#x5F02;&#x5E38;&#x5BF9;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E0D;&#x611F;&#x77E5;</span>
+        <span class="hljs-keyword">pass</span>
+</code></pre>
+<h2 id="mock&#x6280;&#x5DE7;"><a name="mock&#x6280;&#x5DE7;" class="anchor-navigation-ex-anchor" href="#mock&#x6280;&#x5DE7;"><i class="fa fa-link" aria-hidden="true"></i></a>Mock&#x6280;&#x5DE7;</h2>
+<h4 id="&#x57FA;&#x4E8E;&#x7C7B;&#x7684;mock&#x548C;&#x57FA;&#x4E8E;&#x65B9;&#x6CD5;&#x7684;mock&#x7684;&#x533A;&#x522B;"><a name="&#x57FA;&#x4E8E;&#x7C7B;&#x7684;mock&#x548C;&#x57FA;&#x4E8E;&#x65B9;&#x6CD5;&#x7684;mock&#x7684;&#x533A;&#x522B;" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x4E8E;&#x7C7B;&#x7684;mock&#x548C;&#x57FA;&#x4E8E;&#x65B9;&#x6CD5;&#x7684;mock&#x7684;&#x533A;&#x522B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x57FA;&#x4E8E;&#x7C7B;&#x7684;Mock&#x548C;&#x57FA;&#x4E8E;&#x65B9;&#x6CD5;&#x7684;Mock&#x7684;&#x533A;&#x522B;</h4>
+<pre><code class="lang-python"><span class="hljs-meta">@mock.patch(&quot;kangaroo.plugin.volume.backup_copy_operation.INTERVAL&quot;, 0)</span>
+Class TestBackup(BaseTestCase):
+    <span class="hljs-keyword">pass</span>
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-meta">@mock.patch(&quot;kangaroo.plugin.base_operation.wf_client&quot;, mock.MagicMock())</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, *args, **kwargs)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+</code></pre>
+<h4 id="mockmagicmock&#x4F7F;&#x7528;"><a name="mockmagicmock&#x4F7F;&#x7528;" class="anchor-navigation-ex-anchor" href="#mockmagicmock&#x4F7F;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>mock.MagicMock&#x4F7F;&#x7528;</h4>
+<p>MagicMock&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EFB;&#x4F55;&#x5C5E;&#x6027;&#x53BB;&#x8BBF;&#x95EE;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x5B50;Mock&#x5BF9;&#x8C61;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x4EFB;&#x4F55;&#x5C5E;&#x6027;&#x3002;</p>
+<pre><code class="lang-python">fake = mock.MagicMock()
+<span class="hljs-keyword">print</span> fake.a
+<span class="hljs-keyword">print</span> fake.b
+fake.c = object()
+</code></pre>
+<h4 id="&#x4F7F;&#x7528;sideeffect&#x6784;&#x9020;&#x591A;&#x6B21;&#x8C03;&#x7528;&#x4E0D;&#x540C;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;"><a name="&#x4F7F;&#x7528;sideeffect&#x6784;&#x9020;&#x591A;&#x6B21;&#x8C03;&#x7528;&#x4E0D;&#x540C;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;sideeffect&#x6784;&#x9020;&#x591A;&#x6B21;&#x8C03;&#x7528;&#x4E0D;&#x540C;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528;side_effect&#x6784;&#x9020;&#x591A;&#x6B21;&#x8C03;&#x7528;&#x4E0D;&#x540C;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</h4>
+<p>&#x5728;LLT&#x4E2D;&#xFF0C;&#x7ECF;&#x5E38;&#x9047;&#x5230;&#x9700;&#x8981;&#x6784;&#x9020;&#x540C;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x591A;&#x6B21;&#x8BF7;&#x6C42;&#x8FD4;&#x56DE;&#x4E0D;&#x540C;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;side_effect&#x5C31;&#x80FD;&#x6D3E;&#x4E0A;&#x7528;&#x573A;&#x4E86;&#x3002;</p>
+<pre><code class="lang-python">client_mock.backups.get.side_effect = [Backup(status=<span class="hljs-string">&apos;creating&apos;</span>),
+                                       Backup(status=<span class="hljs-string">&apos;error&apos;</span>),
+                                       Backup(status=<span class="hljs-string">&apos;error&apos;</span>)]
+</code></pre>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x6A21;&#x62DF;&#x4E86;cinder backup&#x8C03;&#x7528;&#x6BCF;&#x6B21;&#x8FD4;&#x56DE;&#x4E0D;&#x540C;&#x7684;&#x72B6;&#x6001;&#x3002;</p>
+<h4 id="&#x4F7F;&#x7528;assertcalledwith&#x3001;assertcalledwith&#x3001;assertnotcalled&#x7B49;&#x65AD;&#x8A00;&#x4EE3;&#x7801;&#x662F;&#x5426;&#x88AB;&#x8C03;&#x7528;&#x3002;"><a name="&#x4F7F;&#x7528;assertcalledwith&#x3001;assertcalledwith&#x3001;assertnotcalled&#x7B49;&#x65AD;&#x8A00;&#x4EE3;&#x7801;&#x662F;&#x5426;&#x88AB;&#x8C03;&#x7528;&#x3002;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;assertcalledwith&#x3001;assertcalledwith&#x3001;assertnotcalled&#x7B49;&#x65AD;&#x8A00;&#x4EE3;&#x7801;&#x662F;&#x5426;&#x88AB;&#x8C03;&#x7528;&#x3002;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528;<code>assert_called_with</code>&#x3001;<code>assert_called_with</code>&#x3001;<code>assert_not_called</code>&#x7B49;&#x65AD;&#x8A00;&#x4EE3;&#x7801;&#x662F;&#x5426;&#x88AB;&#x8C03;&#x7528;&#x3002;</h4>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x65AD;&#x8A00;&#x5FEB;&#x7167;&#x88AB;&#x6E05;&#x7406;</span>
+client_mock.volume_snapshots.delete.assert_called_once_with(
+    snapshot=<span class="hljs-string">&apos;fake_snapshot_id&apos;</span>)
+<span class="hljs-comment"># &#x65AD;&#x8A00;&#x5931;&#x8D25;&#x526F;&#x672C;&#x88AB;&#x6E05;&#x7406;</span>
+client_mock.backups.delete.assert_called_once_with(
+    backup=<span class="hljs-string">&apos;fake_backup_id1&apos;</span>)
+</code></pre>
+<h2 id="llt&#x4E2D;&#x65E0;&#x6CD5;mock&#x7684;&#x5751;"><a name="llt&#x4E2D;&#x65E0;&#x6CD5;mock&#x7684;&#x5751;" class="anchor-navigation-ex-anchor" href="#llt&#x4E2D;&#x65E0;&#x6CD5;mock&#x7684;&#x5751;"><i class="fa fa-link" aria-hidden="true"></i></a>LLT&#x4E2D;&#x65E0;&#x6CD5;mock&#x7684;&#x5751;</h2>
+<h4 id="sqlite&#x529F;&#x80FD;&#x4E0D;&#x5168;"><a name="sqlite&#x529F;&#x80FD;&#x4E0D;&#x5168;" class="anchor-navigation-ex-anchor" href="#sqlite&#x529F;&#x80FD;&#x4E0D;&#x5168;"><i class="fa fa-link" aria-hidden="true"></i></a>sqlite&#x529F;&#x80FD;&#x4E0D;&#x5168;</h4>
+<p>LLT&#x8FD0;&#x884C;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x65F6;sqlite memory db&#xFF0C;&#x53D7;&#x9650;&#x4E8E;sqlite&#x529F;&#x80FD;&#x7EA6;&#x675F;&#xFF0C;&#x6709;&#x4E9B;mock&#x65E0;&#x6CD5;&#x5B9E;&#x73B0;&#x3002;&#x5305;&#x62EC;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x5916;&#x952E;&#x7EA6;&#x675F;&#x65E0;&#x6CD5;mock&#xFF1A;&#x5916;&#x952E;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#x4E5F;&#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x3002;</li>
+<li>&#x5B57;&#x6BB5;&#x957F;&#x5EA6;&#x65E0;&#x9650;&#x9650;&#x5236;&#xFF1A;sqlite&#x5B57;&#x6BB5;&#x8D85;&#x8FC7;&#x5217;&#x957F;&#x5EA6;&#x5B9A;&#x4E49;&#x4E5F;&#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x3002;</li>
+<li>&#x7EA7;&#x8054;&#x5220;&#x9664;&#x65E0;&#x6CD5;&#x9650;&#x5236;&#xFF1A;sqlite&#x5F53;&#x8BB0;&#x5F55;&#x6709;&#x88AB;&#x5176;&#x4ED6;&#x8868;&#x5916;&#x952E;&#x5F15;&#x7528;&#x65F6;&#x4E5F;&#x53EF;&#x4EE5;&#x5220;&#x9664;&#x3002;</li>
+</ul>
+<h4 id="&#x5728;llt&#x4EE3;&#x7801;&#x4E2D;&#x4E0D;&#x80FD;&#x4FEE;&#x6539;&#x5168;&#x5C40;&#x7684;&#x53D8;&#x91CF;"><a name="&#x5728;llt&#x4EE3;&#x7801;&#x4E2D;&#x4E0D;&#x80FD;&#x4FEE;&#x6539;&#x5168;&#x5C40;&#x7684;&#x53D8;&#x91CF;" class="anchor-navigation-ex-anchor" href="#&#x5728;llt&#x4EE3;&#x7801;&#x4E2D;&#x4E0D;&#x80FD;&#x4FEE;&#x6539;&#x5168;&#x5C40;&#x7684;&#x53D8;&#x91CF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5728;LLT&#x4EE3;&#x7801;&#x4E2D;&#x4E0D;&#x80FD;&#x4FEE;&#x6539;&#x5168;&#x5C40;&#x7684;&#x53D8;&#x91CF;</h4>
+<p>&#x5728;LLT&#x4E2D;&#x4E0D;&#x80FD;&#x4FEE;&#x6539;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x5F71;&#x54CD;&#x5176;&#x4ED6;LLT&#x7684;&#x8FD0;&#x884C;&#x3002;&#x4F8B;&#x4E3E;&#x4E24;&#x4F8B;&#xFF0C;<code>test_karbor_config_az.py</code>&#x7528;&#x4F8B;&#x4F1A;&#x6A21;&#x62DF;&#x4FEE;&#x6539;AZ&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x4FEE;&#x6539;&#x4E86;&#x5168;&#x5C40;&#x7684;AZ&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#xFF0C;&#x4ECE;&#x800C;&#x5BFC;&#x81F4;&#x5176;&#x4ED6;&#x7528;&#x4F8B;&#x56E0;&#x4E3A;AZ&#x68C0;&#x67E5;&#x4E0D;&#x901A;&#x8FC7;&#x4E86;&#x5931;&#x8D25;&#x3002;</p>
+<p>&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x516C;&#x6709;&#x4E91;&#x3001;&#x79C1;&#x6709;&#x4E91;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;&#x79C1;&#x6709;&#x4E91;&#xFF0C;&#x5E76;&#x4E14;&#x5728;BaseTestCase&#x7684;tearDown&#x4E2D;&#x4F1A;&#x7F6E;&#x4E3A;&#x79C1;&#x6709;&#x4E91;&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#x6D4B;&#x8BD5;&#x516C;&#x6709;&#x4E91;&#x573A;&#x666F;&#xFF0C;&#x9700;&#x8981;&#x624B;&#x52A8;&#x6253;&#x5F00;&#x5F00;&#x5173;&#x3002;</p>
+<h4 id="&#x4E0D;&#x80FD;&#x5728;llt&#x4E2D;&#x4FEE;&#x6539;module"><a name="&#x4E0D;&#x80FD;&#x5728;llt&#x4E2D;&#x4FEE;&#x6539;module" class="anchor-navigation-ex-anchor" href="#&#x4E0D;&#x80FD;&#x5728;llt&#x4E2D;&#x4FEE;&#x6539;module"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E0D;&#x80FD;&#x5728;LLT&#x4E2D;&#x4FEE;&#x6539;module</h4>
+<p>Python&#x7684;module&#x4E5F;&#x662F;&#x5168;&#x5C40;&#x7684;&#xFF0C;&#x6240;&#x6709;&#x7528;&#x4F8B;&#x90FD;&#x662F;&#x5171;&#x7528;&#x4E00;&#x4E2A;Module&#xFF0C;&#x56E0;&#x6B64;&#x7981;&#x6B62;&#x5728;LLT&#x5728;&#x4FEE;&#x6539;Module&#x3002;&#x53CD;&#x800C;&#x6559;&#x6750;&#xFF1A;</p>
+<pre><code class="lang-python">ClientFactory.create_client = mock.Mock(
+            side_effect=create_client)
+        cinder.create = mock.Mock(side_effect=client)
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x4F1A;&#x5BFC;&#x81F4;&#x540E;&#x9762;&#x5F15;&#x7528;ClientFactory&#x7684;&#x7528;&#x4F8B;&#x5931;&#x8D25;&#x3002;</p>
+
                                 
                                 </section>
                             
@@ -1217,12 +1334,12 @@
 
             
                 
-                <a href="../hdrs/asr_data_sync.md" class="navigation navigation-prev " aria-label="Previous page: ASR数据同步">
+                <a href="dev-env.html" class="navigation navigation-prev " aria-label="Previous page: openstack本地调式环境搭建">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="coding-rule.html" class="navigation navigation-next " aria-label="Next page: 编程规范">
+                <a href="code-isolation.html" class="navigation navigation-next " aria-label="Next page: 代码隔离">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1233,7 +1350,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"架构合一","level":"5.1","depth":1,"next":{"title":"编程规范","level":"5.2","depth":1,"path":"cbs/coding-rule.md","ref":"cbs/coding-rule.md","articles":[]},"previous":{"title":"ASR数据同步","level":"4.5.1","depth":2,"path":"hdrs/asr_data_sync.md","ref":"hdrs/asr_data_sync.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ancre-navigation","chapter-fold","code","expandable-chapters","splitter","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cbs/unify.md","mtime":"2020-02-28T09:12:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:15:52.143Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"单元测试","layout":"post","level":"3.1.4","depth":2,"next":{"title":"代码隔离","level":"3.1.5","depth":2,"path":"python/code-isolation.md","ref":"python/code-isolation.md","articles":[]},"previous":{"title":"openstack本地调式环境搭建","level":"3.1.3","depth":2,"path":"python/dev-env.md","ref":"python/dev-env.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ancre-navigation","chapter-fold","code","expandable-chapters","splitter","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"python/ut.md","mtime":"2020-02-28T09:45:13.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-29T01:15:52.143Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
