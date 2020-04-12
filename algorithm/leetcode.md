@@ -334,3 +334,7 @@ ABCABCABCABCDXXDXXD
 
 - [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)
 
+- [351. 安卓系统手势解锁](https://leetcode-cn.com/problems/android-unlock-patterns/)
+
+# 难题
+
