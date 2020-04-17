@@ -348,5 +348,13 @@ ABCABCABCABCDXXDXXD
 
 - [351. 安卓系统手势解锁](https://leetcode-cn.com/problems/android-unlock-patterns/)
 
+- 1186
+
+- 1011
+
+- 241
+
+- 499 
+
 # 难题
 
