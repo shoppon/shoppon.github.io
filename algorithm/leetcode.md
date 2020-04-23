@@ -120,6 +120,10 @@ wordDict = ["cat", "cats", "and", "sand", "dog"]
 1. **当前元素**是**右边**第一个比其小的元素。
 2. **栈顶元素**是**左边**第一个比其小的元素。
 
+### [315. 计算右侧小于当前元素的个数](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/)
+
+例如`[3, 10, 6, 7, 5, 9, 1]`，如果从右到左维护一个单调栈。
+
 ### [631. 设计 Excel 求和公式](https://leetcode-cn.com/problems/design-excel-sum-formula/)
 
 难点应该在于修改了值之后如何联动。。。并且公式嵌套时如何联动。。
@@ -349,22 +353,14 @@ ABCABCABCABCDXXDXXD
 # 待做列表
 
 - [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)
-
 - [351. 安卓系统手势解锁](https://leetcode-cn.com/problems/android-unlock-patterns/)
-
-- 1186
-
 - 1011
-
 - 241
-
 - 499 
-
 - 174
-
 - 84
-
 - 319
+- 631
 
 # 难题
 
