@@ -3,7 +3,7 @@
 ## 总章
 
 - [概述](README.md)
-- [关于我]()
+- [关于我](about.md)
 
 ## 开发环境
 
@@ -28,9 +28,10 @@
 
 - python
   - [性能分析](python/perf_analyze.md)
-  - [面试题](python/interview.md)
+  - [我的面试题](python/interview.md)
   - [openstack本地调式环境搭建](python/dev-env.md)
   - [单元测试](python/ut.md)
+  - [高级主题](python/advanced_topics.md)
   - [代码隔离](python/code-isolation.md)
   - [数据库锁](python/database-lock.md)
 - c++
@@ -50,26 +51,20 @@
 
 ## 混合云容灾
 
-- [OMA架构](hdrs/architecture.md)
-
 - 方案设计
   - [磁盘ID生成](hdrs/disk_id.md)
   - [Dataset并发传输](hdrs/concurrent_send.md)
-  - [DGW集成](hdrs/dgw_integrate.md)
-  - [性能监控](hdrs/perf_collect.md)
   - [V2C](hdrs/v2c.md)
-  
 - 工具
   - [DPP Python调试命令行使用](hdrs/debug_client.md)
-  
 - 总结
+  - [OMA架构](hdrs/architecture.md)
   - [代码结构](hdrs/code_structure.md)
   - [控制类图](hdrs/control_diagram.md)
   - [数据流图](hdrs/data_diagram.md)
   - [调度框架](hdrs/schedule_frame.md)
   - [bitmap位图](hdrs/bitmap.md)
   - [DPP消息流](hdrs/dpp.md)
-  
 - 竞争分析
   - [ASR数据同步](hdrs/asr_data_sync.md)
 
