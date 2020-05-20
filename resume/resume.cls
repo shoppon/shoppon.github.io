@@ -72,7 +72,7 @@
 
 
 \colorlet{textcolor}{gray}
-\colorlet{headercolor}{gray}
+\colorlet{headercolor}{cerulean}
 
 %%%%%%%%%%%%%%%%
 % Profile left SideBar %
@@ -233,7 +233,7 @@
   {%
     \LARGE 
     \color{headercolor}%
-    \@sectioncolor #1%
+    #1
   }
   \par\vspace{\parskip}
 }
