@@ -99,21 +99,18 @@
 \newcommand{\cvaddress}[1]{\renewcommand{\givencvaddress}{#1}}
 \newcommand{\cvsite}[1]{\renewcommand{\givencvsite}{#1}}
 \newcommand{\aboutme}[1]{\renewcommand{\givenaboutme}{  \justifying#1}}
-\newcommand{\profilepic}[1]{\renewcommand{\givenprofilepic}{#1}}
 \newcommand{\cvname}[1]{\renewcommand{\givencvname}{#1}}
 \newcommand{\cvjobtitle}[1]{\renewcommand{\givencvjobtitle}{#1}}
 
 \newcommand{\givencvname}{REQUIRED!}
 \newcommand{\givencvdate}{}
-\newcommand{\givencvmail}{}
 \newcommand{\givencvweixin}{}
+\newcommand{\givencvmail}{}
 \newcommand{\givennumberphone}{}
 \newcommand{\givencvaddress}{} 
 \newcommand{\givenaboutme}{}
-\newcommand{\givenprofilepic}{}
 \newcommand{\givencvsite}{}
 \newcommand{\givencvjobtitle}{}
-
 
 \newcommand*\icon[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=1pt, fill=mainblue,mainblue,text=white] (char) {#1};}}
@@ -122,7 +119,6 @@
     text height=3.6mm,  fill=#2,#2,text=white](char){#1} ;}
 
 \newcommand\skills[1]{ 
-
 \renewcommand{\givenskill}{
 \noindent
 \begin{tikzpicture}
@@ -142,12 +138,12 @@
   }
 }
 \end{tikzpicture}
-}
-}
+} % end givenskill
+} %end skills
+
 \newcommand{\givenskill}{}
 
 \newcommand\skillstext[1]{ 
-
 \renewcommand{\giventextskill}{
 \begin{flushleft}
 \noindent
@@ -156,11 +152,24 @@
 \x$ \star $\y
 }
 \end{flushleft}
+} %end \giventextskill
+}   %end \skillstext
+
+\newcommand{\giventextskill}{}
+
+
+\newcommand{\cvqrcode}[2]{
+\renewcommand{\givencvqrcode}{
+\Large
+\begin{flushleft}
+#1\\
+\end{flushleft}
+\qrcode[hyperlink,height=2.4in]{#2}
 }
 }
 
-\newcommand{\giventextskill}{}
-  
+\newcommand{\givencvqrcode}{}
+
 \newcommand{\makeprofile}
 {
 \begin{tikzpicture}[remember picture,overlay]
@@ -171,13 +180,6 @@
 \begin{flushleft}
 \hspace{13pt}
 
-
-\ifthenelse{\equal{\givenprofilepic}{}}{}{\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
-    \clip (600/2, 567/2) circle (567/2);
-
-        \node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{\givenprofilepic}};
-\end{tikzpicture}}
-
 {\Huge\color{mainblue}\givencvname}
 
 \begin{flushright}
@@ -185,18 +187,23 @@
 \end{flushright}
 \renewcommand{\arraystretch}{1.6}
 \begin{tabular}{p{0.5cm} @{\hskip 0.5cm}p{5cm}}
-\ifthenelse{\equal{\givencvdate}{}}{}{\textsc{\Large\icon{\Info}} & \givencvdate\\}
-\ifthenelse{\equal{\givencvaddress}{}}{}{\textsc{\Large\icon{\faHome}} & \givencvaddress\\}
-\ifthenelse{\equal{\givennumberphone}{}}{}{\textsc{\Large\icon{\faPhone}} & \givennumberphone\\}
-\ifthenelse{\equal{\givencvweixin}{}}{}{\textsc{\icon{\faWeixin}} & \givencvweixin\\}
-\ifthenelse{\equal{\givencvsite}{}}{}{\textsc{\Large\icon{\faGithub}} & \href{\givencvsite}{\textcolor{cerulean}\givencvsite}\\}
-\ifthenelse{\equal{\givencvmail}{}}{}{\textsc{\large\icon{@}} & \href{mailto:\givencvmail}{\givencvmail}}
-\end{tabular}
 
+\ifthenelse{\equal{\givencvdate}{}}{}{\textsc{\Large\icon{\Info}} & \givencvdate\\}
+
+\ifthenelse{\equal{\givencvaddress}{}}{}{\textsc{\Large\icon{\faHome}} & \givencvaddress\\}
+
+\ifthenelse{\equal{\givennumberphone}{}}{}{\textsc{\Large\icon{\faPhone}} & \givennumberphone\\}
+
+\ifthenelse{\equal{\givencvweixin}{}}{}{\textsc{\icon{\faWeixin}} & \givencvweixin\\}
+
+\ifthenelse{\equal{\givencvsite}{}}{}{\textsc{\Large\icon{\faGithub}} & \href{\givencvsite}{\textcolor{cerulean}\givencvsite}\\}
+
+\ifthenelse{\equal{\givencvmail}{}}{}{\textsc{\large\icon{@}} & \href{mailto:\givencvmail}{\givencvmail}}
+
+\end{tabular}
 
 \profilesection{个人信息}{3.2cm}
 \givenaboutme
-
 
 \profilesection{技能列表}{3.2cm}
 \givenskill
@@ -204,11 +211,13 @@
 \noindent
 \scriptsize
 \noindent
+
+\givencvqrcode
+
 \end{flushleft}
 \end{textblock}
 \vspace{-10pt}
  }
-
 
 %%%%%%%%%%%%%%%%
 % Section Color box %

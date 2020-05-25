@@ -37,11 +37,14 @@
 - c++
   - [c/c++基础](c++/base.md)
   - [gtest单元测试](c++/ut.md)
-- javascript
-- shell
+- linux
   - [正则表达式](linux/regex.md)
-  - [syslog](linux/log.md)
-  - [常用命令及其用法举例](linux/shell.md)
+  - [日志](linux/log.md)
+  - [shell编程](linux/shell.md)
+  - [二进制分析](linux/binary.md)
+  - [磁盘管理](linux/disk.md)
+  - [网络相关](linux/network.md)
+  - [安全](linux/security.md)
 - 算法
   - [leetcode题解](algorithm/leetcode.md)
 - 数据库
@@ -75,6 +78,14 @@
 - [架构合一](cbs/unify.md)
 - [编程规范](cbs/coding-rule.md)
 - [运作思考](cbs/team-thought.md)
+
+---
+
+## 架构与设计
+
+- [可信设计](arch/design.md)
+- [重构](arch/refactor.md)
+- [安全架构](arch/security.md)
 
 ---
 
