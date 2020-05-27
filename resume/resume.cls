@@ -31,21 +31,16 @@
 \ProcessOptions\relax
 \ifbool{icon}{\RequirePackage{fontawesome}}{}
 
-
 \usetikzlibrary{calc}
-
 
 %%%%%%%%%%
 % Colors %
 %%%%%%%%%%
-
 \definecolor{white}{RGB}{255,255,255}
-
 \definecolor{darkgray}{HTML}{333333}
 \definecolor{gray}{HTML}{4D4D4D}
 \definecolor{sidecolor}{HTML}{E7E7E7}
 \definecolor{lightgray}{HTML}{999999}
-
 \definecolor{green}{HTML}{C2E15F}
 \definecolor{orange}{HTML}{FDA333}
 \definecolor{purple}{HTML}{D3A4F9}
@@ -70,14 +65,11 @@
   \colorlet{asidecolor}{sidecolor}
 \fi
 
-
 \colorlet{textcolor}{gray}
 \colorlet{headercolor}{cerulean}
-
 %%%%%%%%%%%%%%%%
 % Profile left SideBar %
 %%%%%%%%%%%%%%%%
-
 \setlength{\TPHorizModule}{1cm}
 \setlength{\TPVertModule}{1cm}
 
@@ -89,7 +81,7 @@
 \pgfmathsetlength{\imagescale}{\imagewidth/600}%
 
 
-\newcommand{\profilesection}[2]{{\noindent\color{black!80} \huge #1 \rule[0.15\baselineskip]{#2}{1pt} \vspace{1pt}}}
+\newcommand{\profilesection}[2]{{\noindent\color{black!80} \huge #1 \rule[0.15\baselineskip]{#2}{1pt} \vspace{0pt}}}
 
 
 \newcommand{\cvdate}[1]{\renewcommand{\givencvdate}{#1}}
@@ -185,8 +177,8 @@
 \begin{flushright}
 {\Large\color{black!80}\givencvjobtitle}
 \end{flushright}
-\renewcommand{\arraystretch}{1.6}
-\begin{tabular}{p{0.5cm} @{\hskip 0.5cm}p{5cm}}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{0.45cm} @{\hskip 0.45cm}p{5cm}}
 
 \ifthenelse{\equal{\givencvdate}{}}{}{\textsc{\Large\icon{\Info}} & \givencvdate\\}
 
@@ -196,9 +188,9 @@
 
 \ifthenelse{\equal{\givencvweixin}{}}{}{\textsc{\icon{\faWeixin}} & \givencvweixin\\}
 
-\ifthenelse{\equal{\givencvsite}{}}{}{\textsc{\Large\icon{\faGithub}} & \href{\givencvsite}{\textcolor{cerulean}\givencvsite}\\}
+\ifthenelse{\equal{\givencvmail}{}}{}{\textsc{\large\icon{@}} & \href{mailto:\givencvmail}{\givencvmail}\\}
 
-\ifthenelse{\equal{\givencvmail}{}}{}{\textsc{\large\icon{@}} & \href{mailto:\givencvmail}{\givencvmail}}
+\ifthenelse{\equal{\givencvsite}{}}{}{\textsc{\Large\icon{\faGithub}} & \href{\givencvsite}{\textcolor{cerulean}\givencvsite}\\}
 
 \end{tabular}
 
@@ -273,21 +265,20 @@
 %%%%%%%%%%%%%%%%%%%%
 % List twenty environment %
 %%%%%%%%%%%%%%%%%%%%
-
 \setlength{\tabcolsep}{0pt}
-\newenvironment{twenty}{%
+\newenvironment{twenty}{
   
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
-}{%
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+}{
   \end{tabular*}
 }
 \renewcommand{\bfseries}{\color{headercolor}}
-\newcommand{\twentyitem}[4]{%
-  \hspace{5pt}#1&\parbox[t]{10.4cm}{%
-    \textbf{#2}%
-    \hfill%
-    {\footnotesize#3}\\%
-    #4\vspace{\parsep}%
+\newcommand{\twentyitem}[4]{
+  \hspace{5pt}#1&\parbox[t]{10.4cm}{
+    \textbf{#2}
+    \hfill
+    {\footnotesize\normalsize#3}\\
+    \normalsize{#4}\vspace{\parsep}
   }\\}
 
 \setlength{\tabcolsep}{0pt}
