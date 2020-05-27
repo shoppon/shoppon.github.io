@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>shell编程 · GitBook</title>
+        <title>磁盘管理 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="binary.html" />
+    <link rel="next" href="network.html" />
     
     
-    <link rel="prev" href="log.html" />
+    <link rel="prev" href="binary.html" />
     
 
     </head>
@@ -612,7 +612,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.3.3" data-path="shell.html">
+        <li class="chapter " data-level="3.3.3" data-path="shell.html">
             
                 <a href="shell.html">
             
@@ -642,7 +642,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3.5" data-path="disk.html">
+        <li class="chapter active" data-level="3.3.5" data-path="disk.html">
             
                 <a href="disk.html">
             
@@ -1169,7 +1169,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >shell编程</a>
+        <a href=".." >磁盘管理</a>
     </h1>
 </div>
 
@@ -1184,64 +1184,57 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#shell&#x7F16;&#x7A0B;"><b></b>Shell&#x7F16;&#x7A0B;</a></li><ul><li><span class="title-icon "></span><a href="#&#x57FA;&#x7840;"><b></b>&#x57FA;&#x7840;</a></li><li><span class="title-icon "></span><a href="#&#x53C2;&#x6570;"><b></b>&#x53C2;&#x6570;</a></li><li><span class="title-icon "></span><a href="#&#x6570;&#x636E;&#x7ED3;&#x6784;"><b></b>&#x6570;&#x636E;&#x7ED3;&#x6784;</a></li><ul><li><span class="title-icon "></span><a href="#map"><b></b>map</a></li></ul><li><span class="title-icon "></span><a href="#&#x63A7;&#x5236;"><b></b>&#x63A7;&#x5236;</a></li><ul><li><span class="title-icon "></span><a href="#for&#x5FAA;&#x73AF;"><b></b>for&#x5FAA;&#x73AF;</a></li><li><span class="title-icon "></span><a href="#if"><b></b>if</a></li></ul><li><span class="title-icon "></span><a href="#&#x5E38;&#x7528;"><b></b>&#x5E38;&#x7528;</a></li><ul><li><span class="title-icon "></span><a href="#&#x5176;&#x4ED6;"><b></b>&#x5176;&#x4ED6;</a></li><li><span class="title-icon "></span><a href="#&#x83B7;&#x53D6;&#x811A;&#x672C;&#x8DEF;&#x5F84;"><b></b>&#x83B7;&#x53D6;&#x811A;&#x672C;&#x8DEF;&#x5F84;</a></li></ul><li><span class="title-icon "></span><a href="#sed"><b></b>sed</a></li><li><span class="title-icon "></span><a href="#awk"><b></b>awk</a></li><ul><li><span class="title-icon "></span><a href="#grep"><b></b>grep</a></li><li><span class="title-icon "></span><a href="#cut"><b></b>cut</a></li></ul></ul></ul></div><a href="#shell&#x7F16;&#x7A0B;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="shell&#x7F16;&#x7A0B;"><a name="shell&#x7F16;&#x7A0B;" class="anchor-navigation-ex-anchor" href="#shell&#x7F16;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>Shell&#x7F16;&#x7A0B;</h1>
-<h2 id="&#x57FA;&#x7840;"><a name="&#x57FA;&#x7840;" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x7840;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x57FA;&#x7840;</h2>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x78C1;&#x76D8;&#x76F8;&#x5173;"><b></b>&#x78C1;&#x76D8;&#x76F8;&#x5173;</a></li><ul><li><span class="title-icon "></span><a href="#&#x6982;&#x5FF5;"><b></b>&#x6982;&#x5FF5;</a></li><ul><li><span class="title-icon "></span><a href="#&#x78C1;&#x76D8;"><b></b>&#x78C1;&#x76D8;</a></li><li><span class="title-icon "></span><a href="#&#x6247;&#x533A;"><b></b>&#x6247;&#x533A;</a></li><li><span class="title-icon "></span><a href="#&#x5206;&#x533A;"><b></b>&#x5206;&#x533A;</a></li><li><span class="title-icon "></span><a href="#&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;"><b></b>&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</a></li><li><span class="title-icon "></span><a href="#inode"><b></b>iNode</a></li><li><span class="title-icon "></span><a href="#superblock"><b></b>Superblock</a></li><li><span class="title-icon "></span><a href="#block"><b></b>block</a></li></ul><li><span class="title-icon "></span><a href="#lvm"><b></b>LVM</a></li><li><span class="title-icon "></span><a href="#fio"><b></b>FIO</a></li><ul><li><span class="title-icon "></span><a href="#dd"><b></b>dd</a></li><li><span class="title-icon "></span><a href="#hexdump"><b></b>hexdump</a></li><li><span class="title-icon "></span><a href="#iostat"><b></b>iostat</a></li><li><span class="title-icon "></span><a href="#&#x5237;&#x76D8;"><b></b>&#x5237;&#x76D8;</a></li></ul></ul></ul></div><a href="#&#x78C1;&#x76D8;&#x76F8;&#x5173;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x78C1;&#x76D8;&#x76F8;&#x5173;"><a name="&#x78C1;&#x76D8;&#x76F8;&#x5173;" class="anchor-navigation-ex-anchor" href="#&#x78C1;&#x76D8;&#x76F8;&#x5173;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x78C1;&#x76D8;&#x76F8;&#x5173;</h1>
+<h2 id="&#x6982;&#x5FF5;"><a name="&#x6982;&#x5FF5;" class="anchor-navigation-ex-anchor" href="#&#x6982;&#x5FF5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6982;&#x5FF5;</h2>
+<h3 id="&#x78C1;&#x76D8;"><a name="&#x78C1;&#x76D8;" class="anchor-navigation-ex-anchor" href="#&#x78C1;&#x76D8;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x78C1;&#x76D8;</h3>
 <ul>
-<li>&#x5728;&#x6587;&#x4EF6;&#x5F00;&#x5934;&#x58F0;&#x660E;&#x4F7F;&#x7528;&#x7684;&#x89E3;&#x91CA;&#x5668;&#xFF1A;<code>#!/bin/bash</code></li>
-<li>&#x8BBE;&#x7F6E;&#x4E0D;&#x5141;&#x8BB8;&#x51FA;&#x9519;&#xFF1A;<code>set -e</code></li>
-<li>&#x8BBE;&#x7F6E;&#x6253;&#x5370;&#x8F93;&#x51FA;&#xFF1A;<code>set -x</code></li>
+<li>SCSI&#x3001;SATA&#x3001;U&#x76D8;&#x3001;Flash&#x7C7B;&#x578B;&#x7684;&#x78C1;&#x76D8;&#xFF1A;/dev/sdx&#xFF0C;&#x6700;&#x591A;11&#xFF08;5&#x5230;15&#xFF09;&#xFF1F;</li>
+<li>IDE&#x7C7B;&#x578B;&#x7684;&#x78C1;&#x76D8;&#xFF1A;/dev/hdx&#xFF0C;&#x6700;&#x591A;59&#xFF08;5&#x5230;63&#xFF09;&#xFF1F;</li>
+<li>VHD&#x7C7B;&#x578B;&#x7684;&#x78C1;&#x76D8;&#xFF1A;/dev/vdx&#xFF0C;&#x6700;&#x591A;20&#xFF1F;</li>
+<li>&#x865A;&#x62DF;&#x5316;XEN&#xFF1A;/dev/xvdx</li>
 </ul>
-<h2 id="&#x53C2;&#x6570;"><a name="&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53C2;&#x6570;</h2>
-<p>&#x901A;&#x8FC7;<code>getopts</code>&#x83B7;&#x53D6;&#x53C2;&#x6570;</p>
-<pre><code class="lang-shell">while getopts &apos;:u&apos; OPT; do
-    case $OPT in
-    u)
-        echo &quot;Upgrade.&quot;
-        ;;
-    ?)
-        echo &quot;Usage: -u upgrade&quot;
-        exit 1
-        ;;
-    esac
-done
-shift $(($OPTIND - 1))
+<h3 id="&#x6247;&#x533A;"><a name="&#x6247;&#x533A;" class="anchor-navigation-ex-anchor" href="#&#x6247;&#x533A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6247;&#x533A;</h3>
+<p>&#x6700;&#x5C0F;&#x7684;&#x7269;&#x7406;&#x50A8;&#x5B58;&#x5355;&#x5143;&#xFF0C;&#x6BCF;&#x4E2A;&#x6247;&#x533A;512Bytes&#x3002;&#x6BCF;&#x4E00;&#x4E2A;&#x6247;&#x533A;&#x4E2D;&#x5305;&#x62EC;<strong>&#x4E3B;&#x542F;&#x52A8;&#x533A;</strong>&#xFF08;Master boot record, MBR, 446 Bytes&#xFF09;&#x548C;<strong>&#x5206;&#x5272;&#x8868;</strong>&#xFF08;partition table&#xFF0C;64 Bytes&#xFF09;&#x3002;&#x8FD8;&#x6709;2 Bytes&#x5462;&#xFF1F;</p>
+<h3 id="&#x5206;&#x533A;"><a name="&#x5206;&#x533A;" class="anchor-navigation-ex-anchor" href="#&#x5206;&#x533A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5206;&#x533A;</h3>
+<p>&#x5BF9;&#x78C1;&#x76D8;&#x8FDB;&#x884C;&#x5206;&#x5272;&#xFF0C;&#x4EE5;&#x683C;&#x5F0F;/dev/hdxn(/dev/hda1)&#x8FDB;&#x884C;&#x7F16;&#x53F7;&#xFF0C;&#x65E5;&#x5FD7;&#x5206;&#x533A;&#x3001;&#x7528;&#x6237;&#x5206;&#x533A;</p>
+<p>&#x4E3B;&#x5206;&#x533A;&#xFF1A;&#x6BCF;&#x4E2A;&#x786C;&#x76D8;&#x8BBE;&#x5907;&#x6700;&#x591A;4&#x4E2A;&#x4E3B;&#x5206;&#x533A;&#xFF0C;&#x7528;&#x6765;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x542F;&#x52A8;</p>
+<p>&#x6269;&#x5C55;&#x5206;&#x533A;</p>
+<p>&#x903B;&#x8F91;&#x5206;&#x533A;</p>
+<h3 id="&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;"><a name="&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;" class="anchor-navigation-ex-anchor" href="#&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</h3>
+<p>&#x5BF9;&#x5206;&#x533A;&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316;&#xFF0C;&#x4F7F;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x80FD;&#x591F;&#x8BC6;&#x522B;</p>
+<h3 id="inode"><a name="inode" class="anchor-navigation-ex-anchor" href="#inode"><i class="fa fa-link" aria-hidden="true"></i></a>iNode</h3>
+<p>&#x5305;&#x542B;&#x6587;&#x4EF6;&#x6743;&#x9650;&#xFF08;rwx&#xFF09;&#x548C;&#x6587;&#x4EF6;&#x5C5E;&#x6027;&#xFF08;&#x62E5;&#x6709;&#x8005;&#x3001;&#x7FA4;&#x7EC4;&#x3001;&#x65F6;&#x95F4;&#xFF09;&#x5C5E;&#x6027;&#x3002;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E00;&#x4E2A;inode</p>
+<p>&#x4F7F;&#x7528;<code>ls -il</code>&#x53EF;&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x7684;inode&#x53F7;&#x3002;</p>
+<h3 id="superblock"><a name="superblock" class="anchor-navigation-ex-anchor" href="#superblock"><i class="fa fa-link" aria-hidden="true"></i></a>Superblock</h3>
+<p>&#x8BB0;&#x5F55;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x6574;&#x4E2A;&#x4FE1;&#x606F;&#xFF08;&#x683C;&#x5F0F;&#x3001;&#x4F7F;&#x7528;&#x91CF;&#x3001;&#x5269;&#x4F59;&#x91CF;&#xFF09;&#xFF0C;&#x4E00;&#x822C;&#x4E3A;1024 Bytes&#xFF0C;&#x53EF;&#x4F7F;&#x7528;<code>dumpe2fs</code>&#x547D;&#x4EE4;&#x6765;&#x89C2;&#x5BDF;superblock&#x4FE1;&#x606F;</p>
+<h3 id="block"><a name="block" class="anchor-navigation-ex-anchor" href="#block"><i class="fa fa-link" aria-hidden="true"></i></a>block</h3>
+<p>&#x5B9E;&#x9645;&#x8BB0;&#x5F55;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x53EF;&#x4F7F;&#x7528;&#x591A;&#x4E2A;block&#xFF0C;&#x4E00;&#x4E2A;block&#x53EA;&#x80FD;&#x7ED9;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4F7F;&#x7528;&#xFF0C;&#x4E00;&#x4E2A;block&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;1K&#x3001;2K&#x3001;4K&#x3002;</p>
+<h2 id="lvm"><a name="lvm" class="anchor-navigation-ex-anchor" href="#lvm"><i class="fa fa-link" aria-hidden="true"></i></a>LVM</h2>
+<p><strong>&#x521B;&#x5EFA;PV&#xFF1A;</strong><code>pvcreate /dev/xvde</code></p>
+<p><strong>&#x521B;&#x5EFA;VG&#xFF1A;</strong><code>vgcreate vg1 /dev/xvde</code></p>
+<p><strong>&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x7269;&#x7406;&#x5377;&#x5230;VG&#x4E2D;&#xFF1A;</strong><code>vgextend vg1 /dev/xvdf</code></p>
+<p><strong>&#x521B;&#x5EFA;LV&#xFF1A;</strong><code>lvcreate -l 5120 -n oma vg1</code></p>
+<p><strong>&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF1A;</strong><code>mkfs.ext4 -j /dev/vg1/oma</code></p>
+<p><strong>&#x6302;&#x8F7D;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF1A;</strong><code>mount /dev/vg1/oma /home/oma/</code></p>
+<p> <strong>&#x5F00;&#x673A;&#x81EA;&#x542F;&#x52A8;&#xFF1A;</strong><code>echo &quot;/dev/vg1/oma /home/oma/ ext4 defaults 0 0&quot; &gt;&gt; /etc/fstab</code></p>
+<p><strong>&#x67E5;&#x8BE2;&#x78C1;&#x76D8;ID&#xFF1A;</strong><code>blkid</code></p>
+<p><strong>&#x67E5;&#x8BE2;&#x5757;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#x53CA;&#x5176;&#x7ED3;&#x6784;&#xFF1A;</strong><code>lsblk</code></p>
+<p><strong>&#x91CD;&#x542F;&#x540E;&#x91CD;&#x65B0;&#x6FC0;&#x6D3B;lv&#xFF1A;</strong><code>lvchange -ay vg1/thinpool</code></p>
+<h2 id="fio"><a name="fio" class="anchor-navigation-ex-anchor" href="#fio"><i class="fa fa-link" aria-hidden="true"></i></a>FIO</h2>
+<p>&#x987A;&#x5E8F;&#x5199;</p>
+<pre><code class="lang-shell">fio -filename=/dev/sda -direct=1 -iodepth 1 -thread -rw=randwrite -ioengine=psync -bs=16k -size=200G -numjobs=30 -runtime=1000 -group_reporting -name=mytest
 </code></pre>
-<h2 id="&#x6570;&#x636E;&#x7ED3;&#x6784;"><a name="&#x6570;&#x636E;&#x7ED3;&#x6784;" class="anchor-navigation-ex-anchor" href="#&#x6570;&#x636E;&#x7ED3;&#x6784;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6570;&#x636E;&#x7ED3;&#x6784;</h2>
-<h3 id="map"><a name="map" class="anchor-navigation-ex-anchor" href="#map"><i class="fa fa-link" aria-hidden="true"></i></a>map</h3>
-<p>&#x4F7F;&#x7528;<code>declare</code>&#x58F0;&#x660E;</p>
-<pre><code class="lang-shell">declare -A UUID_MAP=([&quot;ra&quot;]=&quot;100&quot;
-    [&quot;soma&quot;]=&quot;200&quot;
-    [&quot;toma&quot;]=&quot;300&quot;)
-</code></pre>
-<h2 id="&#x63A7;&#x5236;"><a name="&#x63A7;&#x5236;" class="anchor-navigation-ex-anchor" href="#&#x63A7;&#x5236;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63A7;&#x5236;</h2>
-<h3 id="for&#x5FAA;&#x73AF;"><a name="for&#x5FAA;&#x73AF;" class="anchor-navigation-ex-anchor" href="#for&#x5FAA;&#x73AF;"><i class="fa fa-link" aria-hidden="true"></i></a>for&#x5FAA;&#x73AF;</h3>
-<pre><code class="lang-shell">for d in ra soma toma; do
-    start_docker ${d}
-done
-</code></pre>
-<h3 id="if"><a name="if" class="anchor-navigation-ex-anchor" href="#if"><i class="fa fa-link" aria-hidden="true"></i></a>if</h3>
-<pre><code class="lang-shell">if [ -d ${OMA_PATH} ]; then
-    ls ${OMA_PATH} | grep -v logs | xargs -I{} rm -rf ${OMA_PATH}/{}
-fi
-</code></pre>
-<h2 id="&#x5E38;&#x7528;"><a name="&#x5E38;&#x7528;" class="anchor-navigation-ex-anchor" href="#&#x5E38;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5E38;&#x7528;</h2>
-<h3 id="&#x5176;&#x4ED6;"><a name="&#x5176;&#x4ED6;" class="anchor-navigation-ex-anchor" href="#&#x5176;&#x4ED6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5176;&#x4ED6;</h3>
-<p><strong>&#x751F;&#x6210;&#x968F;&#x673A;&#x6570;&#xFF1A;</strong><code>head /dev/urandom | tr -dc A-Za-z0-9 | head -c 5 ; echo &apos;&apos;</code></p>
-<p><strong>&#x5B57;&#x7B26;&#x4E32;&#x66FF;&#x6362;&#xFF1A;</strong><code>test=a,b,c;${test//,/_}</code></p>
-<h3 id="&#x83B7;&#x53D6;&#x811A;&#x672C;&#x8DEF;&#x5F84;"><a name="&#x83B7;&#x53D6;&#x811A;&#x672C;&#x8DEF;&#x5F84;" class="anchor-navigation-ex-anchor" href="#&#x83B7;&#x53D6;&#x811A;&#x672C;&#x8DEF;&#x5F84;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x83B7;&#x53D6;&#x811A;&#x672C;&#x8DEF;&#x5F84;</h3>
-<pre><code class="lang-shell">SCRIPT=$(readlink -f &quot;$0&quot;)
-SCRIPTPATH=$(dirname ${SCRIPT})
-</code></pre>
-<h2 id="sed"><a name="sed" class="anchor-navigation-ex-anchor" href="#sed"><i class="fa fa-link" aria-hidden="true"></i></a>sed</h2>
-<p><strong>&#x4FEE;&#x6539;&#x65E5;&#x5FD7;&#x7EA7;&#x522B;&#xFF1A;</strong><code>sed -i &apos;s/^\(verbose\|debug\)\s*=.*$/\1=False/&apos; /etc/*/*.conf</code></p>
-<p><strong>&#x5220;&#x9664;&#x5339;&#x914D;&#x884C;&#xFF1A;</strong><code>sed -i &apos;/debug/d&apos; /etc/*/*.conf</code></p>
-<h2 id="awk"><a name="awk" class="anchor-navigation-ex-anchor" href="#awk"><i class="fa fa-link" aria-hidden="true"></i></a>awk</h2>
-<p><strong>&#x8FC7;&#x6EE4;&#x7B2C;&#x4E09;&#x5217;&#x5927;&#x4E8E;0&#xFF1A;</strong><code>awk &apos;{$3&gt;0 print $0}&apos;</code></p>
-<p><strong>&#x6253;&#x5370;&#x7B2C;&#x4E8C;&#x5217;&#xFF1A;</strong><code>awk &apos;{print $2}&apos;</code></p>
-<h3 id="grep"><a name="grep" class="anchor-navigation-ex-anchor" href="#grep"><i class="fa fa-link" aria-hidden="true"></i></a>grep</h3>
-<p><strong>&#x6253;&#x5370;&#x7B2C;&#x4E8C;&#x5217;&#xFF1A;</strong><code>grep &quot;hello&quot; fale.dat || echo &quot;hello&quot; &gt;&gt; fake.data</code></p>
-<h3 id="cut"><a name="cut" class="anchor-navigation-ex-anchor" href="#cut"><i class="fa fa-link" aria-hidden="true"></i></a>cut</h3>
-<p><strong>&#x6253;&#x5370;&#x6240;&#x6709;&#x7684;&#x7528;&#x6237;&#x7EC4;&#x540D;&#x79F0;&#xFF1A;</strong><code>cut -d: -f1 /etc/group | sort</code></p>
+<h3 id="dd"><a name="dd" class="anchor-navigation-ex-anchor" href="#dd"><i class="fa fa-link" aria-hidden="true"></i></a>dd</h3>
+<p>&#x4F7F;&#x7528;<code>dd</code>&#x5199;&#x6587;&#x4EF6;&#xFF1A;<code>dd if=/dev/urandom bs=8192 count=125000 of=/root/1Gb.file</code></p>
+<h3 id="hexdump"><a name="hexdump" class="anchor-navigation-ex-anchor" href="#hexdump"><i class="fa fa-link" aria-hidden="true"></i></a>hexdump</h3>
+<p><strong>&#x67E5;&#x770B;&#x6307;&#x5B9A;&#x8BBE;&#x5907;&#x7279;&#x5B9A;&#x4F4D;&#x7F6E;&#x6570;&#x636E;&#xFF1A;</strong><code>hexdump -n 1024 -o 1G /dev/vdb</code></p>
+<h3 id="iostat"><a name="iostat" class="anchor-navigation-ex-anchor" href="#iostat"><i class="fa fa-link" aria-hidden="true"></i></a>iostat</h3>
+<p><strong>&#x6BCF;&#x9694;1&#x79D2;&#x67E5;&#x770B;&#x78C1;&#x76D8;&#x901F;&#x7387;&#xFF1A;</strong><code>iostat -m 1</code></p>
+<h3 id="&#x5237;&#x76D8;"><a name="&#x5237;&#x76D8;" class="anchor-navigation-ex-anchor" href="#&#x5237;&#x76D8;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5237;&#x76D8;</h3>
+<p><strong>&#x5C06;&#x7CFB;&#x7EDF;&#x7F13;&#x5B58;&#x5237;&#x76D8;&#xFF1A;</strong><code>sync</code></p>
+<p><strong>&#x4E22;&#x5F03;&#x5185;&#x6838;clean cache&#xFF1A;</strong><code>echo 3 | sudo tee /proc/sys/vm/drop_caches</code></p>
+<p><strong>&#x8C03;&#x7528;ioctl&#x5237;&#x65B0;&#x7F13;&#x5B58;&#xFF1A;</strong><code>blockdev --flushbufs /dev/sda</code></p>
+<p><strong>Flush the on-drive write cache buffer&#xFF1A;</strong> <code>hdparm -F /dev/sda</code></p>
 
                                 
                                 </section>
@@ -1269,12 +1262,12 @@ SCRIPTPATH=$(dirname ${SCRIPT})
 
             
                 
-                <a href="log.html" class="navigation navigation-prev " aria-label="Previous page: 日志">
+                <a href="binary.html" class="navigation navigation-prev " aria-label="Previous page: 二进制分析">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="binary.html" class="navigation navigation-next " aria-label="Next page: 二进制分析">
+                <a href="network.html" class="navigation navigation-next " aria-label="Next page: 网络相关">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1285,7 +1278,7 @@ SCRIPTPATH=$(dirname ${SCRIPT})
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"shell编程","level":"3.3.3","depth":2,"next":{"title":"二进制分析","level":"3.3.4","depth":2,"path":"linux/binary.md","ref":"linux/binary.md","articles":[]},"previous":{"title":"日志","level":"3.3.2","depth":2,"path":"linux/log.md","ref":"linux/log.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ancre-navigation","chapter-fold","code","expandable-chapters","splitter","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"linux/shell.md","mtime":"2020-05-16T16:50:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-16T17:04:58.719Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"磁盘管理","level":"3.3.5","depth":2,"next":{"title":"网络相关","level":"3.3.6","depth":2,"path":"linux/network.md","ref":"linux/network.md","articles":[]},"previous":{"title":"二进制分析","level":"3.3.4","depth":2,"path":"linux/binary.md","ref":"linux/binary.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ancre-navigation","chapter-fold","code","expandable-chapters","splitter","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"linux/disk.md","mtime":"2020-05-16T16:50:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-16T17:04:58.719Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

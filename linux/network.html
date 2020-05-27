@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>shell编程 · GitBook</title>
+        <title>网络相关 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="binary.html" />
+    <link rel="next" href="security.html" />
     
     
-    <link rel="prev" href="log.html" />
+    <link rel="prev" href="disk.html" />
     
 
     </head>
@@ -612,7 +612,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.3.3" data-path="shell.html">
+        <li class="chapter " data-level="3.3.3" data-path="shell.html">
             
                 <a href="shell.html">
             
@@ -657,7 +657,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3.6" data-path="network.html">
+        <li class="chapter active" data-level="3.3.6" data-path="network.html">
             
                 <a href="network.html">
             
@@ -1169,7 +1169,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >shell编程</a>
+        <a href=".." >网络相关</a>
     </h1>
 </div>
 
@@ -1184,64 +1184,69 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#shell&#x7F16;&#x7A0B;"><b></b>Shell&#x7F16;&#x7A0B;</a></li><ul><li><span class="title-icon "></span><a href="#&#x57FA;&#x7840;"><b></b>&#x57FA;&#x7840;</a></li><li><span class="title-icon "></span><a href="#&#x53C2;&#x6570;"><b></b>&#x53C2;&#x6570;</a></li><li><span class="title-icon "></span><a href="#&#x6570;&#x636E;&#x7ED3;&#x6784;"><b></b>&#x6570;&#x636E;&#x7ED3;&#x6784;</a></li><ul><li><span class="title-icon "></span><a href="#map"><b></b>map</a></li></ul><li><span class="title-icon "></span><a href="#&#x63A7;&#x5236;"><b></b>&#x63A7;&#x5236;</a></li><ul><li><span class="title-icon "></span><a href="#for&#x5FAA;&#x73AF;"><b></b>for&#x5FAA;&#x73AF;</a></li><li><span class="title-icon "></span><a href="#if"><b></b>if</a></li></ul><li><span class="title-icon "></span><a href="#&#x5E38;&#x7528;"><b></b>&#x5E38;&#x7528;</a></li><ul><li><span class="title-icon "></span><a href="#&#x5176;&#x4ED6;"><b></b>&#x5176;&#x4ED6;</a></li><li><span class="title-icon "></span><a href="#&#x83B7;&#x53D6;&#x811A;&#x672C;&#x8DEF;&#x5F84;"><b></b>&#x83B7;&#x53D6;&#x811A;&#x672C;&#x8DEF;&#x5F84;</a></li></ul><li><span class="title-icon "></span><a href="#sed"><b></b>sed</a></li><li><span class="title-icon "></span><a href="#awk"><b></b>awk</a></li><ul><li><span class="title-icon "></span><a href="#grep"><b></b>grep</a></li><li><span class="title-icon "></span><a href="#cut"><b></b>cut</a></li></ul></ul></ul></div><a href="#shell&#x7F16;&#x7A0B;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="shell&#x7F16;&#x7A0B;"><a name="shell&#x7F16;&#x7A0B;" class="anchor-navigation-ex-anchor" href="#shell&#x7F16;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>Shell&#x7F16;&#x7A0B;</h1>
-<h2 id="&#x57FA;&#x7840;"><a name="&#x57FA;&#x7840;" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x7840;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x57FA;&#x7840;</h2>
-<ul>
-<li>&#x5728;&#x6587;&#x4EF6;&#x5F00;&#x5934;&#x58F0;&#x660E;&#x4F7F;&#x7528;&#x7684;&#x89E3;&#x91CA;&#x5668;&#xFF1A;<code>#!/bin/bash</code></li>
-<li>&#x8BBE;&#x7F6E;&#x4E0D;&#x5141;&#x8BB8;&#x51FA;&#x9519;&#xFF1A;<code>set -e</code></li>
-<li>&#x8BBE;&#x7F6E;&#x6253;&#x5370;&#x8F93;&#x51FA;&#xFF1A;<code>set -x</code></li>
-</ul>
-<h2 id="&#x53C2;&#x6570;"><a name="&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53C2;&#x6570;</h2>
-<p>&#x901A;&#x8FC7;<code>getopts</code>&#x83B7;&#x53D6;&#x53C2;&#x6570;</p>
-<pre><code class="lang-shell">while getopts &apos;:u&apos; OPT; do
-    case $OPT in
-    u)
-        echo &quot;Upgrade.&quot;
-        ;;
-    ?)
-        echo &quot;Usage: -u upgrade&quot;
-        exit 1
-        ;;
-    esac
-done
-shift $(($OPTIND - 1))
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x7F51;&#x7EDC;&#x76F8;&#x5173;"><b></b>&#x7F51;&#x7EDC;&#x76F8;&#x5173;</a></li><ul><li><span class="title-icon "></span><a href="#&#x4EA4;&#x6362;&#x673A;"><b></b>&#x4EA4;&#x6362;&#x673A;</a></li><ul><li><span class="title-icon "></span><a href="#&#x4E09;&#x5C42;&#x7F51;&#x7EDC;&#x6A21;&#x578B;"><b></b>&#x4E09;&#x5C42;&#x7F51;&#x7EDC;&#x6A21;&#x578B;</a></li></ul><li><span class="title-icon "></span><a href="#&#x5DE5;&#x5177;"><b></b>&#x5DE5;&#x5177;</a></li><li><span class="title-icon "></span><a href="#netstat"><b></b>netstat</a></li><ul><li><span class="title-icon "></span><a href="#&#x6D41;&#x91CF;&#x7EDF;&#x8BA1;sar"><b></b>&#x6D41;&#x91CF;&#x7EDF;&#x8BA1;sar</a></li><li><span class="title-icon "></span><a href="#iptables"><b></b>iptables</a></li><li><span class="title-icon "></span><a href="#bbr"><b></b>BBR</a></li></ul></ul></ul></div><a href="#&#x7F51;&#x7EDC;&#x76F8;&#x5173;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x7F51;&#x7EDC;&#x76F8;&#x5173;"><a name="&#x7F51;&#x7EDC;&#x76F8;&#x5173;" class="anchor-navigation-ex-anchor" href="#&#x7F51;&#x7EDC;&#x76F8;&#x5173;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7F51;&#x7EDC;&#x76F8;&#x5173;</h1>
+<h2 id="&#x4EA4;&#x6362;&#x673A;"><a name="&#x4EA4;&#x6362;&#x673A;" class="anchor-navigation-ex-anchor" href="#&#x4EA4;&#x6362;&#x673A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4EA4;&#x6362;&#x673A;</h2>
+<h3 id="&#x4E09;&#x5C42;&#x7F51;&#x7EDC;&#x6A21;&#x578B;"><a name="&#x4E09;&#x5C42;&#x7F51;&#x7EDC;&#x6A21;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x4E09;&#x5C42;&#x7F51;&#x7EDC;&#x6A21;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E09;&#x5C42;&#x7F51;&#x7EDC;&#x6A21;&#x578B;</h3>
+<p><strong>&#x63A5;&#x5165;&#x5C42;&#xFF1A;</strong>&#x4E3A;&#x7EC8;&#x7AEF;&#x5BA2;&#x6237;&#x63D0;&#x4F9B;&#x63A5;&#x5165;&#x529F;&#x80FD;&#x3002;</p>
+<p><strong>&#x6C47;&#x805A;&#x5C42;&#xFF1A;</strong>&#x8FDE;&#x63A5;&#x7F51;&#x7EDC;&#x7684;&#x6838;&#x5FC3;&#x5C42;&#x548C;&#x5404;&#x4E2A;&#x63A5;&#x5165;&#x7684;&#x5E94;&#x7528;&#x5C42;&#xFF0C;&#x91C7;&#x7528;&#x4E09;&#x5C42;&#x4EA4;&#x6362;&#x673A;&#x3002;&#x4E8C;&#x5C42;&#x7F51;&#x7EDC;&#x901A;&#x8FC7;MAC&#x5730;&#x5740;&#x5B9E;&#x73B0;&#x901A;&#x8BAF;&#xFF0C;&#x63D0;&#x4F9B;&#x57FA;&#x4E8E;&#x7B56;&#x7565;&#x7684;&#x8FDE;&#x63A5;&#x3002;</p>
+<p><strong>&#x6838;&#x5FC3;&#x5C42;&#xFF1A;</strong>&#x7F51;&#x7EDC;&#x9AD8;&#x901F;&#x4EA4;&#x6362;&#x4E3B;&#x5E72;&#xFF0C;&#x901A;&#x8FC7;IP&#x8DEF;&#x7531;&#x5B9E;&#x73B0;&#x8DE8;&#x7F51;&#x6BB5;&#x901A;&#x8BAF;&#x3002;</p>
+<h2 id="&#x5DE5;&#x5177;"><a name="&#x5DE5;&#x5177;" class="anchor-navigation-ex-anchor" href="#&#x5DE5;&#x5177;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5DE5;&#x5177;</h2>
+<h2 id="netstat"><a name="netstat" class="anchor-navigation-ex-anchor" href="#netstat"><i class="fa fa-link" aria-hidden="true"></i></a>netstat</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Proto</th>
+<th>Recv-Q</th>
+<th>Send-Q</th>
+<th>Local Address</th>
+<th>Foreign Address</th>
+<th>State</th>
+<th>PID/Prog</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">tcp</td>
+<td>0</td>
+<td>0</td>
+<td>192.168.0.141:29210</td>
+<td>0.0.0.0:*</td>
+<td>LISTEN</td>
+<td>7584/oma</td>
+</tr>
+<tr>
+<td style="text-align:left">tcp</td>
+<td>0</td>
+<td>28336</td>
+<td>192.168.0.141:48658</td>
+<td>10.246.160.228:443</td>
+<td>ESTABLISHED</td>
+<td>7584/oma</td>
+</tr>
+</tbody>
+</table>
+<h3 id="&#x6D41;&#x91CF;&#x7EDF;&#x8BA1;sar"><a name="&#x6D41;&#x91CF;&#x7EDF;&#x8BA1;sar" class="anchor-navigation-ex-anchor" href="#&#x6D41;&#x91CF;&#x7EDF;&#x8BA1;sar"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6D41;&#x91CF;&#x7EDF;&#x8BA1;sar</h3>
+<p>sar&#x662F;system activity reporter&#x7684;&#x7F29;&#x5199;&#x3002;</p>
+<p>&#x6BCF;&#x4E2A;2&#x79D2;&#x5237;&#x65B0;&#x7F51;&#x7EDC;&#x6D41;&#x7A0B;&#xFF1A;<code>sar -n DEV 2</code></p>
+<h3 id="iptables"><a name="iptables" class="anchor-navigation-ex-anchor" href="#iptables"><i class="fa fa-link" aria-hidden="true"></i></a>iptables</h3>
+<p>&#x6E05;&#x7A7A;&#x6240;&#x6709;iptables</p>
+<pre><code class="lang-shell">iptables -F
+iptables -X
+iptables -t nat -F
+iptables -t nat -X
+iptables -t mangle -F
+iptables -t mangle -X
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT
 </code></pre>
-<h2 id="&#x6570;&#x636E;&#x7ED3;&#x6784;"><a name="&#x6570;&#x636E;&#x7ED3;&#x6784;" class="anchor-navigation-ex-anchor" href="#&#x6570;&#x636E;&#x7ED3;&#x6784;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6570;&#x636E;&#x7ED3;&#x6784;</h2>
-<h3 id="map"><a name="map" class="anchor-navigation-ex-anchor" href="#map"><i class="fa fa-link" aria-hidden="true"></i></a>map</h3>
-<p>&#x4F7F;&#x7528;<code>declare</code>&#x58F0;&#x660E;</p>
-<pre><code class="lang-shell">declare -A UUID_MAP=([&quot;ra&quot;]=&quot;100&quot;
-    [&quot;soma&quot;]=&quot;200&quot;
-    [&quot;toma&quot;]=&quot;300&quot;)
+<h3 id="bbr"><a name="bbr" class="anchor-navigation-ex-anchor" href="#bbr"><i class="fa fa-link" aria-hidden="true"></i></a>BBR</h3>
+<p>&#x67E5;&#x770B;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x6D41;&#x63A7;&#x7B56;&#x7565;&#xFF1A;<code>sysctl net.ipv4.tcp_available_congestion_control</code></p>
+<p>&#x5F00;&#x542F;BBR&#x65B9;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-shell">echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf
+echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf
 </code></pre>
-<h2 id="&#x63A7;&#x5236;"><a name="&#x63A7;&#x5236;" class="anchor-navigation-ex-anchor" href="#&#x63A7;&#x5236;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63A7;&#x5236;</h2>
-<h3 id="for&#x5FAA;&#x73AF;"><a name="for&#x5FAA;&#x73AF;" class="anchor-navigation-ex-anchor" href="#for&#x5FAA;&#x73AF;"><i class="fa fa-link" aria-hidden="true"></i></a>for&#x5FAA;&#x73AF;</h3>
-<pre><code class="lang-shell">for d in ra soma toma; do
-    start_docker ${d}
-done
-</code></pre>
-<h3 id="if"><a name="if" class="anchor-navigation-ex-anchor" href="#if"><i class="fa fa-link" aria-hidden="true"></i></a>if</h3>
-<pre><code class="lang-shell">if [ -d ${OMA_PATH} ]; then
-    ls ${OMA_PATH} | grep -v logs | xargs -I{} rm -rf ${OMA_PATH}/{}
-fi
-</code></pre>
-<h2 id="&#x5E38;&#x7528;"><a name="&#x5E38;&#x7528;" class="anchor-navigation-ex-anchor" href="#&#x5E38;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5E38;&#x7528;</h2>
-<h3 id="&#x5176;&#x4ED6;"><a name="&#x5176;&#x4ED6;" class="anchor-navigation-ex-anchor" href="#&#x5176;&#x4ED6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5176;&#x4ED6;</h3>
-<p><strong>&#x751F;&#x6210;&#x968F;&#x673A;&#x6570;&#xFF1A;</strong><code>head /dev/urandom | tr -dc A-Za-z0-9 | head -c 5 ; echo &apos;&apos;</code></p>
-<p><strong>&#x5B57;&#x7B26;&#x4E32;&#x66FF;&#x6362;&#xFF1A;</strong><code>test=a,b,c;${test//,/_}</code></p>
-<h3 id="&#x83B7;&#x53D6;&#x811A;&#x672C;&#x8DEF;&#x5F84;"><a name="&#x83B7;&#x53D6;&#x811A;&#x672C;&#x8DEF;&#x5F84;" class="anchor-navigation-ex-anchor" href="#&#x83B7;&#x53D6;&#x811A;&#x672C;&#x8DEF;&#x5F84;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x83B7;&#x53D6;&#x811A;&#x672C;&#x8DEF;&#x5F84;</h3>
-<pre><code class="lang-shell">SCRIPT=$(readlink -f &quot;$0&quot;)
-SCRIPTPATH=$(dirname ${SCRIPT})
-</code></pre>
-<h2 id="sed"><a name="sed" class="anchor-navigation-ex-anchor" href="#sed"><i class="fa fa-link" aria-hidden="true"></i></a>sed</h2>
-<p><strong>&#x4FEE;&#x6539;&#x65E5;&#x5FD7;&#x7EA7;&#x522B;&#xFF1A;</strong><code>sed -i &apos;s/^\(verbose\|debug\)\s*=.*$/\1=False/&apos; /etc/*/*.conf</code></p>
-<p><strong>&#x5220;&#x9664;&#x5339;&#x914D;&#x884C;&#xFF1A;</strong><code>sed -i &apos;/debug/d&apos; /etc/*/*.conf</code></p>
-<h2 id="awk"><a name="awk" class="anchor-navigation-ex-anchor" href="#awk"><i class="fa fa-link" aria-hidden="true"></i></a>awk</h2>
-<p><strong>&#x8FC7;&#x6EE4;&#x7B2C;&#x4E09;&#x5217;&#x5927;&#x4E8E;0&#xFF1A;</strong><code>awk &apos;{$3&gt;0 print $0}&apos;</code></p>
-<p><strong>&#x6253;&#x5370;&#x7B2C;&#x4E8C;&#x5217;&#xFF1A;</strong><code>awk &apos;{print $2}&apos;</code></p>
-<h3 id="grep"><a name="grep" class="anchor-navigation-ex-anchor" href="#grep"><i class="fa fa-link" aria-hidden="true"></i></a>grep</h3>
-<p><strong>&#x6253;&#x5370;&#x7B2C;&#x4E8C;&#x5217;&#xFF1A;</strong><code>grep &quot;hello&quot; fale.dat || echo &quot;hello&quot; &gt;&gt; fake.data</code></p>
-<h3 id="cut"><a name="cut" class="anchor-navigation-ex-anchor" href="#cut"><i class="fa fa-link" aria-hidden="true"></i></a>cut</h3>
-<p><strong>&#x6253;&#x5370;&#x6240;&#x6709;&#x7684;&#x7528;&#x6237;&#x7EC4;&#x540D;&#x79F0;&#xFF1A;</strong><code>cut -d: -f1 /etc/group | sort</code></p>
+<p>&#x67E5;&#x770B;bbr&#x662F;&#x5426;&#x542F;&#x52A8;&#xFF1A;<code>lsmod | grep bbr</code></p>
 
                                 
                                 </section>
@@ -1269,12 +1274,12 @@ SCRIPTPATH=$(dirname ${SCRIPT})
 
             
                 
-                <a href="log.html" class="navigation navigation-prev " aria-label="Previous page: 日志">
+                <a href="disk.html" class="navigation navigation-prev " aria-label="Previous page: 磁盘管理">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="binary.html" class="navigation navigation-next " aria-label="Next page: 二进制分析">
+                <a href="security.html" class="navigation navigation-next " aria-label="Next page: 安全">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1285,7 +1290,7 @@ SCRIPTPATH=$(dirname ${SCRIPT})
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"shell编程","level":"3.3.3","depth":2,"next":{"title":"二进制分析","level":"3.3.4","depth":2,"path":"linux/binary.md","ref":"linux/binary.md","articles":[]},"previous":{"title":"日志","level":"3.3.2","depth":2,"path":"linux/log.md","ref":"linux/log.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ancre-navigation","chapter-fold","code","expandable-chapters","splitter","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"linux/shell.md","mtime":"2020-05-16T16:50:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-16T17:04:58.719Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"网络相关","level":"3.3.6","depth":2,"next":{"title":"安全","level":"3.3.7","depth":2,"path":"linux/security.md","ref":"linux/security.md","articles":[]},"previous":{"title":"磁盘管理","level":"3.3.5","depth":2,"path":"linux/disk.md","ref":"linux/disk.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ancre-navigation","chapter-fold","code","expandable-chapters","splitter","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"linux/network.md","mtime":"2020-05-16T16:50:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-16T17:04:58.719Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
