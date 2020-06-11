@@ -16,6 +16,8 @@
 - jenkins
   - [jenkins安装、配置](devops/jenkins.md)
   - [gitlab集成jenkins自动编译gitbook](devops/jenkins_gitbook.md)
+- 环境
+  - [openstack本地调式环境搭建](python/dev-env.md)
 - 其他工具
   - [使用clang-format进行clean code整改](devops/tools/clang-format.md)
   - [ansible简单使用](devops/ansible.md)
@@ -27,14 +29,20 @@
 
 - python
   - [性能分析](python/perf_analyze.md)
-  - [我的面试题](python/interview.md)
-  - [openstack本地调式环境搭建](python/dev-env.md)
+  - [Python面试题纲](python/interview.md)
   - [单元测试](python/ut.md)
-  - [高级主题](python/advanced_topics.md)
+  - [基本数据结构](python/base_ds.md)
+  - [高级数据结构]()
+  - [面向对象](python/oo.md)
+  - [函数](python/function.md)
+  - [闭包](python/closure.md)
+  - [字符串](python/str.md)
   - [代码隔离](python/code-isolation.md)
   - [数据库锁](python/database-lock.md)
 - c++
   - [c/c++基础](c++/base.md)
+  - [编译相关](c++/compile.md)
+  - [错误码列表](c++/errno.md)
   - [gtest单元测试](c++/ut.md)
 - linux
   - [正则表达式](linux/regex.md)
@@ -43,6 +51,9 @@
   - [二进制分析](linux/binary.md)
   - [磁盘管理](linux/disk.md)
   - [网络相关](linux/network.md)
+  - [cgroup使用](linux/cgroup.md)
+  - [基线测试sysbench](linux/sysbench.md)
+  - [系统管理](linux/system.md)
   - [安全](linux/security.md)
 - 算法
   - [leetcode题解](algorithm/leetcode.md)
