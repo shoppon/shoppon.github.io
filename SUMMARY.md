@@ -4,7 +4,7 @@
 
 - [概述](README.md)
 
-## 开发环境
+## 环境与工具
 
 - docker
   - [容器编排工具](devops/docker/docker-compose.md)
@@ -23,7 +23,7 @@
 
 ---
 
-## 软件开发
+## 编程能力
 
 - python
   - [性能分析](python/perf_analyze.md)
@@ -51,7 +51,7 @@
 
 ---
 
-## 混合云容灾
+## 灾备领域
 
 - 方案设计
   - [磁盘ID生成](hdrs/disk_id.md)
@@ -69,22 +69,24 @@
   - [DPP消息流](hdrs/dpp.md)
 - 竞争分析
   - [ASR数据同步](hdrs/asr_data_sync.md)
-
----
-
-## 云备份
-
-- [架构合一](cbs/unify.md)
-- [编程规范](cbs/coding-rule.md)
-- [运作思考](cbs/team-thought.md)
+- 云备份
+  - [架构合一](cbs/unify.md)
+  - [编程规范](cbs/coding-rule.md)
+  - [运作思考](cbs/team-thought.md)
 
 ---
 
 ## 架构与设计
 
-- [可信设计](arch/design.md)
-- [重构](arch/refactor.md)
-- [安全架构](arch/security.md)
-
+- 设计原则与方法
+  - [可信设计](arch/design.md)
+  - [重构](arch/refactor.md)
+  - [安全架构](arch/security.md)
+- 基础编程
+  - [IO模型](design/io.md)
+- 软件工程
+  - [软件工程分类及实践](design/software_engineering.md)
+- 架构思考
+  - [管理面与数据面的差异](design/control_data.md)
 ---
 
