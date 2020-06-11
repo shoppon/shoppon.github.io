@@ -19,12 +19,6 @@
 | tcp   | 0      | 0      | 192.168.0.141:29210 | 0.0.0.0:*          | LISTEN      | 7584/oma |
 | tcp   | 0      | 28336  | 192.168.0.141:48658 | 10.246.160.228:443 | ESTABLISHED | 7584/oma |
 
-### 流量统计sar
-
-sar是system activity reporter的缩写。
-
-每个2秒刷新网络流程：`sar -n DEV 2`
-
 ### iptables
 
 清空所有iptables
