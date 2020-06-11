@@ -37,6 +37,18 @@ declare -A UUID_MAP=(["ra"]="100"
     ["toma"]="300")
 ```
 
+### str
+
+**判断字符串是否为空(zero)：**`[[ -z "" ]] && echo "yes" # yes`
+
+**判断字符串是否非空：**`[[ -n "foo" ]] && echo "yes" # yes`
+
+**判断字符串是否相等：**`[[ "foo" == "bar" ]] || echo "no" # no`
+
+**判断字符串是否相等：**`[[ "foo" = "bar" ]] || echo "no" # no`
+
+**判断字符串是否不相等：**`[[ "foo" != "bar" ]] && echo "yes" # yes`
+
 ## 控制
 
 ### for循环
@@ -55,6 +67,17 @@ if [ -d ${OMA_PATH} ]; then
 fi
 ```
 
+### in操作
+
+shell本身不支持`in`操作，可通过正则来实现：
+
+```shell
+if [[ ! $1 =~ ^(public_cloud|private_cloud|host)$ ]]; then
+    echo "wrong deploy mode, only support public_cloud/private_cloud/host"
+    exit 1
+fi
+```
+
 ## 常用
 
 ### 其他
@@ -69,6 +92,17 @@ fi
 SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname ${SCRIPT})
 ```
+
+### 时间
+
+#### 时间格式化
+
+```shell
+echo `date "+%Y-%m-%d_%H:%M:%S"`
+date --help # more options
+```
+
+**将一个文件的时间属性拷贝到另外一个文件：**`touch -m -c -r blacklisted.certs cacerts`
 
 ## sed
 
@@ -85,6 +119,8 @@ SCRIPTPATH=$(dirname ${SCRIPT})
 ### grep
 
 **打印第二列：**`grep "hello" fale.dat || echo "hello" >> fake.data`
+
+**输出前后N行：**`grep -C 3 "N: 100" /var/log/messages`
 
 ### cut
 
