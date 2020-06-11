@@ -1,4 +1,8 @@
-## 相关概念
+# 日志相关
+
+## syslog
+
+### 相关概念
 
 **programname**：打印日志的程序名，目前Karbor用到了```karbor-api```、```karbor-apiControl```等几个。
 
@@ -43,3 +47,10 @@ if $programname startswith "karbor-" then {
 #### 通过命令行调用rsyslog打印
 
 通过命令行方式打印日志可以使用-t参数指定programename，如：```logger -id -p local1.error -t {programnage} {level} {msg}```
+
+## logrotate
+
+**定时压缩日志：**`echo "*/5 * * * * dra /usr/sbin/logrotate -s /opt/dra/logs/status /opt/dra/conf/dra.logrotate" >>/etc/crontab`
+
+*需要指定状态文件*
+
