@@ -64,26 +64,7 @@
 
 ## 灾备领域
 
-- 方案设计
-  - [磁盘ID生成](hdrs/disk_id.md)
-  - [Dataset并发传输](hdrs/concurrent_send.md)
-  - [V2C](hdrs/v2c.md)
-- 工具
-  - [DPP Python调试命令行使用](hdrs/debug_client.md)
-- 总结
-  - [OMA架构](hdrs/architecture.md)
-  - [代码结构](hdrs/code_structure.md)
-  - [控制类图](hdrs/control_diagram.md)
-  - [数据流图](hdrs/data_diagram.md)
-  - [调度框架](hdrs/schedule_frame.md)
-  - [bitmap位图](hdrs/bitmap.md)
-  - [DPP消息流](hdrs/dpp.md)
 - 竞争分析
-  - [ASR数据同步](hdrs/asr_data_sync.md)
-- 云备份
-  - [架构合一](cbs/unify.md)
-  - [编程规范](cbs/coding-rule.md)
-  - [运作思考](cbs/team-thought.md)
 
 ---
 
