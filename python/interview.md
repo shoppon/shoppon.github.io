@@ -39,6 +39,7 @@
 
 - 是否熟悉git，合并代码的几种方式，常用工作流
 - linux操作系统常用命令，sed awk grep，正则的使用，贪婪模式，零宽断言
+- 简单说下linux启动流程？BIOS->MBR->GRUB->Kernal->Init->RunLevel
 - 谈谈你对日志打印的理解，举五条你觉得最重要的规范
 
 
