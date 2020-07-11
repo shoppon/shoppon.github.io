@@ -86,6 +86,8 @@ fi
 
 **字符串替换：**`test=a,b,c;${test//,/_}`
 
+**统计代码行：**`find src script  -name '*.h' -o -name '*.cpp' -o -name '*.sh' | xargs wc -l | sort -nr | head -n 10`
+
 ### 获取脚本路径
 
 ```shell
@@ -125,4 +127,15 @@ date --help # more options
 ### cut
 
 **打印所有的用户组名称：**`cut -d: -f1 /etc/group | sort`
+
+### find
+
+**查看多种类型文件：**
+
+```shell
+find . -type f -iname "*.log" -o -iname "*.gz" 
+find . -type f \( -name "*.gz" -o -name "*.log" \)
+find . -type f -regex '.*\(\.gz\|\.log\)'
+find . -type f -regextype posix-extended -regex '.*.(log|gz)'
+```
 
