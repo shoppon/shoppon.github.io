@@ -11,7 +11,7 @@
 
 ### 扇区
 
-最小的物理储存单元，每个扇区512Bytes。每一个扇区中包括**主启动区**（Master boot record, MBR, 446 Bytes）和**分割表**（partition table，64 Bytes）。还有2 Bytes呢？
+最小的物理储存单元，每个扇区512Bytes。每一个扇区中包括**主启动区**（Master boot record, **MBR**, 446 Bytes）和**分割表**（partition table，64 Bytes）。还有2 Bytes呢？
 
 ### 分区
 
@@ -68,7 +68,13 @@
 顺序写
 
 ```shell
-fio -filename=/dev/sda -direct=1 -iodepth 1 -thread -rw=randwrite -ioengine=psync -bs=16k -size=200G -numjobs=30 -runtime=1000 -group_reporting -name=mytest
+fio -filename=/dev/sda -direct=1 -iodepth 1 -thread -rw=write -ioengine=psync -bs=16k -size=1G -numjobs=4 -runtime=1000 -group_reporting -name=sqe_100write_4k
+```
+
+随机写
+
+```shell
+fio -filename=/dev/vdb -direct=1 -iodepth 1 -thread -rw=randwrite -ioengine=psync -bs=4k -size=1G -numjobs=4 -runtime=180 -group_reporting -name=rand_100write_4k
 ```
 
 ### dd
@@ -77,7 +83,7 @@ fio -filename=/dev/sda -direct=1 -iodepth 1 -thread -rw=randwrite -ioengine=psyn
 
 ### hexdump
 
-**查看指定设备特定位置数据：**`hexdump -n 1024 -o 1G /dev/vdb`
+**查看指定设备特定位置数据：**`hexdump -n 1024 -x -s 1G /dev/vdb`
 
 ### iostat
 
@@ -93,3 +99,6 @@ fio -filename=/dev/sda -direct=1 -iodepth 1 -thread -rw=randwrite -ioengine=psyn
 
 **Flush the on-drive write cache buffer：** `hdparm -F /dev/sda`
 
+## 参考
+
+- [IO测试工具之fio详解](https://www.cnblogs.com/raykuan/p/6914748.html)
