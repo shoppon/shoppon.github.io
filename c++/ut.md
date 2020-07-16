@@ -34,24 +34,100 @@
 
 ### 测试集
 
-## 案例
+通过继承`::testing::Test`来构造测试集：
 
-### 数据传输
+```c++
+class S3HandlerTest : public ::testing::Test {
+protected:
+    virtual void SetUp();
+}
+```
 
-#### 测试划分
+然后通过`TEST_F`宏构造测试用例：
 
-- 解析dataset元数据
-- 反序列化dataset文件
-- 顺序写done文件
+```c++
+TEST_F(S3TomaTest, SendDatasetStart)
+{
+}
+```
 
-### 进程合一
+`TEST_F`本质上创建一个**新类继承**测试集，因此要注意测试集中函数和变量的访问权限。
 
-#### 需求背景
+### 断言
 
-支持```tOMA```和```WA```合并部署到一个进程，一个session包含```tOMA```、```s3```、```WA```，并且```tOMA```通过函数调用的方式将IO发送给本进程的```WA```进行处理。
+#### ASSERT_EQ
 
-#### 测试目标
+通过`ASSERT_EQ`宏来简单判断结果是否符合预期：
 
-1. 在```tOMA```创建session时可以指定```WA```为其自身，session创建成功。
-2. session加载后可以正确创建出```TomaNalHander```和```WaNalHandler```两个handler。
-3. ```tOMA```下载IO后能够下发给```WA```下盘。
+```c++
+ASSERT_EQ(DPP_MAGIC, elem0->magic);
+ASSERT_EQ(DPP_DATASET_START, elem0->cmd_type);
+```
+
+### Mock
+
+#### Mock外部依赖
+
+程序中有时局部变量会依赖外部资源，在LLT时是不可达的：
+
+```c++
+DatasetSeq S3Handler::PullDatasetSeq()
+{
+    DatasetSeq seq;
+    // 必须一次性获取所有dataset文件和done文件，分开获取可能导致数据不一致
+    std::string prefix = m_sid.string() + "/";
+    S3Connection s3Conn = S3Connection::GetInstance(m_s3BucketCtxt);
+    std::vector<ObjectContent> objects = s3Conn.ListObjects(prefix.c_str(), nullptr, CMD_PREFIX.c_str()).first;
+}
+```
+
+首先需要将外部依赖`s3Conn`提取成函数，然后通过继承来mock
+
+```c++
+virtual shared_ptr<S3Connection> GetConnection();
+
+class MockS3Connection : public S3Connection {
+public:
+    MockS3Connection(S3BucketCtxt& ctx) : S3Connection(ctx){};
+    ~MockS3Connection(){};
+
+    MOCK_METHOD4(ListObjects, Pairvb(const char* prefix, const char* marker, const char* delimiter, int maxkeys));
+    MOCK_METHOD3(Read, ssize_t(const std::string& objKey, char* buf, const size_t bufSize));
+};
+
+class MockS3Handler : public S3Handler {
+public:
+    MockS3Handler(Reactor& r, std::shared_ptr<TaskPool> pool, std::shared_ptr<TaskPoolHandler> handler,
+        std::shared_ptr<TaskPool> fileOpsPool, std::shared_ptr<TaskPoolHandler> fileOpsPoolHandler)
+        : S3Handler(r, pool, handler, fileOpsPool, fileOpsPoolHandler){};
+
+    ~MockS3Handler(){};
+
+    MOCK_METHOD0(GetConnection, shared_ptr<S3Connection>());
+};
+```
+
+#### 定义mock函数行为
+
+通过`EXPECT_ALL`来定义mock函数的行为：**调用次数**、**返回值**、**保存参数**等。
+
+```c++
+Pairvb pv = {m_objs, true};
+EXPECT_CALL(*(m_s3Conn.get()), ListObjects(testing::_, testing::_, testing::_, testing::_)).WillOnce(Return(ByMove(pv)));
+
+std::shared_ptr<DPPCmdHeader> elem0 = make_shared<DPPCmdHeader>();
+std::shared_ptr<DPPCmdHeader> elem1 = make_shared<DPPCmdHeader>();
+// 断言消息解析后处理情况
+EXPECT_CALL(*(m_handler.get()), DispatchTask(testing::_))
+    .Times(2)
+    .WillOnce(SaveArgPointee<0>(elem0))
+    .WillOnce(SaveArgPointee<0>(elem1));
+```
+
+#### 非虚函数Mock
+
+非虚函数可通过创建具有相同**函数签名**的类mock，然后**模板化代码**，在生产代码中使用原始类型，在测试代码中使用mock类型。参考[这里](https://github.com/google/googletest/blob/master/googlemock/docs/cook_book.md#MockingNonVirtualMethods)
+
+## 参考
+
+- [gMock Cookbook](https://github.com/google/googletest/blob/master/googlemock/docs/cook_book.md)
