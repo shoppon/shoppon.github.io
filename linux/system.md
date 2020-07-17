@@ -1,3 +1,7 @@
+```
+service sysstat restart 
+```
+
 # 系统管理
 
 ### 系统性能统计sar

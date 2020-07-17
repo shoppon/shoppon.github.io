@@ -88,6 +88,8 @@ fi
 
 **统计代码行：**`find src script  -name '*.h' -o -name '*.cpp' -o -name '*.sh' | xargs wc -l | sort -nr | head -n 10`
 
+**生成ssh密钥：**`ssh-keygen -t rsa -b 4096 -C "shopppon@gmail.com"`
+
 ### 获取脚本路径
 
 ```shell

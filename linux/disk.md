@@ -63,6 +63,8 @@
 
 **重启后重新激活lv：**`lvchange -ay vg1/thinpool`
 
+**扩容后让lv大小生效：**`resize2fs /dev/mapper/nfs-ovirt`
+
 ## FIO
 
 顺序写
