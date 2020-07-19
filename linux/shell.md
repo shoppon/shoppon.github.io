@@ -114,6 +114,14 @@ date --help # more options
 
 **删除匹配行：**`sed -i '/debug/d' /etc/*/*.conf`
 
+**匹配到[]前面插入行：**`sed -i  '/^\[.*\]$/{x;p;x;}' *.conf`
+
+**匹配到[]后面插入行：**`sed -i  '/^\[.*\]$/G;' *.conf`
+
+**删除空白行：**` sed -i '/^$/d' *.conf`
+
+**删除注释行：**`sed -i '/^#.*$/d' *.conf`
+
 ## awk
 
 **过滤第三列大于0：**`awk '{$3>0 print $0}'`
