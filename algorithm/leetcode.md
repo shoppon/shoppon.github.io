@@ -132,7 +132,7 @@ wordDict = ["cat", "cats", "and", "sand", "dog"]
 
 ### [1109. 航班预订统计](https://leetcode-cn.com/problems/corporate-flight-bookings/)
 
-明显，使用暴力求和会超时。。
+明显，使用暴力求和会超时。
 
 一个航班从[i, j, k]的航班记录可以表示为res[i] = k, res[j+1] = -k，统计时res[i] = res[i] + res[i-1]，j+1由于记为负数，加起则为0。每个记录都可以如此处理。
 
@@ -143,7 +143,7 @@ wordDict = ["cat", "cats", "and", "sand", "dog"]
 ## 概念
 树是一种特殊的图。
 
-### 树的遍历 
+### 树的遍历
 ![tree](/imgs/tree.jpg)
 
 树的遍历有4种方法：后序、前序、中序、广度优先
@@ -356,7 +356,7 @@ ABCABCABCABCDXXDXXD
 - [351. 安卓系统手势解锁](https://leetcode-cn.com/problems/android-unlock-patterns/)
 - 1011
 - 241
-- 499 
+- 499
 - 174
 - 84
 - 319
