@@ -44,6 +44,11 @@
   - [编译相关](c++/compile.md)
   - [错误码列表](c++/errno.md)
   - [gtest单元测试](c++/ut.md)
+  - [数据结构](c++/ds.md)
+  - [static用法](c++/static.md)
+  - [并发](c++/concurrency.md)
+  - [grpc学习](c++/grpc.md)
+  - [命名方法](c++/naming.md)
 - linux
   - [正则表达式](linux/regex.md)
   - [日志](linux/log.md)
