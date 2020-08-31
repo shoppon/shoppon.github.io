@@ -1,17 +1,5 @@
 # C/C++基础
 
-## 数据结构
-
-2. 字符串如何比较？
-
-### 类型转换
-
-| 源     | 目标      | 函数            |
-| ------ | --------- | --------------- |
-| 字符串 | ```int``` | ```std::stoi``` |
-|        |           |                 |
-|        |           |                 |
-
 ### List & Vector
 
 Vector:
@@ -53,11 +41,21 @@ List：
 
 #### 智能指针在引用计数变为0后内存是否立即回收？
 
-## 继承
+## 类型转换
 
-#### 合理使用public、protected、private
+### 智能指针向下转型
 
-体现面向对象设计的**封装性**，不对外暴露的尽量定义成```private```属性。同样，在修改函数的可见属性时，一定要三思，是否违反了设计者的初衷。将```pipe.cpp```的```UpdateTransmitter```属性从```private```修改为```public```即是反例，调用者不应该关系队列是如何更新的。
+使用`static_pointer_cast`进行向下转型
+
+```c++
+struct A {};
+struct B: A {};
+
+shared_ptr<A> foo = std::make_shared<A>();
+shared_ptr<B> bar = std::static_pointer_cast<B>(foo);
+```
+
+参考[这里](http://www.cplusplus.com/reference/memory/static_pointer_cast/)
 
 ## 性能
 
@@ -70,21 +68,6 @@ List：
 ### 为什么宏都用`do while(0)`语法？
 
 避免受到大括号、分号的影响，引起悬挂else等问题，具体见[这里](https://stackoverflow.com/questions/154136/why-use-apparently-meaningless-do-while-and-if-else-statements-in-macros)
-
-## 调试
-
-### 查看
-
-查看依赖```ldd oma```
-
-查看符号```readelf -d oma```
-
-### 生成core文件
-
-1. ```ulimit -c unlimited```
-2. ```echo "/tmp/core-%e-%p-%t" > /proc/sys/kernel/core_pattern```
-3. 重启进程，core文件路径在```/tmp/core-xxx```。
-4. 执行```gdb /path/to/bin /path/to/core```进行调试。
 
 ## 工具
 
