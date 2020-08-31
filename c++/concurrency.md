@@ -39,11 +39,26 @@ class MutexLock {
 };
 ```
 
+### 条件变量condition_variable
+
+```c++
+std::condition_variable cv;
+std::unique_lock<std::mutex> lk(m);
+std::mutex m;
+cv.wait(lk, lambda);
+//do something in other thread
+cv.notify_one();
+```
+
+条件变量是一种线程间通信机制。
+
 ### 锁类型
 
-**自旋锁：**
+**自旋锁(spinlock)：**一直尝试获取锁直到成功，如果一直获取不到会浪费CPU。
 
-**互斥锁：**
+**互斥锁(mutex)：**抢锁失败后让出CPU等待锁状态变化后唤醒，由操作系统负责线程调度，涉及上下文切换，开销比自旋锁大。
+
+**读写锁(readers-wrier-lock)：**对于临界区区分读和写，加写锁时其他线程对该锁读写都会阴寒；加读锁时其他线程加写锁阻塞，读取不阻塞。
 
 ### C++11中的锁
 
