@@ -181,11 +181,21 @@ endforeach()
 
 **编译可执行程序：**`add_executable(${PROJECT_NAME} ${SRCS})`
 
+**指定安装目录：**`cmake -DCMAKE_INSTALL_PREFIX=${prefix} CMakeLists.txt && cmake --build . --targe install --config Release`
+
+**指定依赖软件查找目录：**`-DXXX_ROOT_DIR`
+
 *默认为动态链接，如果需求静态链接则显式指定库名为libxxx.a*
 
 #### 静态链接顺序
 
 静态库中，包含着所有的 obj(*.o) 文件，连接器从左至右搜索，维护着一个 **undefined 列表**，一旦遇到没有定义的内容，就会将它加到列表中，如果搜索到了定义的内容，则抽取出 obj 文件，进行链接，并将 undefined 内容移出列表，而其它 obj 文件就会被丢弃（为了减少最终的体积大小），于是**一个静态库如果不能在搜索过程中被链接，它就会被丢弃**，而在后面一旦遇到依赖它的库，就会造成引用无法被链接，一直留在**undefined 列表**中，最终导致编译错误。因此，**被依赖的库应该放在依赖库列表的后面**。
+
+### 编译优化手段
+
+- 简化依赖
+- 增量编译
+- 部分编译：宏控制
 
 ### 其他
 
@@ -198,3 +208,11 @@ endforeach()
 **输出详细打印命令：**`make VERBOSE=1`
 
 **并发编译：**`make -j8`
+
+## GCC
+
+`__builtin_expect `将最有可能执行的分支告诉编译器，减少指令跳转。
+
+## 参考
+
+- [__builtin_expect 说明](https://www.jianshu.com/p/2684613a300f)
