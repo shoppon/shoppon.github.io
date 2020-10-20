@@ -101,6 +101,11 @@ fio -filename=/dev/vdb -direct=1 -iodepth 1 -thread -rw=randwrite -ioengine=psyn
 
 **Flush the on-drive write cache buffer：** `hdparm -F /dev/sda`
 
+### NFS
+
+**挂载NFS：**`mount -t nfs 192.168.5.27:/mnt/nas/code /home/shoppon/share/`
+
 ## 参考
 
 - [IO测试工具之fio详解](https://www.cnblogs.com/raykuan/p/6914748.html)
+

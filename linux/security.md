@@ -186,6 +186,20 @@ coefficient:
     e1:b9:e3:40:bb:25:90:be
 ```
 
+### 创建自签名证书
+
+**创建CA证书私钥：**`openssl genrsa -out ca.key 4096`
+
+**创建CA证书：**`openssl req -new -x509 -newkey rsa:4096 -keyout ca.key -out cacert.crt -config openssl.cnf -days 3650`
+
+**合成CA证书：**`cat cacert.crt ca.key > cacert.cer`
+
+**创建客户端客户端证书私钥：**`openssl genrsa -out client.key 4096`
+
+**创建客户端证书请求文件CSR：**`openssl req -new -key client.key -out client.csr -config openssl.cnf`
+
+**生成自签名证书：**`openssl ca -in client.csr -out client.crt -cert cacert.crt -keyfile cakey.key -config openssl.cnf`
+
 ### 常用命令
 
 **证书校验：**`openssl verify -CAfile cacert cert1 cert2`
@@ -205,3 +219,9 @@ coefficient:
 ### 连接s_client
 
 **使用指定协议连接：**`openssl s_client -debug -state -showcerts -connect 100.95.166.21:27211 -tls1_2 -CAfile ca.cer -cert dra.pem -key dra.key`
+
+## 参考
+
+- [创建自签名证书](https://docs.azure.cn/zh-cn/articles/azure-operations-guide/application-gateway/aog-application-gateway-howto-create-self-signed-cert-via-openssl)
+- [私有镜像仓库 Harbor 的安装与配置](https://mayanbin.com/post/installing-harbor.html)
+

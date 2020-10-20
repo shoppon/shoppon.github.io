@@ -13,6 +13,10 @@
 
 ## 命令示例
 
+### 代码
+
+**更新submodule：**`git submodule update --init --recursive`
+
 ### 工作区
 
 **更新代码永远使用：**`git pull --rebase`
