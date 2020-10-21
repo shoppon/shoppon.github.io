@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>c&#43;&#43; on Shoppon&#39;s site</title>
+    <link>http://0.0.0.0:1313/categories/c&#43;&#43;/</link>
+    <description>Recent content in c&#43;&#43; on Shoppon&#39;s site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 21 Oct 2020 09:06:30 +0000</lastBuildDate>
+    
+	<atom:link href="http://0.0.0.0:1313/categories/c++/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>base.md</title>
+      <link>http://0.0.0.0:1313/post/c&#43;&#43;/base/</link>
+      <pubDate>Wed, 21 Oct 2020 09:06:30 +0000</pubDate>
+      
+      <guid>http://0.0.0.0:1313/post/c&#43;&#43;/base/</guid>
+      <description>C/C++基础 List &amp;amp; Vector Vector: 内存连续 预分配内存 每个元素仅需要其自身大小的空间（针额外指针空间） 当新添加元素时可自动重新分配内存 在尾部插入常数时间，</description>
+    </item>
+    
+  </channel>
+</rss>

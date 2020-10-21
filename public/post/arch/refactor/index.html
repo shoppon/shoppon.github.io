@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Shoppon&#39;s site</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Shoppon" /><meta name="description" content="重构 概念与原则 定义 在不改变代码外在行为的前提下， 对代码做出修改， 以改进程序的内部结构。 何时重构 三次法则：事不过三，三则重构 新增功能：让未来增" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="http://0.0.0.0:1313/post/arch/refactor/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="重构 概念与原则 定义 在不改变代码外在行为的前提下， 对代码做出修改， 以改进程序的内部结构。 何时重构 三次法则：事不过三，三则重构 新增功能：让未来增" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://0.0.0.0:1313/post/arch/refactor/" />
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="重构 概念与原则 定义 在不改变代码外在行为的前提下， 对代码做出修改， 以改进程序的内部结构。 何时重构 三次法则：事不过三，三则重构 新增功能：让未来增">
+
+<meta itemprop="wordCount" content="1098">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="重构 概念与原则 定义 在不改变代码外在行为的前提下， 对代码做出修改， 以改进程序的内部结构。 何时重构 三次法则：事不过三，三则重构 新增功能：让未来增"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Shoppon&#39;s Site</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">文档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Shoppon&#39;s Site</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">文档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+          <span class="more-meta"> 约 1098 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#重构">重构</a>
+      <ul>
+        <li><a href="#概念与原则">概念与原则</a>
+          <ul>
+            <li><a href="#定义">定义</a></li>
+            <li><a href="#何时重构">何时重构</a></li>
+            <li><a href="#何时不重构">何时不重构</a></li>
+            <li><a href="#原则和流程">原则和流程</a></li>
+          </ul>
+        </li>
+        <li><a href="#代码怪味道">代码怪味道</a>
+          <ul>
+            <li><a href="#代码风格">代码风格</a></li>
+            <li><a href="#冗余和重复">冗余和重复</a></li>
+            <li><a href="#局部膨胀">局部膨胀</a></li>
+            <li><a href="#耦合结构不良">耦合结构不良</a></li>
+          </ul>
+        </li>
+        <li><a href="#重构手法">重构手法</a>
+          <ul>
+            <li><a href="#简化语句">简化语句</a></li>
+            <li><a href="#重组函数">重组函数</a></li>
+            <li><a href="#重组数据">重组数据</a></li>
+            <li><a href="#系统级重构">系统级重构</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="重构">重构</h1>
+<h2 id="概念与原则">概念与原则</h2>
+<h3 id="定义">定义</h3>
+<p>在<strong>不改变代码外在行为</strong>的前提下， 对代码做出修改， 以<strong>改进程序的内部结构</strong>。</p>
+<h3 id="何时重构">何时重构</h3>
+<ul>
+<li>三次法则：事不过三，三则重构</li>
+<li>新增功能：让未来增加特性更快速、更流畅</li>
+<li>修复缺陷：因代码不够清晰而无法一目了然发现错误</li>
+<li>代码评审：经验传递，改善设计</li>
+</ul>
+<h3 id="何时不重构">何时不重构</h3>
+<ul>
+<li>代码太混乱，设计完全错误</li>
+<li>时间不够：明天就是deadline</li>
+<li>工作量过大：推迟重构</li>
+<li>没有好的思路</li>
+</ul>
+<h3 id="原则和流程">原则和流程</h3>
+<p>**一次只做一件事：**添加新功能时不应该修改既有代码；重构时不能再添加功能。</p>
+<p><strong>测试保护&ndash;》识别味道&ndash;》采用手法&ndash;》小步前进</strong></p>
+<p>每一步都需要测试。</p>
+<h2 id="代码怪味道">代码怪味道</h2>
+<h3 id="代码风格">代码风格</h3>
+<p><strong>风格一致、容易阅读。</strong></p>
+<p>命名、排版、函数、变量等。</p>
+<h3 id="冗余和重复">冗余和重复</h3>
+<p><strong>重复是万恶之源。拷贝一时爽，维护两行泪。</strong></p>
+<h4 id="过多的注释">过多的注释</h4>
+<p>可能意味着本身代码就很糟糕。</p>
+<h4 id="注释">注释</h4>
+<p>应该解释why，而不是how和what，代码本身告诉你how。</p>
+<h4 id="过度设计">过度设计</h4>
+<p>过度关注未来可能的变化，增加了不必要的东西。</p>
+<h3 id="局部膨胀">局部膨胀</h3>
+<h4 id="过长参数列表">过长参数列表</h4>
+<p>参数之间约束关系不明，难以调用；参数分类，结构体。</p>
+<h4 id="构造函数大量参数">构造函数大量参数</h4>
+<p>参数对象、生成器模式。</p>
+<h3 id="耦合结构不良">耦合结构不良</h3>
+<h4 id="发散式变化">发散式变化</h4>
+<p>某个模块（类、函数）经常因为不同的原因在不同的方向上发生变化。</p>
+<p>**解决方法：**按不同变化方向拆分。</p>
+<h4 id="散弹式修改">散弹式修改</h4>
+<p>遇到变化时必须在许多不同的模块（类、函数）内做出许多小的修改。</p>
+<h4 id="重复的switch">重复的switch</h4>
+<p>**解决方法：**多态/表驱动/策略模式。</p>
+<h4 id="临时字段">临时字段</h4>
+<p>对象的某个变量仅为特定场景而设，或者只在该对象某一段生成周期内生效，在其他场景或周期调用时产生错误。</p>
+<p>**解决方法：**将临时字段作为参数或者封装成子类。</p>
+<h4 id="工程工具">工程工具</h4>
+<p>converity/fortify/codemars /binscope</p>
+<h2 id="重构手法">重构手法</h2>
+<ul>
+<li>**抽：**抽取方法</li>
+<li>**替：**内联方法</li>
+<li>**组：**抽取类</li>
+<li>**改：**重命名</li>
+<li>**移：**移动方法</li>
+</ul>
+<h3 id="简化语句">简化语句</h3>
+<h4 id="移动语句">移动语句</h4>
+<p>让存在关联的东西一起出现</p>
+<h4 id="合并条件表达式">合并条件表达式</h4>
+<h4 id="以卫语句取代嵌套条件表达式">以卫语句取代嵌套条件表达式</h4>
+<p>选中最外层需要被替换的条件逻辑，将其替换为卫语句。</p>
+<h3 id="重组函数">重组函数</h3>
+<h4 id="提炼函数">提炼函数</h4>
+<p>将部分代码提炼成函数，通过函数命令标识函数功能，实现自注释。</p>
+<p>起名字是最重要的，如果名字不好取，说明提炼可能不合理。</p>
+<h4 id="内联函数">内联函数</h4>
+<p>消除间接性，实现更内聚，方便后续重构。</p>
+<h4 id="将查询函数和修改函数分离">将查询函数和修改函数分离</h4>
+<p>任何查询类的函数，都不应该有看得到的副作用。</p>
+<h4 id="移除标记参数">移除标记参数</h4>
+<p>根据标记参数提供不同函数给调用者调用。</p>
+<h3 id="重组数据">重组数据</h3>
+<h4 id="拆分变量分解临时变量">拆分变量（分解临时变量）</h4>
+<p>变量被多次就赋值，且赋值的意义不同，意味着他们在函数中承担了多个职责。</p>
+<h4 id="提炼类">提炼类</h4>
+<p>将不同职责的代码提取到独立的类（模块）。</p>
+<h4 id="内联类">内联类</h4>
+<p>消除多余的间接性，重新组织类，以便按照其他方向进一步拆分。</p>
+<h4 id="类继承体系重构">类继承体系重构</h4>
+<p>函数上移/下移</p>
+<p>字段上移/下移</p>
+<h3 id="系统级重构">系统级重构</h3>
+<h4 id="重构级别">重构级别</h4>
+<p>L0：功能正确</p>
+<p>L1：无漏洞风险</p>
+<p>L2：代码整洁</p>
+<p>L3：架构敏捷</p>
+<p>L4：持续演进</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Shoppon</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        0001-01-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/arch/design/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/arch/security/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '0001-01-01 00:00:00 \x2b0000 UTC',
+        title: '',
+        link: decodeURI(location.href),
+        desc: '重构 概念与原则 定义 在不改变代码外在行为的前提下， 对代码做出修改， 以改进程序的内部结构。 何时重构 三次法则：事不过三，三则重构 新增功能：让未来增',
+        owner: 'shoppon',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:shopppon@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://0.0.0.0:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span>Shoppon</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

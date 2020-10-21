@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>常用数据库命令 - Shoppon&#39;s site</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Shoppon" /><meta name="description" content="数据库指南 常用命令 查询用户：\du 创建用户：CREATE USER karbor_a WITH CREATEDB PASSWORD &amp;quot;passowrd&amp;quot;; 解锁用户：alter user xxx login; 修改表用户：alter table xxx owner to xxx; 根据查询结果更" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="http://0.0.0.0:1313/post/database/database-operation/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="常用数据库命令" />
+<meta property="og:description" content="数据库指南 常用命令 查询用户：\du 创建用户：CREATE USER karbor_a WITH CREATEDB PASSWORD &quot;passowrd&quot;; 解锁用户：alter user xxx login; 修改表用户：alter table xxx owner to xxx; 根据查询结果更" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://0.0.0.0:1313/post/database/database-operation/" />
+
+<meta itemprop="name" content="常用数据库命令">
+<meta itemprop="description" content="数据库指南 常用命令 查询用户：\du 创建用户：CREATE USER karbor_a WITH CREATEDB PASSWORD &quot;passowrd&quot;; 解锁用户：alter user xxx login; 修改表用户：alter table xxx owner to xxx; 根据查询结果更">
+
+<meta itemprop="wordCount" content="362">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="常用数据库命令"/>
+<meta name="twitter:description" content="数据库指南 常用命令 查询用户：\du 创建用户：CREATE USER karbor_a WITH CREATEDB PASSWORD &quot;passowrd&quot;; 解锁用户：alter user xxx login; 修改表用户：alter table xxx owner to xxx; 根据查询结果更"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Shoppon&#39;s Site</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">文档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Shoppon&#39;s Site</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">文档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">常用数据库命令</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+          <span class="more-meta"> 约 362 字 </span>
+          <span class="more-meta"> 预计阅读 1 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#数据库指南">数据库指南</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="数据库指南">数据库指南</h2>
+<h4 id="常用命令">常用命令</h4>
+<p>查询用户：<code>\du</code></p>
+<p>创建用户：<code>CREATE USER karbor_a WITH CREATEDB PASSWORD &quot;passowrd&quot;;</code></p>
+<p>解锁用户：<code>alter user xxx login;</code></p>
+<p>修改表用户：<code>alter table xxx owner to xxx;</code></p>
+<h4 id="根据查询结果更新text字段中的一部分内容">根据查询结果更新Text字段中的一部分内容</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">UPDATE</span> <span class="n">checkpoint_item</span> <span class="k">SET</span> <span class="n">EXTEND_INFO</span> <span class="o">=</span> <span class="k">REPLACE</span><span class="p">(</span><span class="n">EXTEND_INFO</span><span class="p">,</span> <span class="s1">&#39;&#34;auto_trigger&#34;: false&#39;</span><span class="p">,</span> <span class="s1">&#39;&#34;auto_trigger&#34;: true&#39;</span><span class="p">)</span> <span class="k">WHERE</span> <span class="n">id</span><span class="o">=</span><span class="s1">&#39;ae140853-2c58-4182-b874-c27a5bf59434&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="导出指定数据库">导出指定数据库</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">export</span> <span class="n">LD_LIBRARY_PATH</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">gaussdb</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="p">;</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">gaussdb</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">gs_dump</span> <span class="n">karbor</span> <span class="o">-</span><span class="n">W</span> <span class="n">CloudService</span><span class="o">@</span><span class="mi">123</span><span class="o">!</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">karbor</span><span class="p">.</span><span class="k">sql</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="导入指定数据库">导入指定数据库</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">export</span> <span class="n">LD_LIBRARY_PATH</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">gaussdb</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="p">;</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">gaussdb</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">gsql</span> <span class="o">-</span><span class="n">W</span> <span class="n">CloudService</span><span class="o">@</span><span class="mi">123</span><span class="o">!</span> <span class="n">karbor</span> <span class="c1">--set ON_ERROR_STOP=on --single-transaction -f /opt/huawei/dj/etc/gaussdb/karbor.sql
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="批量插入">批量插入</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">resources</span> <span class="k">SELECT</span> <span class="s1">&#39;2018-10-19 08:46:47.616534&#39;</span> <span class="k">AS</span> <span class="n">CREATED_AT</span><span class="p">,</span> <span class="s1">&#39;2018-10-19 08:46:47.616534&#39;</span> <span class="k">AS</span> <span class="n">UPDATED_AT</span><span class="p">,</span> <span class="k">NULL</span> <span class="k">AS</span> <span class="n">DELETED_AT</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span> <span class="k">AS</span> <span class="n">DELETED</span><span class="p">,</span> <span class="n">i</span> <span class="k">AS</span> <span class="n">ID</span><span class="p">,</span> <span class="s1">&#39;79ca9cb8-4078-4e64-8439-73cb0e1229c9&#39;</span> <span class="k">AS</span> <span class="n">PLAN_ID</span><span class="p">,</span> <span class="s1">&#39;8ec26d2d-4bd2-4fb2-bff7-5dd675883c31&#39;</span> <span class="k">AS</span> <span class="n">RESOURCE_ID</span><span class="p">,</span> <span class="s1">&#39;OS::Nova::Server&#39;</span> <span class="k">AS</span> <span class="n">RESOURCE_TYPE</span><span class="p">,</span> <span class="s1">&#39;ecs-xp&#39;</span> <span class="k">AS</span> <span class="n">RESOURCE_NAME</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="k">AS</span> <span class="n">RESOURCE_EXTRA_INFO</span> <span class="k">FROM</span> <span class="n">generate_series</span><span class="p">(</span><span class="mi">80000</span><span class="p">,</span> <span class="mi">80000</span><span class="p">)</span> <span class="k">AS</span> <span class="n">i</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">delete</span> <span class="k">from</span> <span class="n">resources</span> <span class="k">where</span> <span class="n">id</span> <span class="o">~</span> <span class="s1">&#39;^\d{5,5}$&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="通过左外连接查询已删除plans的副本">通过左外连接查询已删除Plans的副本</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="n">checkpoint_item</span><span class="p">.</span><span class="n">id</span> <span class="k">from</span> <span class="n">checkpoint_item</span> <span class="k">LEFT</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="k">checkpoint</span> <span class="k">ON</span> <span class="k">checkpoint</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">checkpoint_item</span><span class="p">.</span><span class="n">checkpoint_id</span> <span class="k">LEFT</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">plans</span> <span class="k">ON</span> <span class="k">checkpoint</span><span class="p">.</span><span class="n">plan_id</span> <span class="o">=</span> <span class="n">plans</span><span class="p">.</span><span class="n">id</span> <span class="k">where</span> <span class="n">plans</span><span class="p">.</span><span class="n">deleted</span> <span class="o">=</span> <span class="mi">1</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">select checkpoint_item.id from checkpoint_item LEFT OUTER JOIN checkpoint ON checkpoint.id = checkpoint_item.checkpoint_id where checkpoint.plan_id in (select id from plans where plans.deleted = 1)
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="修改执行时间">修改执行时间</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">update</span> <span class="n">TRIGGER_EXECUTIONS</span> <span class="k">set</span> <span class="n">EXECUTION_TIME</span><span class="o">=</span><span class="s1">&#39;2018-10-27 09:30:00&#39;</span> <span class="k">where</span> <span class="n">id</span> <span class="k">in</span> <span class="p">(</span><span class="k">select</span> <span class="n">id</span> <span class="k">from</span> <span class="n">TRIGGER_EXECUTIONS</span> <span class="k">where</span> <span class="n">EXECUTION_TIME</span><span class="o">&gt;</span><span class="s1">&#39;2018-10-27 09:00:00&#39;</span> <span class="k">and</span> <span class="n">EXECUTION_TIME</span><span class="o">&lt;</span><span class="s1">&#39;2018-10-27 10:00:00&#39;</span> <span class="k">limit</span> <span class="mi">10</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="导入数据到文件">导入数据到文件</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">copy</span> <span class="p">(</span><span class="k">select</span> <span class="n">checkpoint_item</span><span class="p">.</span><span class="n">id</span> <span class="k">from</span> <span class="n">checkpoint_item</span><span class="p">)</span> <span class="k">to</span> <span class="s1">&#39;/home/gaussdba/tbl.csv&#39;</span> <span class="k">with</span> <span class="n">csv</span> <span class="n">header</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="查询空闲事务">查询空闲事务</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">from</span> <span class="n">pg_stat_activity</span> <span class="k">where</span> <span class="k">state</span><span class="o">=</span><span class="s1">&#39;idle&#39;</span> <span class="k">and</span> <span class="n">query</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="查看是否有锁">查看是否有锁</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="n">QUERY</span><span class="p">,</span><span class="n">QUERY_START</span><span class="p">,</span><span class="n">STATE_CHANGE</span><span class="p">,</span><span class="n">WAITING</span><span class="p">,</span><span class="k">STATE</span> <span class="k">from</span> <span class="n">pg_stat_activity</span> <span class="k">where</span> <span class="n">WAITING</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="查看总连接数">查看总连接数：</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">from</span> <span class="n">V$SESSION</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="查看karbor-a进程占的连接数">查看karbor-a进程占的连接数：</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">from</span> <span class="n">V$SESSION</span> <span class="k">where</span> <span class="n">USERNAME</span><span class="o">=</span><span class="s1">&#39;KARBOR_A&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Shoppon</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        0001-01-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/cbs/coding-rule/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">备份服务团队开发规范</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/python/dev-env/">
+            <span class="next-text nav-default">开发环境搭建</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '0001-01-01 00:00:00 \x2b0000 UTC',
+        title: '常用数据库命令',
+        link: decodeURI(location.href),
+        desc: '数据库指南 常用命令 查询用户：\\du 创建用户：CREATE USER karbor_a WITH CREATEDB PASSWORD \x26quot;passowrd\x26quot;; 解锁用户：alter user xxx login; 修改表用户：alter table xxx owner to xxx; 根据查询结果更',
+        owner: 'shoppon',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:shopppon@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://0.0.0.0:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span>Shoppon</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,3 +1,10 @@
+---
+title: "类型"
+date: 2020-10-20T09:06:30Z
+categories: ["c++"]
+draft: true
+---
+
 # 类型
 
 ## 全局变量

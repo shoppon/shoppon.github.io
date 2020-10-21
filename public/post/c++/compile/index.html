@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Shoppon&#39;s site</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Shoppon" /><meta name="description" content="编译相关 安全编译选项 栈保护 **说明：**避免栈溢出被攻击者利用，在缓存区和控制信息之间插入一个canary word。 **作用阶段：**编译选" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="http://0.0.0.0:1313/post/c&#43;&#43;/compile/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="编译相关 安全编译选项 栈保护 **说明：**避免栈溢出被攻击者利用，在缓存区和控制信息之间插入一个canary word。 **作用阶段：**编译选" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://0.0.0.0:1313/post/c&#43;&#43;/compile/" />
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="编译相关 安全编译选项 栈保护 **说明：**避免栈溢出被攻击者利用，在缓存区和控制信息之间插入一个canary word。 **作用阶段：**编译选">
+
+<meta itemprop="wordCount" content="3090">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="编译相关 安全编译选项 栈保护 **说明：**避免栈溢出被攻击者利用，在缓存区和控制信息之间插入一个canary word。 **作用阶段：**编译选"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Shoppon&#39;s Site</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">文档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Shoppon&#39;s Site</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">文档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+          <span class="more-meta"> 约 3090 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#编译相关">编译相关</a>
+      <ul>
+        <li><a href="#安全编译选项">安全编译选项</a>
+          <ul>
+            <li><a href="#栈保护">栈保护</a></li>
+            <li><a href="#got表保护">GOT表保护</a></li>
+            <li><a href="#立即执行bindnow">立即执行BindNow</a></li>
+            <li><a href="#堆栈不可执行">堆栈不可执行</a></li>
+            <li><a href="#地址无关">地址无关</a></li>
+            <li><a href="#随机化">随机化</a></li>
+            <li><a href="#rpath">rpath</a></li>
+            <li><a href="#fortify-source">Fortify Source</a></li>
+            <li><a href="#visibility">Visibility</a></li>
+            <li><a href="#整型溢出">整型溢出</a></li>
+            <li><a href="#栈检查">栈检查</a></li>
+            <li><a href="#符号表删除">符号表删除</a></li>
+          </ul>
+        </li>
+        <li><a href="#cmake">CMake</a>
+          <ul>
+            <li><a href="#日志">日志</a></li>
+            <li><a href="#环境变量">环境变量</a></li>
+            <li><a href="#语法">语法</a></li>
+            <li><a href="#控制">控制</a></li>
+            <li><a href="#输出">输出</a></li>
+            <li><a href="#编译优化手段">编译优化手段</a></li>
+            <li><a href="#其他">其他</a></li>
+          </ul>
+        </li>
+        <li><a href="#make">make</a></li>
+        <li><a href="#gcc">GCC</a></li>
+        <li><a href="#参考">参考</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="编译相关">编译相关</h1>
+<h2 id="安全编译选项">安全编译选项</h2>
+<h3 id="栈保护">栈保护</h3>
+<p>**说明：**避免栈溢出被攻击者利用，在缓存区和控制信息之间插入一个canary word。</p>
+<p>**作用阶段：**编译选项</p>
+<p>**参数：**<code>-fstack-protector-all/-fstack-protector-strong</code></p>
+<h3 id="got表保护">GOT表保护</h3>
+<p>**说明：**动态链接的ELF二进制程序使用称为全局偏移表（GOT）的查找表去动态解析位于共享库中的函数。攻击者通过缓冲区溢出修改GOT表项的函数地址值来达到攻击的目的。通过增加RELRO选项，可以防止GOT表被恶意重写。</p>
+<p>**作用阶段：**链接选项</p>
+<p>**参数：**<code>-Wl,-z,relro</code></p>
+<h3 id="立即执行bindnow">立即执行BindNow</h3>
+<p>**说明：**开启部分重定项只读保护后，再开启立即绑定可实现全部重定向只读保护。</p>
+<p>**作用阶段：**链接选项</p>
+<p>**参数：**<code>-Wl,-z,now</code></p>
+<h3 id="堆栈不可执行">堆栈不可执行</h3>
+<p>**说明：**缓冲区溢出成功后都是通过执行shellcode来达到攻击的目的，而shellcode一般都是在缓存区里，只要操作系统限制堆栈中的数据只可读写，不可执行，一旦堆栈中的数据被执行立即报告错误并退出，那么溢出成功后也不能执行shellcode，从而达到对应用安全防护的目的。</p>
+<p>**作用阶段：**链接选项</p>
+<p>**参数：**<code>-Wl,-z,noexecstack </code></p>
+<h3 id="地址无关">地址无关</h3>
+<p>**说明：**地址无关选项将发生在代码段的重定位移到数据段实现，so文件加载时代码段不会发生任何变化，做到所有进程共用一个代码段副本。</p>
+<p>**作用阶段：**编译选项</p>
+<p>**参数：**<code>-fPIC</code></p>
+<h3 id="随机化">随机化</h3>
+<p>**说明：**具备PIE的可执行文件，在加载执行时可像共享库一样随机加载。有研究表明：PIE可有效降低固定地址类攻击、缓冲溢出类攻击的成功概率。</p>
+<p>**作用阶段：**编译、链接选项</p>
+<p>**参数：**<code>-fPIE -pie</code></p>
+<h3 id="rpath">rpath</h3>
+<p>**说明：**主要用于防护LD_LIBRARY_PATH替换同名动态库的攻击。通过加入此选项可以指定一个运行时动态库搜索的路径，该路径的搜索优先级高于LD_LIBRARY_PATH指定的路径。</p>
+<p>**作用阶段：**链接选项</p>
+<p>**参数：**<code>-Wl,--disable-new-dtags,--rpath,/libpath1:/libpath2;-Wl,--enable-new-dtags,--rpath,/libpath1:/libpath2</code></p>
+<h3 id="fortify-source">Fortify Source</h3>
+<p>**说明：**程序中使用到静态的固定大小的缓冲区，增加了该选项之后，编译器或运行时库会对相关函数的调用在编译时或运行时进行检查。</p>
+<p>**作用阶段：**编译选项</p>
+<p>**参数：**<code>-D_FORTIFY_SOURCE=2 -O2</code></p>
+<h3 id="visibility">Visibility</h3>
+<p>**说明：**设置默认的ELF镜像中符号的可见性为隐藏。</p>
+<p>**作用阶段：**编译选项</p>
+<p>**参数：**<code>-fvisibility=hidden</code></p>
+<h3 id="整型溢出">整型溢出</h3>
+<p>**说明：**使用了-ftrapv选项后，执行带符号的整数间的加、减、乘运算时，不是通过CPU的指令，而是用包含在GCC附属库libgcc.c里的函数来实现。</p>
+<p>**作用阶段：**编译选项</p>
+<p>**参数：**<code>-ftrapv</code></p>
+<h3 id="栈检查">栈检查</h3>
+<p>**说明：**stack-check在编译时检查程序中栈空间，如果超过编译告警阀值则产生告警；然后在程序中生成额外的指令来检查运行时栈不会被溢出，stack-check选项会在每个栈空间最低底部设置一个安全的缓冲区，如果函数中申请的栈空间进入安全缓冲区，则触发一个Storage_Error异常。但它所生成的代码实际上并不处理异常，如果检测到异常则会发出一个消息，通知操作系统处理。它只保证操作系统可以检测到栈扩展。</p>
+<p>**作用阶段：**编译选项</p>
+<p>**参数：**<code>-fstack-check</code></p>
+<h3 id="符号表删除">符号表删除</h3>
+<p>**说明：**符号在链接过程中，发挥着至关重要的作用，链接过程的本质就是把多个不同的目标文件“粘”到一起，符号可看作链接的粘合剂，整个链接过程正是基于符号才正确完成的。链接完成后，符号表对可执行文件运行已经无任何作用，反而会成为攻击者构造攻击的工具，因此删除符号表可防御黑客攻击。事实上删除符号表除防攻击外，还可对文件减肥，降低文件大小。</p>
+<p>**作用阶段：**链接选项</p>
+<p>**参数：**<code>-s</code></p>
+<h2 id="cmake">CMake</h2>
+<h3 id="日志">日志</h3>
+<p>日志级别如下：</p>
+<ul>
+<li><code>FATAL_ERROR</code>：cmake出错，停止编译和生成(信息红色)</li>
+<li><code>SEND_ERROR</code>：cmake出错，继续编译，但是停止生成(信息红色)</li>
+<li><code>WARNING</code>：cmake警告，继续编译(信息红色)</li>
+<li><code>AUTHOR_WARNING</code>：开发者警告，继续编译(信息红色)</li>
+<li><code>DEPRECATION</code>：如果使用set方法设置CMAKE_ERROR_DEPRECATED为true(不区分大小写)，编译出错，否则继续编译</li>
+<li>(none) or <code>NOTICE</code>：不设置mode，默认是NOTICE模式，不影响编译和生成，用于打印消息(信息白色)</li>
+<li><code>STATUS</code>：编译时状态信息，左边以<code>--</code>开头(信息白色)</li>
+<li><code>DEBUG</code>：针对开发人员的调试信息(信息白色)</li>
+<li><code>TRACE</code>：日志级别的临时信息(信息白色)</li>
+</ul>
+<p>日志样例：<code>message(FATAL_ERROR &quot;Insufficient gcc version&quot;)</code></p>
+<h3 id="环境变量">环境变量</h3>
+<p>**当前目录：**<code>CMAKE_CURRENT_SOURCE_DIR</code></p>
+<h3 id="语法">语法</h3>
+<p><strong>函数定义：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="k">function</span><span class="o">(</span>SET_COMPILE_OPTIONS<span class="o">)</span>
+    add_definitions<span class="o">(</span>-fPIC<span class="o">)</span>
+endfunction<span class="o">(</span>SET_COMPILE_OPTIONS<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>**设置工程：**<code>project(xxx)</code></p>
+<p>**编译子目录：**<code>add_subdirectory(xx)</code></p>
+<p>**加载其他编译文件：**<code>include(xxx)</code></p>
+<p>**变量定义：**<code>set (LOCAL_LIB /usr/local/lib)</code></p>
+<p>**添加编译选项：**<code>add_denifition(-Wall -Werror)</code></p>
+<p>**搜索lib库：**<code>find_library(VAR_NAME lib_name)</code></p>
+<p>**搜索程序：**<code>find_program(PRO_NAME exe_name)</code></p>
+<p>**设置链接目录：**<code>link_directory(${link_path})</code></p>
+<p>**设置头文件目录：**<code>include_directories(SYSTEM ${include_dir})</code></p>
+<p>**获取源文件：**<code>file(GLOB SRCS [^.~]*.[hc][px][px] [^.~]*.[hc])</code></p>
+<p>**执行其他程序：**<code>execute_process(COMMAND sh ${CMAKE_CURRENT_SOURCE_DIR}/build.sh)</code></p>
+<h3 id="控制">控制</h3>
+<p>使用if/elseif/else进行分支处理：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">if (${CMAKE_BUILD_TYPE} STREQUAL &#34;RELEASE&#34;)
+elseif (${CMAKE_BUILD_TYPE} STREQUAL &#34;DEBUG&#34;)
+else (${CMAKE_BUILD_TYPE} STREQUAL &#34;CHECK&#34;)
+endif ()
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>使用for循环语句：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">foreach<span class="o">(</span>sourcefile <span class="si">${</span><span class="nv">source_files</span><span class="si">}</span><span class="o">)</span>
+    get_filename_component<span class="o">(</span>basename <span class="s2">&#34;</span><span class="si">${</span><span class="nv">sourcefile</span><span class="si">}</span><span class="s2">&#34;</span> NAME<span class="o">)</span>
+endforeach<span class="o">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="输出">输出</h3>
+<p>**编译动态库：**<code>add_library(${PROJECT_NAME} SHARED ${SRCS})</code></p>
+<p>**编译静态库：**<code>add_library(${PROJECT_NAME} STATIC ${SRCS})</code></p>
+<p>**设置链接库：**<code>target_link_libraries(${PROJECT_NAME} ${LIBRARY_LIST})</code></p>
+<p>**编译可执行程序：**<code>add_executable(${PROJECT_NAME} ${SRCS})</code></p>
+<p>**指定安装目录：**<code>cmake -DCMAKE_INSTALL_PREFIX=${prefix} CMakeLists.txt &amp;&amp; cmake --build . --targe install --config Release</code></p>
+<p>**指定依赖软件查找目录：**<code>-DXXX_ROOT_DIR</code></p>
+<p><em>默认为动态链接，如果需求静态链接则显式指定库名为libxxx.a</em></p>
+<h4 id="静态链接顺序">静态链接顺序</h4>
+<p>静态库中，包含着所有的 obj(*.o) 文件，连接器从左至右搜索，维护着一个 <strong>undefined 列表</strong>，一旦遇到没有定义的内容，就会将它加到列表中，如果搜索到了定义的内容，则抽取出 obj 文件，进行链接，并将 undefined 内容移出列表，而其它 obj 文件就会被丢弃（为了减少最终的体积大小），于是<strong>一个静态库如果不能在搜索过程中被链接，它就会被丢弃</strong>，而在后面一旦遇到依赖它的库，就会造成引用无法被链接，一直留在<strong>undefined 列表</strong>中，最终导致编译错误。因此，<strong>被依赖的库应该放在依赖库列表的后面</strong>。</p>
+<h3 id="编译优化手段">编译优化手段</h3>
+<ul>
+<li>简化依赖</li>
+<li>增量编译</li>
+<li>部分编译：宏控制</li>
+</ul>
+<h3 id="其他">其他</h3>
+<p>**禁用rpath：**<code>set (CMAKE_SKIP_RPATH TRUE)</code></p>
+<p>**执行脚本：**<code>execute_process(COMMAND ${command} ${param})</code></p>
+<h2 id="make">make</h2>
+<p>**输出详细打印命令：**<code>make VERBOSE=1</code></p>
+<p>**并发编译：**<code>make -j8</code></p>
+<h2 id="gcc">GCC</h2>
+<p><code>__builtin_expect </code>将最有可能执行的分支告诉编译器，减少指令跳转。</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://www.jianshu.com/p/2684613a300f">__builtin_expect 说明</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Shoppon</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        0001-01-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/c&#43;&#43;/base/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/c&#43;&#43;/concurrency/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '0001-01-01 00:00:00 \x2b0000 UTC',
+        title: '',
+        link: decodeURI(location.href),
+        desc: '编译相关 安全编译选项 栈保护 **说明：**避免栈溢出被攻击者利用，在缓存区和控制信息之间插入一个canary word。 **作用阶段：**编译选',
+        owner: 'shoppon',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:shopppon@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://0.0.0.0:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span>Shoppon</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

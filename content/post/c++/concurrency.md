@@ -1,3 +1,10 @@
+---
+title: "并发"
+date: 2020-10-20T09:06:30Z
+categories: ["c++"]
+draft: true
+---
+
 # 并发
 
 ## 线程安全
@@ -75,7 +82,7 @@ cv.notify_one();
 ```c++
 #include <sys/prctl.h>
 
-prctl(PR_SET_NAME, "ThreadName");  
+prctl(PR_SET_NAME, "ThreadName");
 ```
 
 使用`pthread_setname_np`设置线程名。

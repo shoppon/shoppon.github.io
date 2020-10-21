@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Python单元测试方法 - Shoppon&#39;s site</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Shoppon" /><meta name="description" content="LLT原则 用例一定要用场景和预期 所谓场景，就是用例一定要有目的，比如检查调用cinder网络异常怎么处理，创建快照失败怎么处理。 1 2 3 4 5 6" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="http://0.0.0.0:1313/post/python/ut/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Python单元测试方法" />
+<meta property="og:description" content="LLT原则 用例一定要用场景和预期 所谓场景，就是用例一定要有目的，比如检查调用cinder网络异常怎么处理，创建快照失败怎么处理。 1 2 3 4 5 6" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://0.0.0.0:1313/post/python/ut/" />
+
+<meta itemprop="name" content="Python单元测试方法">
+<meta itemprop="description" content="LLT原则 用例一定要用场景和预期 所谓场景，就是用例一定要有目的，比如检查调用cinder网络异常怎么处理，创建快照失败怎么处理。 1 2 3 4 5 6">
+
+<meta itemprop="wordCount" content="1635">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python单元测试方法"/>
+<meta name="twitter:description" content="LLT原则 用例一定要用场景和预期 所谓场景，就是用例一定要有目的，比如检查调用cinder网络异常怎么处理，创建快照失败怎么处理。 1 2 3 4 5 6"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Shoppon&#39;s Site</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">文档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Shoppon&#39;s Site</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">文档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Python单元测试方法</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+          <span class="more-meta"> 约 1635 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#llt原则">LLT原则</a>
+          <ul>
+            <li></li>
+            <li><a href="#db可以不用mock可以使用sqlite-memory-db必要时甚至可以使用sqlite本地数据库方便查看db数据">db可以不用mock，可以使用sqlite memory db，必要时甚至可以使用sqlite本地数据库（方便查看db数据）</a></li>
+          </ul>
+        </li>
+        <li><a href="#mock原则">Mock原则</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#mock技巧">Mock技巧</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#llt中无法mock的坑">LLT中无法mock的坑</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="llt原则">LLT原则</h2>
+<h4 id="用例一定要用场景和预期">用例一定要用场景和预期</h4>
+<p>所谓场景，就是用例一定要有目的，比如检查调用cinder网络异常怎么处理，创建快照失败怎么处理。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">test_create_backup_status_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">factory_mock</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        场景：创建备份状态为error
+</span><span class="s2">        预期：checkpoint和checkpoint item状态均为error，不会出现非稳态现象
+</span><span class="s2">        临时快照被清理，临时备份被清理
+</span><span class="s2">        副本中fail_reason为cinder backup中的fail_reason
+</span><span class="s2">        :return:
+</span><span class="s2">        &#34;&#34;&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>所谓预期，就是用例一定要有<strong>检查点</strong>，检查点一般是通过断言来表达。<strong>绝对不允许没有检查点的用例</strong>，之前整机备份plugin就有很多这样的反例，
+列举一例如下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">test2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">backup_service</span><span class="o">.</span><span class="n">on_main</span><span class="p">(</span><span class="n">checkpoint_object</span><span class="p">,</span><span class="n">resource_object</span><span class="p">,</span><span class="n">context_object</span><span class="p">,</span><span class="bp">None</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">failIf</span><span class="p">(</span><span class="n">plugin_common</span><span class="o">.</span><span class="n">PLUGIN_EXCEPTION_STR</span> <span class="o">!=</span> <span class="n">e</span><span class="o">.</span><span class="fm">__str__</span><span class="p">())</span>
+        <span class="k">return</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">failIf</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="db可以不用mock可以使用sqlite-memory-db必要时甚至可以使用sqlite本地数据库方便查看db数据">db可以不用mock，可以使用sqlite memory db，必要时甚至可以使用sqlite本地数据库（方便查看db数据）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">setup_dummy_db</span><span class="p">():</span>
+    <span class="n">options</span><span class="o">.</span><span class="n">cfg</span><span class="o">.</span><span class="n">set_defaults</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">database_opts</span><span class="p">,</span> <span class="n">sqlite_synchronous</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">CONF</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">connection</span> <span class="o">=</span> <span class="s1">&#39;sqlite:///:memory:&#39;</span>
+    <span class="n">CONF</span><span class="o">.</span><span class="n">disable_process_locking</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="n">engine</span> <span class="o">=</span> <span class="n">get_engine</span><span class="p">()</span>
+
+    <span class="n">karbor_migration</span><span class="o">.</span><span class="n">db_sync</span><span class="p">()</span>
+    <span class="n">migration</span><span class="o">.</span><span class="n">db_sync</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+    <span class="n">engine</span> <span class="o">=</span> <span class="n">get_engine</span><span class="p">()</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="mock原则">Mock原则</h2>
+<h4 id="如何确定要mock的路径br">如何确定要mock的路径<br></h4>
+<p>总结就一句话：<strong>在哪里引用就mock哪个路径</strong>。举例如下：<br>
+文件路径：<code>kangaroo/kangaroo/plugin/volume/backup_operation.py</code><br></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">karbor.services.protection.client_factory</span> <span class="kn">import</span> <span class="n">ClientFactory</span>
+<span class="k">class</span> <span class="nc">BackupOperation</span><span class="p">(</span><span class="n">protection_plugin</span><span class="o">.</span><span class="n">Operation</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">on_main</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">checkpoint</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">cc</span> <span class="o">=</span> <span class="n">ClientFactory</span><span class="o">.</span><span class="n">create_client</span><span class="p">(</span><span class="s2">&#34;cinder&#34;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="n">snap</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">volume_snapshots</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">volume_id</span><span class="o">=</span><span class="n">volume_id</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果想mock <code>ClientFactory</code>就必须<code>mock kangaroo/plugin/volume/backup_operation.ClientFactory</code>，而不是<code>karbor.services.protection.client_factory.ClientFactory</code></p>
+<h4 id="跨服务调用时mock-client因为llt运行时周边网络肯定是无法连通的">跨服务调用时mock client，因为LLT运行时周边网络肯定是无法连通的。</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@mock.patch</span><span class="p">(</span><span class="s2">&#34;kangaroo.plugin.volume.backup_operation.ClientFactory&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="长时间任务有轮询操作时一定要将interval-mock掉否则llt执行会很慢">长时间任务有轮询操作时<strong>一定要将<code>interval</code> mock掉</strong>，否则LLT执行会很慢。</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@mock.patch</span><span class="p">(</span><span class="s2">&#34;kangaroo.plugin.volume.backup_operation.POLL_INTERVAL&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="异步执行时需要将协程mock并且捕获协程中的异常因为协程的异常对主线程不感知">异步执行时需要将协程mock，并且捕获协程中的异常，因为协程的异常对主线程不感知。</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">mock_spawn</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    mock spawn，改成同步调用
+</span><span class="s2">    :param func:
+</span><span class="s2">    :param args:
+</span><span class="s2">    :param kwargs:
+</span><span class="s2">    :return:
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="c1"># 协程异常对主线程不感知</span>
+        <span class="k">pass</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="mock技巧">Mock技巧</h2>
+<h4 id="基于类的mock和基于方法的mock的区别">基于类的Mock和基于方法的Mock的区别</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@mock.patch</span><span class="p">(</span><span class="s2">&#34;kangaroo.plugin.volume.backup_copy_operation.INTERVAL&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">Class</span> <span class="n">TestBackup</span><span class="p">(</span><span class="n">BaseTestCase</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@mock.patch</span><span class="p">(</span><span class="s2">&#34;kangaroo.plugin.base_operation.wf_client&#34;</span><span class="p">,</span> <span class="n">mock</span><span class="o">.</span><span class="n">MagicMock</span><span class="p">())</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">pass</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="mockmagicmock使用">mock.MagicMock使用</h4>
+<p>MagicMock对象可以通过任何属性去访问，返回值是一个子Mock对象，也可以指定该对象的任何属性。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">fake</span> <span class="o">=</span> <span class="n">mock</span><span class="o">.</span><span class="n">MagicMock</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">fake</span><span class="o">.</span><span class="n">a</span>
+<span class="k">print</span> <span class="n">fake</span><span class="o">.</span><span class="n">b</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="使用side_effect构造多次调用不同返回结果">使用side_effect构造多次调用不同返回结果</h4>
+<p>在LLT中，经常遇到需要构造同一个接口多次请求返回不同的场景，这个时候side_effect就能派上用场了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">client_mock</span><span class="o">.</span><span class="n">backups</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">side_effect</span> <span class="o">=</span> <span class="p">[</span><span class="n">Backup</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;creating&#39;</span><span class="p">),</span>
+                                       <span class="n">Backup</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;error&#39;</span><span class="p">),</span>
+                                       <span class="n">Backup</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;error&#39;</span><span class="p">)]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在这个例子中，我们模拟了cinder backup调用每次返回不同的状态。</p>
+<h4 id="使用assert_called_withassert_called_withassert_not_called等断言代码是否被调用">使用<code>assert_called_with</code>、<code>assert_called_with</code>、<code>assert_not_called</code>等断言代码是否被调用。</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 断言快照被清理</span>
+<span class="n">client_mock</span><span class="o">.</span><span class="n">volume_snapshots</span><span class="o">.</span><span class="n">delete</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span>
+    <span class="n">snapshot</span><span class="o">=</span><span class="s1">&#39;fake_snapshot_id&#39;</span><span class="p">)</span>
+<span class="c1"># 断言失败副本被清理</span>
+<span class="n">client_mock</span><span class="o">.</span><span class="n">backups</span><span class="o">.</span><span class="n">delete</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span>
+    <span class="n">backup</span><span class="o">=</span><span class="s1">&#39;fake_backup_id1&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="llt中无法mock的坑">LLT中无法mock的坑</h2>
+<h4 id="sqlite功能不全">sqlite功能不全</h4>
+<p>LLT运行时使用的时sqlite memory db，受限于sqlite功能约束，有些mock无法实现。包括如下：</p>
+<ul>
+<li>外键约束无法mock：外键不存在时也可以保存。</li>
+<li>字段长度无限限制：sqlite字段超过列长度定义也可以保存。</li>
+<li>级联删除无法限制：sqlite当记录有被其他表外键引用时也可以删除。</li>
+</ul>
+<h4 id="在llt代码中不能修改全局的变量">在LLT代码中不能修改全局的变量</h4>
+<p>在LLT中不能修改全局变量，否则会影响其他LLT的运行。例举两例，<code>test_karbor_config_az.py</code>用例会模拟修改AZ配置文件，修改了全局的AZ配置文件路径，从而导致其他用例因为AZ检查不通过了失败。</p>
+<p>配置文件中公有云、私有云的配置，默认是私有云，并且在BaseTestCase的tearDown中会置为私有云。如果需要测试公有云场景，需要手动打开开关。</p>
+<h4 id="不能在llt中修改module">不能在LLT中修改module</h4>
+<p>Python的module也是全局的，所有用例都是共用一个Module，因此禁止在LLT在修改Module。反而教材：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">ClientFactory</span><span class="o">.</span><span class="n">create_client</span> <span class="o">=</span> <span class="n">mock</span><span class="o">.</span><span class="n">Mock</span><span class="p">(</span>
+            <span class="n">side_effect</span><span class="o">=</span><span class="n">create_client</span><span class="p">)</span>
+        <span class="n">cinder</span><span class="o">.</span><span class="n">create</span> <span class="o">=</span> <span class="n">mock</span><span class="o">.</span><span class="n">Mock</span><span class="p">(</span><span class="n">side_effect</span><span class="o">=</span><span class="n">client</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这个会导致后面引用ClientFactory的用例失败。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Shoppon</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        0001-01-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/thought/stock/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/python/code-isolation/">
+            <span class="next-text nav-default">代码隔离技术</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '0001-01-01 00:00:00 \x2b0000 UTC',
+        title: 'Python单元测试方法',
+        link: decodeURI(location.href),
+        desc: 'LLT原则 用例一定要用场景和预期 所谓场景，就是用例一定要有目的，比如检查调用cinder网络异常怎么处理，创建快照失败怎么处理。 1 2 3 4 5 6',
+        owner: 'shoppon',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:shopppon@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://0.0.0.0:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span>Shoppon</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

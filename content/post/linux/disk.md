@@ -1,3 +1,11 @@
+---
+title: "磁盘相关"
+tags: ["linux"]
+categories: ["linux", "存储"]
+date: 2020-10-21T09:06:30Z
+draft: true
+---
+
 # 磁盘相关
 
 ## 概念

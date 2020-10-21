@@ -1,3 +1,10 @@
+---
+title: "linux错误码列表"
+date: 2020-10-20T09:06:30Z
+categories: ["c++"]
+draft: true
+---
+
 # 错误码
 
 linux错误码列表

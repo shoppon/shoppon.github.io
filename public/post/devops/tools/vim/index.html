@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Shoppon&#39;s site</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Shoppon" /><meta name="description" content="vim相关 插件 快捷键 技巧 跳到指定行:linenum 复制多行:start, end copy dest 保存退出ZZ 重复操作. 大量删除:start, end delete/d/del 格式化:G 配置" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="http://0.0.0.0:1313/post/devops/tools/vim/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="vim相关 插件 快捷键 技巧 跳到指定行:linenum 复制多行:start, end copy dest 保存退出ZZ 重复操作. 大量删除:start, end delete/d/del 格式化:G 配置" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://0.0.0.0:1313/post/devops/tools/vim/" />
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="vim相关 插件 快捷键 技巧 跳到指定行:linenum 复制多行:start, end copy dest 保存退出ZZ 重复操作. 大量删除:start, end delete/d/del 格式化:G 配置">
+
+<meta itemprop="wordCount" content="315">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="vim相关 插件 快捷键 技巧 跳到指定行:linenum 复制多行:start, end copy dest 保存退出ZZ 重复操作. 大量删除:start, end delete/d/del 格式化:G 配置"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Shoppon&#39;s Site</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">文档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Shoppon&#39;s Site</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">文档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+          <span class="more-meta"> 约 315 字 </span>
+          <span class="more-meta"> 预计阅读 1 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#vim相关">vim相关</a>
+      <ul>
+        <li><a href="#插件">插件</a></li>
+        <li><a href="#快捷键">快捷键</a></li>
+        <li><a href="#技巧">技巧</a></li>
+        <li><a href="#配置">配置</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="vim相关">vim相关</h1>
+<h2 id="插件">插件</h2>
+<h2 id="快捷键">快捷键</h2>
+<h2 id="技巧">技巧</h2>
+<ul>
+<li>跳到指定行<code>:linenum</code></li>
+<li>复制多行<code>:start, end copy dest</code></li>
+<li>保存退出<code>ZZ</code></li>
+<li>重复操作<code>.</code></li>
+<li>大量删除<code>:start, end delete/d/del</code></li>
+<li>格式化<code>:G</code></li>
+</ul>
+<h2 id="配置">配置</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">autocmd FileType text setlocal <span class="nv">textwidth</span><span class="o">=</span><span class="m">120</span>
+filetype indent on
+filetype on
+filetype plugin on
+imap &lt;c-h&gt; &lt;Left&gt;
+imap &lt;c-j&gt; &lt;Down&gt;
+imap &lt;c-k&gt; &lt;Up&gt;
+imap &lt;c-l&gt; &lt;Right&gt;
+<span class="nb">let</span> <span class="nv">mapleader</span><span class="o">=</span><span class="s2">&#34;,&#34;</span>
+map &lt;a-0&gt; 10gt
+map &lt;a-1&gt; 1gt
+map &lt;a-2&gt; 2gt
+map &lt;a-3&gt; 3gt
+map &lt;a-4&gt; 4gt
+map &lt;a-5&gt; 5gt
+map &lt;a-6&gt; 6gt
+map &lt;a-7&gt; 7gt
+map &lt;a-8&gt; 8gt
+map &lt;a-9&gt; 9gt
+map tc :tabclose &lt;CR&gt;
+map te :tabnew &lt;CR&gt;
+map tn :tabnext &lt;CR&gt;
+map tp :tabprevious &lt;CR&gt;
+nmap &lt;leader&gt;e :e <span class="nv">$VIM</span>/_vimrc&lt;cr&gt;
+nnoremap &lt;c-h&gt; &lt;c-w&gt;h
+nnoremap &lt;c-j&gt; &lt;c-w&gt;j
+nnoremap &lt;c-k&gt; &lt;c-w&gt;k
+nnoremap &lt;c-l&gt; &lt;c-w&gt;l
+nnoremap &lt;space&gt; @<span class="o">=((</span>foldclosed<span class="o">(</span>line<span class="o">(</span><span class="s1">&#39;.&#39;</span><span class="o">))</span> &lt; 0<span class="o">)</span> ? <span class="s1">&#39;zc&#39;</span> : <span class="s1">&#39;zo&#39;</span><span class="o">)</span>&lt;CR&gt;
+<span class="nb">set</span> autochdir
+<span class="nb">set</span> autoindent
+<span class="nb">set</span> <span class="nv">backspace</span><span class="o">=</span><span class="m">2</span>
+<span class="nb">set</span> <span class="nv">encoding</span><span class="o">=</span>utf-8
+<span class="nb">set</span> <span class="nv">fdl</span><span class="o">=</span><span class="m">5</span>
+<span class="nb">set</span> <span class="nv">fileencodings</span><span class="o">=</span>utf-8,gb2312,gbk,latin-1
+<span class="nb">set</span> foldenable
+<span class="nb">set</span> <span class="nv">foldmethod</span><span class="o">=</span>indent
+<span class="nb">set</span> <span class="nv">formatoptions</span><span class="o">=</span>tcrqn
+<span class="nb">set</span> <span class="nv">guifont</span><span class="o">=</span>Lucida_Console:h12
+<span class="nb">set</span> guioptions-<span class="o">=</span>m
+<span class="nb">set</span> guioptions-<span class="o">=</span>T
+<span class="nb">set</span> hlsearch
+<span class="nb">set</span> ignorecase smartcase
+<span class="nb">set</span> incsearch
+<span class="nb">set</span> <span class="nv">laststatus</span><span class="o">=</span><span class="m">2</span>
+<span class="nb">set</span> <span class="nv">mouse</span><span class="o">=</span>a
+<span class="nb">set</span> nobackup
+<span class="nb">set</span> nocompatible
+<span class="nb">set</span> nofen
+<span class="nb">set</span> noswapfile
+<span class="nb">set</span> number
+<span class="nb">set</span> ruler
+<span class="nb">set</span> <span class="nv">shiftwidth</span><span class="o">=</span><span class="m">4</span>
+<span class="nb">set</span> showcmd
+<span class="nb">set</span> showmatch
+<span class="nb">set</span> showmode
+<span class="nb">set</span> smartindent
+<span class="nb">set</span> smarttab
+<span class="nb">set</span> <span class="nv">softtabstop</span><span class="o">=</span><span class="m">4</span>
+<span class="nb">set</span> <span class="nv">statusline</span><span class="o">=</span>%F%m%r%h%w<span class="se">\ </span><span class="o">[</span><span class="nv">FORMAT</span><span class="o">=</span>%<span class="o">{</span><span class="p">&amp;</span>ff<span class="o">}]</span><span class="se">\ </span><span class="o">[</span><span class="nv">TYPE</span><span class="o">=</span>%Y<span class="o">]</span><span class="se">\ </span><span class="o">[</span><span class="nv">ASCII</span><span class="o">=</span><span class="se">\%</span>03.3b<span class="o">]</span><span class="se">\ </span><span class="o">[</span><span class="nv">HEX</span><span class="o">=</span><span class="se">\%</span>02.2B<span class="o">]</span><span class="se">\ </span><span class="o">[</span><span class="nv">POS</span><span class="o">=</span>%04l,%04v<span class="o">][</span>%p%%<span class="o">]</span><span class="se">\ </span><span class="o">[</span><span class="nv">LEN</span><span class="o">=</span>%L<span class="o">]</span>
+<span class="nb">set</span> <span class="nv">tabstop</span><span class="o">=</span><span class="m">4</span>
+<span class="nb">set</span> <span class="nv">wildignore</span><span class="o">+=</span>.hg,.git,.svn
+<span class="nb">set</span> <span class="nv">wildignore</span><span class="o">+=</span>.metadata
+<span class="nb">source</span> <span class="nv">$VIMRUNTIME</span>/delmenu.vim
+<span class="nb">source</span> <span class="nv">$VIMRUNTIME</span>/menu.vim
+syntax on
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Shoppon</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        0001-01-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/devops/tools/latex/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/devops/vscode/config/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '0001-01-01 00:00:00 \x2b0000 UTC',
+        title: '',
+        link: decodeURI(location.href),
+        desc: 'vim相关 插件 快捷键 技巧 跳到指定行:linenum 复制多行:start, end copy dest 保存退出ZZ 重复操作. 大量删除:start, end delete\/d\/del 格式化:G 配置',
+        owner: 'shoppon',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:shopppon@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://0.0.0.0:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span>Shoppon</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
