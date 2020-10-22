@@ -1,6 +1,6 @@
 ---
 title: "可信设计"
-categories: ["design"]
+categories: ["架构"]
 tags: [""]
 date: 2020-05-16T14:19:56+08:00
 ---

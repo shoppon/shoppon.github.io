@@ -1,5 +1,5 @@
 ---
-title: "网络配置"
+title: "家庭私有云网络架构"
 tags: ["网络", "nginx", "harbor", "jumpserver"]
 categories: ["云计算", "网络"]
 date: 2020-10-21T09:06:30Z

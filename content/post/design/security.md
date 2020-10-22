@@ -1,6 +1,6 @@
 ---
 title: "安全设计"
-categories: ["design"]
+categories: ["架构"]
 tags: [""]
 date: 2020-05-16T14:43:27+08:00
 ---

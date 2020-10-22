@@ -1,6 +1,6 @@
 ---
 title: "linux错误码列表"
-date: 2020-10-20T09:06:30Z
+date: 2020-06-11T21:29:03+08:00
 categories: ["c++"]
 draft: true
 ---

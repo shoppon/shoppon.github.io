@@ -1,7 +1,7 @@
 ---
 title: "软路由"
-categories: ["cloud"]
-tags: [""]
+categories: ["云计算"]
+tags: ["路由", "openwrt"]
 date: 2020-10-20T08:49:23+00:00
 ---
 

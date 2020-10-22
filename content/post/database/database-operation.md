@@ -1,6 +1,8 @@
 ---
-title: 常用数据库命令
-layout: post
+title: "数据库常用操作"
+categories: ["数据库"]
+tags: ["datasebase"]
+date: 2020-02-28T17:53:42+08:00
 ---
 
 ## 数据库指南
