@@ -1,3 +1,10 @@
+---
+title: "Jenkins安装、配置"
+categories: ["devops"]
+tags: [""]
+date: 2019-12-29T22:23:00+08:00
+---
+
 # Jenkins安装、配置
 
 ### 安装

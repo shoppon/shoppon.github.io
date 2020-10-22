@@ -1,3 +1,10 @@
+---
+title: "使用windows 10"
+categories: ["cloud"]
+tags: [""]
+date: 2020-08-31T00:33:25+08:00
+---
+
 # 使用windows 10
 
 ## KVM镜像制作

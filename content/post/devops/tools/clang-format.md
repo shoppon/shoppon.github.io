@@ -1,3 +1,10 @@
+---
+title: "Clang-format使用"
+categories: ["tools"]
+tags: [""]
+date: 2019-12-30T19:58:05+08:00
+---
+
 # Clang-format使用
 
 ## 安装

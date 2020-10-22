@@ -1,3 +1,10 @@
+---
+title: "Git"
+categories: ["tools"]
+tags: [""]
+date: 2020-05-16T17:39:11+08:00
+---
+
 # Git
 
 ## reset&checkout&revert

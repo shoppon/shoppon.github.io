@@ -1,3 +1,10 @@
+---
+title: "IO模型"
+categories: ["design"]
+tags: [""]
+date: 2020-06-11T21:40:47+08:00
+---
+
 # IO模型
 
 ## 概念

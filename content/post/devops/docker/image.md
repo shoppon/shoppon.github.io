@@ -1,3 +1,10 @@
+---
+title: "镜像管理"
+categories: ["docker"]
+tags: [""]
+date: 2020-10-20T08:49:23+00:00
+---
+
 # 镜像管理
 
 ## Dockerfile

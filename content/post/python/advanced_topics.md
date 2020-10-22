@@ -1,3 +1,10 @@
+---
+title: "Python进阶主题"
+categories: ["python"]
+tags: [""]
+date: 2020-04-29T18:05:22+08:00
+---
+
 # Python进阶主题
 
 ## 高级数据结构

@@ -1,3 +1,10 @@
+---
+title: "Static关键字"
+categories: ["c++"]
+tags: [""]
+date: 2020-07-17T19:26:38+08:00
+---
+
 # Static关键字
 
 # 用法

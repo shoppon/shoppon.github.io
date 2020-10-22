@@ -1,3 +1,10 @@
+---
+title: "系统管理"
+categories: ["linux"]
+tags: [""]
+date: 2020-06-11T21:25:31+08:00
+---
+
 ```
 service sysstat restart 
 ```

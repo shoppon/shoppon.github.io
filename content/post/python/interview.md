@@ -1,3 +1,10 @@
+---
+title: "我的Python面试纲要"
+categories: ["python"]
+tags: [""]
+date: 2020-02-20T15:19:11+08:00
+---
+
 # 我的Python面试纲要
 
 ## 语法篇

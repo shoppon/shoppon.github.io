@@ -1,3 +1,10 @@
+---
+title: "日志"
+categories: ["python"]
+tags: [""]
+date: 2020-07-11T15:26:50+08:00
+---
+
 # 日志
 
 ## logging

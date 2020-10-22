@@ -1,3 +1,10 @@
+---
+title: "Gitlab集成jenkins自动编译gitbook"
+categories: ["devops"]
+tags: [""]
+date: 2019-12-30T20:00:43+08:00
+---
+
 # Gitlab集成jenkins自动编译gitbook
 
 ### 安装nodejs

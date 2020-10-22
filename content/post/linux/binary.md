@@ -1,3 +1,10 @@
+---
+title: "二进制分析"
+categories: ["linux"]
+tags: [""]
+date: 2020-05-16T17:37:18+08:00
+---
+
 # 二进制分析
 
 ### readelf

@@ -1,3 +1,10 @@
+---
+title: "LaTex"
+categories: ["tools"]
+tags: [""]
+date: 2020-05-26T00:01:01+08:00
+---
+
 # LaTex
 
 ### 中文支持

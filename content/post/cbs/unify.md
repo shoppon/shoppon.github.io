@@ -1,3 +1,10 @@
+---
+title: "Unknown"
+categories: ["cbs"]
+tags: [""]
+date: 2019-12-29T22:23:00+08:00
+---
+
 ## 背景
 
 云上云下的卷备份、虚拟机备份总共有3套构架：配套FusionCloud 2.0的DPS卷备份、配套FusionCloud 2.05的Karbor整机备份、配套FusionCloud 6.0的VBS卷备份和Karbor整机备份，整体维护成本很高。

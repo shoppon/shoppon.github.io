@@ -1,3 +1,10 @@
+---
+title: "vim相关"
+categories: ["tools"]
+tags: [""]
+date: 2020-02-28T17:05:23+08:00
+---
+
 # vim相关
 
 ## 插件

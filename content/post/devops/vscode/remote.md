@@ -1,3 +1,10 @@
+---
+title: "vscode remote使用方法"
+categories: ["vscode"]
+tags: [""]
+date: 2019-12-30T19:35:08+08:00
+---
+
 # vscode remote使用方法
 
 ## 前言

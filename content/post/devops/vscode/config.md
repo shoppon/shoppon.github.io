@@ -1,3 +1,10 @@
+---
+title: "vscode配置"
+categories: ["vscode"]
+tags: [""]
+date: 2020-02-28T17:05:23+08:00
+---
+
 # vscode配置
 
 ```json

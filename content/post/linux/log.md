@@ -1,3 +1,10 @@
+---
+title: "日志相关"
+categories: ["linux"]
+tags: [""]
+date: 2020-02-28T17:05:23+08:00
+---
+
 # 日志相关
 
 ## syslog

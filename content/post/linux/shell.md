@@ -1,3 +1,10 @@
+---
+title: "Shell编程"
+categories: ["linux"]
+tags: [""]
+date: 2020-02-28T17:05:23+08:00
+---
+
 # Shell编程
 
 ## 基础

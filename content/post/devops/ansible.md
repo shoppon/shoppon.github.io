@@ -1,3 +1,10 @@
+---
+title: "Ansible常用操作"
+categories: ["devops"]
+tags: [""]
+date: 2019-12-30T19:33:15+08:00
+---
+
 # Ansible常用操作
 
 ## 原理
