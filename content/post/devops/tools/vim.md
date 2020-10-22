@@ -1,17 +1,15 @@
 ---
 title: "vim相关"
-categories: ["tools"]
-tags: [""]
+categories: ["开发工具", "效率"]
+tags: ["vim"]
 date: 2020-02-28T17:05:23+08:00
 ---
 
-# vim相关
+# 插件
 
-## 插件
+# 快捷键
 
-## 快捷键
-
-## 技巧
+# 技巧
 
 - 跳到指定行`:linenum`
 - 复制多行`:start, end copy dest`
@@ -20,7 +18,7 @@ date: 2020-02-28T17:05:23+08:00
 - 大量删除`:start, end delete/d/del`
 - 格式化`:G`
 
-## 配置
+# 配置
 ```shell
 autocmd FileType text setlocal textwidth=120
 filetype indent on

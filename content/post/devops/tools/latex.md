@@ -1,6 +1,6 @@
 ---
 title: "LaTex"
-categories: ["tools"]
+categories: ["工具"]
 tags: [""]
 date: 2020-05-26T00:01:01+08:00
 ---

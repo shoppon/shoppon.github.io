@@ -1,13 +1,12 @@
 ---
-title: "leetcode"
+title: "leetcode题解"
 tags: ["c++"]
 categories: ["算法"]
-date: 2020-10-21T09:06:30Z
+date: 2020-02-20T15:19:11+08:00
 draft: true
 typora-root-url: ../../shoppon.github.io
 ---
 
-# leetcode题解
 # 动态规划
 ## 概念
 动态规划算法一般用于求极值场景。

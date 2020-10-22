@@ -1,13 +1,11 @@
 ---
-title: "快捷键大全"
+title: "VSCode快捷键大全"
 categories: ["vscode"]
 tags: [""]
 date: 2020-02-20T15:19:11+08:00
 ---
 
-# 快捷键大全
-
-## 全局
+# 全局
 
 ```Command + Shift + P / F1``` 显示命令面板
 
@@ -17,7 +15,7 @@ date: 2020-02-20T15:19:11+08:00
 
 ```Command + W``` 关闭窗口
 
-## 基本
+# 基本
 
 ```Command + X``` 剪切（未选中文本的情况下，剪切光标所在行）
 ```Command + C``` 复制（未选中文本的情况下，复制光标所在行）
@@ -51,7 +49,7 @@ date: 2020-02-20T15:19:11+08:00
 ```Option + Shift + A``` 添加、移除块注释
 ```Option + Z``` 自动换行、取消自动换行
 
-## 多光标与选择
+# 多光标与选择
 
 ```Option + 点击``` 插入多个光标
 ```Command + Option + Up``` 向上插入光标
@@ -71,7 +69,7 @@ date: 2020-02-20T15:19:11+08:00
 ```Command + Shift + Option + PgUp 列选择``` 向上翻页
 ```Command + Shift + Option + PgDown``` 列选择 向下翻页
 
-## 查找替换
+# 查找替换
 
 ```Command + F``` 查找
 ```Command + Option + F``` 替换
@@ -81,7 +79,7 @@ date: 2020-02-20T15:19:11+08:00
 ```Command + D``` 向下选中相同内容
 ```Command + K Command + D``` 移除前一个向下选中相同内容
 
-## 进阶
+# 进阶
 
 ```Ctrl + Space``` 打开建议
 ```Command + Shift + Space``` 参数提示
@@ -99,7 +97,7 @@ date: 2020-02-20T15:19:11+08:00
 ```Command + K Command + X``` 删除行尾多余空格
 ```Command + K M``` 更改文件语言
 
-## 导航
+# 导航
 
 ```Command + T``` 显示所有符号
 ```Ctrl + G``` 跳转至某行
@@ -113,7 +111,7 @@ date: 2020-02-20T15:19:11+08:00
 ```Ctrl + Shift + -``` 前进
 ```Ctrl + Shift + M Tab``` 切换焦点
 
-## 编辑器管理
+# 编辑器管理
 
 ```Command + W``` 关闭编辑器
 ```Command + K F``` 关闭文件夹
@@ -128,7 +126,7 @@ date: 2020-02-20T15:19:11+08:00
 ```Command + K Left``` 激活左侧编辑组
 ```Command + K Right``` 激活右侧编辑组
 
-## 文件管理
+# 文件管理
 
 ```Command + N``` 新建文件
 ```Command + O``` 打开文件
@@ -145,7 +143,7 @@ date: 2020-02-20T15:19:11+08:00
 ```Command + K R``` 在资源管理器中查看当前文件
 ```Command + K O``` 新窗口打开当前文件
 
-## 显示
+# 显示
 
 ```Command + Ctrl + F``` 全屏、退出全屏
 ```Command + Option + 1``` 切换编辑器分屏方式（横、竖）
@@ -164,7 +162,7 @@ date: 2020-02-20T15:19:11+08:00
 ```Command + Shift + V``` Markdown预览窗口
 ```Command + K V``` 分屏显示 Markdown预览窗口
 
-## 调试
+# 调试
 
 ```F9``` 设置 或 取消断点
 ```F5``` 开始 或 继续
@@ -173,7 +171,7 @@ date: 2020-02-20T15:19:11+08:00
 ```F10``` 跳过
 ```Command + K Command + I``` 显示悬停信息
 
-## 集成终端
+# 集成终端
 
 ```Ctrl + ~``` 显示终端
 ```Ctrl + Shift + ~``` 新建终端
