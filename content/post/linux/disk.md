@@ -3,7 +3,7 @@ title: "磁盘相关"
 tags: ["linux"]
 categories: ["linux", "存储"]
 date: 2020-05-16T17:35:42+08:00
-draft: true
+draft: false
 ---
 
 # 概念

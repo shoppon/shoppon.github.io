@@ -1,9 +1,9 @@
 ---
 title: "家庭私有云网络架构"
 tags: ["网络", "nginx", "harbor", "jumpserver"]
-categories: ["云计算", "网络"]
-date: 2020-10-21T09:06:30Z
-draft: true
+categories: ["云计算"]
+date: 2020-10-21T09:06:30+08:00
+draft: false
 ---
 
 # 网络架构

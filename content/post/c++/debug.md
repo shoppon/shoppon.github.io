@@ -1,7 +1,7 @@
 ---
 title: "调试"
-categories: ["c++"]
-tags: [""]
+categories: ["编程能力"]
+tags: ["c++"]
 date: 2020-08-31T21:43:13+08:00
 ---
 

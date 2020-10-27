@@ -1,7 +1,7 @@
 ---
 title: "并发"
 date: 2020-07-17T19:26:38+08:00
-categories: ["c++"]
+categories: ["编程能力"]
 draft: true
 ---
 

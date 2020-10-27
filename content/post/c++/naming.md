@@ -1,7 +1,7 @@
 ---
 title: "命名"
-categories: ["c++"]
-tags: [""]
+categories: ["编程能力"]
+tags: ["c++"]
 date: 2020-07-17T19:26:38+08:00
 ---
 
