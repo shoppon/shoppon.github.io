@@ -2,26 +2,24 @@
 title: "磁盘相关"
 tags: ["linux"]
 categories: ["linux", "存储"]
-date: 2020-10-21T09:06:30Z
+date: 2020-05-16T17:35:42+08:00
 draft: true
 ---
 
-# 磁盘相关
+# 概念
 
-## 概念
-
-### 磁盘
+## 磁盘
 
 - SCSI、SATA、U盘、Flash类型的磁盘：/dev/sdx，最多11（5到15）？
 - IDE类型的磁盘：/dev/hdx，最多59（5到63）？
 - VHD类型的磁盘：/dev/vdx，最多20？
 - 虚拟化XEN：/dev/xvdx
 
-### 扇区
+## 扇区
 
 最小的物理储存单元，每个扇区512Bytes。每一个扇区中包括**主启动区**（Master boot record, **MBR**, 446 Bytes）和**分割表**（partition table，64 Bytes）。还有2 Bytes呢？
 
-### 分区
+## 分区
 
 对磁盘进行分割，以格式/dev/hdxn(/dev/hda1)进行编号，日志分区、用户分区
 
@@ -31,49 +29,49 @@ draft: true
 
 逻辑分区
 
-### 文件系统
+## 文件系统
 
 对分区进行格式化，使操作系统能够识别
 
-### iNode
+## iNode
 
 包含文件权限（rwx）和文件属性（拥有者、群组、时间）属性。一个文件一个inode
 
 使用`ls -il`可查看文件的inode号。
 
-### Superblock
+## Superblock
 
 记录文件系统的整个信息（格式、使用量、剩余量），一般为1024 Bytes，可使用`dumpe2fs`命令来观察superblock信息
 
-### block
+## block
 
 实际记录文件的内容，一个文件可使用多个block，一个block只能给一个文件使用，一个block可以设置1K、2K、4K。
 
-## LVM
+# LVM
 
-**创建PV：**`pvcreate /dev/xvde`
+**创建PV：** `pvcreate /dev/xvde`
 
-**创建VG：**`vgcreate vg1 /dev/xvde`
+**创建VG：** `vgcreate vg1 /dev/xvde`
 
-**添加新的物理卷到VG中：**`vgextend vg1 /dev/xvdf`
+**添加新的物理卷到VG中：** `vgextend vg1 /dev/xvdf`
 
-**创建LV：**`lvcreate -l 5120 -n oma vg1`
+**创建LV：** `lvcreate -l 5120 -n oma vg1`
 
-**创建文件系统：**`mkfs.ext4 -j /dev/vg1/oma`
+**创建文件系统：** `mkfs.ext4 -j /dev/vg1/oma`
 
-**挂载文件系统：**`mount /dev/vg1/oma /home/oma/`
+**挂载文件系统：** `mount /dev/vg1/oma /home/oma/`
 
- **开机自启动：**`echo "/dev/vg1/oma /home/oma/ ext4 defaults 0 0" >> /etc/fstab`
+ **开机自启动：** `echo "/dev/vg1/oma /home/oma/ ext4 defaults 0 0" >> /etc/fstab`
 
-**查询磁盘ID：**`blkid`
+**查询磁盘ID：** `blkid`
 
-**查询块设备信息及其结构：**`lsblk`
+**查询块设备信息及其结构：** `lsblk`
 
-**重启后重新激活lv：**`lvchange -ay vg1/thinpool`
+**重启后重新激活lv：** `lvchange -ay vg1/thinpool`
 
-**扩容后让lv大小生效：**`resize2fs /dev/mapper/nfs-ovirt`
+**扩容后让lv大小生效：** `resize2fs /dev/mapper/nfs-ovirt`
 
-## FIO
+# FIO
 
 顺序写
 
@@ -87,33 +85,45 @@ fio -filename=/dev/sda -direct=1 -iodepth 1 -thread -rw=write -ioengine=psync -b
 fio -filename=/dev/vdb -direct=1 -iodepth 1 -thread -rw=randwrite -ioengine=psync -bs=4k -size=1G -numjobs=4 -runtime=180 -group_reporting -name=rand_100write_4k
 ```
 
-### dd
+# dd
 
 使用`dd`写文件：`dd if=/dev/urandom bs=8192 count=125000 of=/root/1Gb.file`
 
-### hexdump
+使用`seek`参数写入指定位置：`dd if=/dev/zero of=fake.dat seek=1G bs=1K count=1`
 
-**查看指定设备特定位置数据：**`hexdump -n 1024 -x -s 1G /dev/vdb`
+# hexdump
 
-### iostat
+**查看指定设备特定位置数据：** `hexdump -n 1024 -x -s 1G /dev/vdb`
 
-**每隔1秒查看磁盘速率：**`iostat -m 1`
+使用`-n`参数指定获取的字节数，`-x`输入16进制，`-s`指定偏移量。
 
-### 刷盘
+# iostat
 
-**将系统缓存刷盘：**`sync`
+**每隔1秒查看磁盘速率：** `iostat -m 1`
 
-**丢弃内核clean cache：**`echo 3 | sudo tee /proc/sys/vm/drop_caches`
+# 刷盘
 
-**调用ioctl刷新缓存：**`blockdev --flushbufs /dev/sda`
+将系统缓存刷盘： `sync`
 
-**Flush the on-drive write cache buffer：** `hdparm -F /dev/sda`
+丢弃内核clean cache：`echo 3 | sudo tee /proc/sys/vm/drop_caches`
 
-### NFS
+调用ioctl刷新缓存： `blockdev --flushbufs /dev/sda`
 
-**挂载NFS：**`mount -t nfs 192.168.5.27:/mnt/nas/code /home/shoppon/share/`
+Flush the on-drive write cache buffer： `hdparm -F /dev/sda`
 
-## 参考
+# NFS
+
+挂载NFS存储： `mount -t nfs 192.168.5.27:/mnt/nas/code /home/shoppon/share/`
+
+NFS文件共享修改后无法通知内核，导致hugo的监听文件变化功能不起作用，原因参考[这里](https://stackoverflow.com/questions/4231243/inotify-with-nfs)。
+
+# Samba
+
+列举共享文件夹：`smbclient -L 192.168.5.27 -U shoppon%xxx`
+
+挂载SMB存储：`mount -t cifs //192.168.5.27/mnt/nas/code /home/shoppon/share/ -o username=shoppon,password=xxx`
+
+# 参考
 
 - [IO测试工具之fio详解](https://www.cnblogs.com/raykuan/p/6914748.html)
 

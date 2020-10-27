@@ -1,27 +1,65 @@
 ---
-title: "基准测试"
+title: "使用sysbench进行服务器基准测试"
 categories: ["linux"]
-tags: [""]
+tags: ["linux"]
 date: 2020-06-11T21:24:54+08:00
 ---
 
-# 基准测试
-
-## 编译
+# 编译
 
 `sysben`工具地址为[akopytov/sysbench)](https://github.com/akopytov/sysbench)，按照官方指导编译即可。
 
-## 使用
+# 使用
 
-### CPU测试
+## CPU测试
 
-**CPU基准测试：**`./sysbench cpu --cpu-max-prime=40000 run`
+CPU基准测试：`./sysbench cpu --cpu-max-prime=100000 --time=10 run`
 
-### 内存测试
+`cpu-max-prime`表示生成素数个数，每完成一次计算记为一个event，执行时间为10秒。执行结果样例如下：
 
-**内存基准测试：**`./sysbench memory --memory-block-size=8k --memory-total-size=80G run`
+```shell
+sysbench 1.1.0-797e4c4 (using bundled LuaJIT 2.1.0-beta3)
 
-### 磁盘测试
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Prime numbers limit: 100000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:    39.24
+
+Throughput:
+    events/s (eps):                      39.2449
+    time elapsed:                        10.0140s
+    total number of events:              393
+
+Latency (ms):
+         min:                                   24.31
+         avg:                                   25.48
+         max:                                   29.33
+         95th percentile:                       26.68
+         sum:                                10012.57
+
+Threads fairness:
+    events (avg/stddev):           393.0000/0.00
+    execution time (avg/stddev):   10.0126/0.00
+```
+
+表示该机器在10秒内完成了393次10W个素数的计算。
+
+MacBook Pro(2018款)成绩为554次。
+
+## 内存测试
+
+内存基准测试：`./sysbench memory --memory-block-size=8k --memory-total-size=80G run`
+
+## 磁盘测试
 
 通过创建文件随机读写方式测试磁盘性能：
 

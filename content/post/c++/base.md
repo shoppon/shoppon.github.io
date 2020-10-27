@@ -61,3 +61,4 @@ shared_ptr<B> bar = std::static_pointer_cast<B>(foo);
 | -esym(#, Symbol)    | 隐藏有关某符号的错误       | /*lint –esym(534, printf)*/     |
 | -elib(#)            | 隐藏头文件中的某类错误     | /*lint –elib(129) */            |
 | -efunc(#, \<func\>) | 隐藏某个函数中的特定错误   | /*lint –efunc(534, mchRelAll)*/ |
+
