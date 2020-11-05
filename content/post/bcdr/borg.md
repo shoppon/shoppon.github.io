@@ -35,6 +35,41 @@ vscode调试配置文件：
 }
 ```
 
+# 架构
+
+## 数据结构
+
+Index
+
+Item
+
+## 工程技术
+使用`msgpack`进行序列化。
+
+使用`fuse`将s3挂载成文件系统读写。不适合对已有文件经常修改，性能不如SDK。
+
+
+# 流程
+
+文件以`segment`形式进行存储，前八个字节是`MagicNumber`，内容为`b'BORG_SEG'`，用来判断格式是否正确，接着九个字节是`header`，标识是否已经`commit`。
+
+```python
+header_fmt = struct.Struct('<IIB')
+assert header_fmt.size == 9
+put_header_fmt = struct.Struct('<IIB32s')
+assert put_header_fmt.size == 41
+header_no_crc_fmt = struct.Struct('<IB')
+assert header_no_crc_fmt.size == 5
+crc_fmt = struct.Struct('<I')
+assert crc_fmt.size == 4
+```
+
+使用`CRC`校验码判断内容是否被篡改`crc32(data, crc32(memoryview(header)[4:])) & 0xffffffff != crc:`
+
+每个目录最多1000个文件，总共最多`2^32-1`个文件。
+
+使用`LRUCache`缓存最近打开的`segment`句柄。
+
 # 参考
 
 - [从源码安装borg](https://borgbackup.readthedocs.io/en/stable/installation.html#using-git)
