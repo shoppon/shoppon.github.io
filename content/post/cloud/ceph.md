@@ -1,14 +1,51 @@
 # Ceph架构
 
-## 硬件需求
-### CPU
+## 存储集群
+一个Ceph存储集群包含两种后台服务：`Ceph monitor`和`Ceph OSD deamon`
 
+一个`Ceph monitor`维持着集群视图的一份主要拷贝，Ceph集群的monitor节点保证了高可用性当其中的某个monitor挂掉的时候，存储集群客户端会通过Ceph monitor重试集群视图的拷贝。
+
+每个Ceph OSD后台服务检查自己的状态和其他OSD上报给monitor的状态。存储集群客户端和和每个Ceph OSD后台服务使用`CRUSH`算法高效计算数据存储位置，避免依赖一个中心化的查询表。Ceph的高级特性包括通过`librados`来提供原始接口访问存储集群和一系列建立在`librados`之上的服务接口。
+
+存储集群通过ceph客户端包括Ceph Block Devcie/Ceph Object Storage/Ceph File System或者在`librados`上定制的，它将数据保存为对象，每个对象对应为文件系统上的一个文件，存储在Object Storage Devce(OSD)设备上。`Ceph OSD Daemon`后台服务负责处理他们在磁盘上的读写操作。
+
+Ceph OSD后台服务将所有数据存储为平铺结构（没有目录层次）。每个文件包含一个标识符、二进制文件和kv形式的元数据。这种语义对客户端来说是完全透明的。例如，`CephFS`使用metadata来存储文件属性包括文件所有者、创建时间、最后修改时间等。
+
+## Crush介绍
+`Ceph`客户端和Ceph OSD后台服务同时使用CRUSH算法来计算数据存储位置。CRUSH算法通过所有客户端和OSD后台服务的分布式计算来支持海量规模。`CRUSH`算法的论文看[这里](https://ceph.com/wp-content/uploads/2016/08/weil-crush-sc06.pdf)。
+
+# 硬件需求
+## CPU
+Ceph OSD运行中`rados`服务，通过`CRUSH`算法计算数据分布，复制数据和操作他们在集群中的复本。因此OSD有足够的理由获取大量的算力。根据不同使用场景需要不同的CPU资源，普通的轻度如归档使用每个OSD需要一个CPU核，而像RBD挂卷给虚拟机这个的重载服务则需要两个CPU核。Monitor/Manager则没有太重的CPU负荷，一个普通的CPU核即可应付。同时还需要考虑其他后台服务如openstack对CPU的占用，建议为Ceph保留足够的CPU资源。
+
+## 内存
+内存当然是越多越好。Monitor/Manager通常需要64GB内存，对于一个拥有大量OSDs的集群128GB是一个合理的目标。BlueStor OSDs最小需要4GB内存，考虑到操作系统和其他任务因素，建议为每个BlueStor OSD配置8GB内存。
+
+## 数据存储
+简单的Ceph集群必须在将所有数据写入journal(或者WAL+DB)才能返回ack消息，所以保持metadata和OSD性能平衡非常重要。
+
+OSDs需要大量的硬盘去保存对象数据，推荐每个最个硬盘最小为1TB。考虑到大硬盘单位容量的价格优势，比如3TB硬盘的单位容量价格要比1TB的单位容量价格要便宜40%，可以选择容量更大失硬盘。
+
+在单块SAS/SATA上运行多个OSDs不是一个好主意，然后对于NVMe，将一块硬盘分成两个或者多个OSD却可以提升性能。
+
+>在一块硬件上同时运行OSD和monitor/metadata server不是一个好主意。
+
+推荐使用单独的硬盘运行操作系统和软件，每个运行OSD守护进程的主机上有一个NVMe以上的驱动。
+
+>Ceph的最佳实践之一是将操作系统、OSD数据、OSD journal运行在不同的驱动上。
+
+## 硬盘控制器
+HBA卡对写吞吐量有显著的影响，谨慎选择确保不会产生性能瓶颈。RAID-mode(IR) HBA卡比普通JBOD模式HBA卡增加一些时延。
+
+## 网卡
+选择10Gbps以上的网卡。在1Gbps的网卡上复制1TB数据需要3个小时，10TB则需要30小时，而在10Gbps网卡上则减少到20分钟和1个小时。
 
 # Ceph安装
 
 ## 添加节点
 
 在待添加节点上执行以下操作：
+
 - 执行`yum install -y lvm2 yum-utils python3`安装python3、yum-utils、lvm2
 - 添加docker仓库`yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo`
 - 执行`yum install -y docker-ce docker-ce-cli containerd.io`安装docker
@@ -39,6 +76,22 @@ rbd create --size 10240 my_image
 ```shell
 rbd -p rbd ls
 ```
+删除rbd image
+```shell
+rbd rm -p rbd my_image
+```
+### 特性列表
+
+| 特性名称       | 描述                                                         |
+| -------------- | ------------------------------------------------------------ |
+| layering       | 分层，镜像image的clone操作时父子镜像使用COW技术。            |
+| striping v2    | 条带化对象数据，类似raid0。                                  |
+| exclusive-lock | 独占分布式锁，开启时确保只有一个客户端在访问image。          |
+| object-map     | 依赖独占锁，对象是thin-provisioning瘦分配，开启后记录对象视图，标识对象是否真实存在。 |
+| fast-diff      | 依赖object-map，快速比较镜像image和快照之间的差异。          |
+| deep-flatten   | 扁平化操作，镜像clone时父子镜像是COW，flatten解除父子image的依赖，deep-flatten解除子镜像快照的依赖。 |
+
+使用`rbd info --pool rbd my_image`查看镜像支持的特性。
 
 # 挂载RBD卷到虚拟机
 

@@ -52,6 +52,8 @@ vscode拥有很多强大的扩展插件，我个人在使用的如下这些：
 - Code Runner：一键执行代码。
 - Todo Tree：代码TODO标签管理。
 - One Dark Pro：个人比较喜欢的一款主题。
+- highlight-icemode：选中高亮
+- cmake: cmake插件
 
 # 远程调试
 

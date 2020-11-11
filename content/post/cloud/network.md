@@ -130,7 +130,14 @@ server
 
 ```
 
+# Neutron
 
+## 常用命令
+
+### 绑定浮动IP
+```shell
+openstack floating ip set --fixed-ip-address 10.8.1.232 --port b7de6a74-d626-41d2-8245-f4bed029deec 192.168.5.24
+```
 
 # 参考
 
