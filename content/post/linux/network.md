@@ -55,3 +55,6 @@ echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 
 查看bbr是否启动：`lsmod | grep bbr`
 
+###  ethtool
+
+使用ethtool查看网卡详情，包括速率、是否连接、双工模式等。

@@ -130,6 +130,10 @@ server
 
 ```
 
+使用`proxy_set_header Host $host:$server_port;`可使被反向代理的网站跳转时依旧使用监听端口。
+
+使用`proxy_set_header Host $host:$proxy_port;`可使被反向代理的网站跳转时依旧使用自身端口。
+
 # Neutron
 
 ## 常用命令

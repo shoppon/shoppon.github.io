@@ -26,6 +26,10 @@ date: 2020-02-20T15:19:11+08:00
   - deque
   - DefaultDict
 
+## linux篇
+
+`iostat`中`svctm`、`util`、`avgrq-sz`、`avgqu-sz`、`await`等指标含义解释。
+
 ## 设计篇
 
 - 说出几种常用的设计模式并且在工作中的实际运用

@@ -70,6 +70,20 @@ assert crc_fmt.size == 4
 
 使用`LRUCache`缓存最近打开的`segment`句柄。
 
+# 常用命令
+
+查询repo信息：`borg info /home/xp/borg_repo/my_repo/`
+
+列举备份详情：`borg info /home/xp/borg_repo/my_repo/::102`
+
+列举备份列表：`borg list /home/xp/borg_repo/my_repo/`
+
+列表备份文件列表：`borg list /home/xp/borg_repo/my_repo/::first`
+
+解压备份：`borg extract /home/xp/borg_repo/my_repo/::102`
+
+删除备份：`borg delete /home/xp/borg_repo/my_repo/::first`
+
 # 参考
 
 - [从源码安装borg](https://borgbackup.readthedocs.io/en/stable/installation.html#using-git)

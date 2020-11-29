@@ -1,0 +1,64 @@
+<mxfile host="65bd71144e" modified="2020-11-16T07:45:07.851Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" etag="q8COMQxNPW4xozxOty8N" version="13.6.5">
+    <diagram id="8O7iZIyAK5uXeCAci9Hf" name="第 1 页">
+        <mxGraphModel dx="1053" dy="612" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#DAD2D8" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FAE5C7;strokeColor=#0F8B8D;fontColor=#143642;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="100" width="400" height="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Engine" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=#0F8B8D;fillColor=#FAE5C7;fontColor=#143642;align=left;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="272" width="340" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="ConfigManager" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;strokeColor=#0F8B8D;fillColor=#FAE5C7;fontColor=#143642;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="352" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="KubeClient" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;strokeColor=#0F8B8D;fillColor=#FAE5C7;fontColor=#143642;" parent="1" vertex="1">
+                    <mxGeometry x="325" y="302" width="70" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="WSGI" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=#0F8B8D;fillColor=#FAE5C7;fontColor=#143642;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="120" width="340" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="HelmClient" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;strokeColor=#0F8B8D;fillColor=#FAE5C7;fontColor=#143642;" parent="1" vertex="1">
+                    <mxGeometry x="248" y="302" width="70" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="NetworkManager" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;strokeColor=#0F8B8D;fillColor=#FAE5C7;fontColor=#143642;" parent="1" vertex="1">
+                    <mxGeometry x="275" y="352" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="NodeManager" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;strokeColor=#0F8B8D;fillColor=#FAE5C7;fontColor=#143642;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="352" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="API" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=#0F8B8D;fillColor=#FAE5C7;fontColor=#143642;align=left;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="160" width="340" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="FileUploader" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;strokeColor=#0F8B8D;fillColor=#FAE5C7;fontColor=#143642;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="302" width="70" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="FCDocker" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;strokeColor=#0F8B8D;fillColor=#FAE5C7;fontColor=#143642;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="175" y="180" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="SCSIDocker" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;strokeColor=#0F8B8D;fillColor=#FAE5C7;fontColor=#143642;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="180" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="NFSDocker" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;strokeColor=#0F8B8D;fillColor=#FAE5C7;fontColor=#143642;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="180" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="H3CDocker" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;strokeColor=#0F8B8D;fillColor=#FAE5C7;fontColor=#143642;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="175" y="220" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="HuaweiDocker" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;strokeColor=#0F8B8D;fillColor=#FAE5C7;fontColor=#143642;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="275" y="220" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="HDSDocker" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;strokeColor=#0F8B8D;fillColor=#FAE5C7;fontColor=#143642;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="220" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="TaskManager" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;strokeColor=#0F8B8D;fillColor=#FAE5C7;fontColor=#143642;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="302" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="Database" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=#0F8B8D;fillColor=#FAE5C7;fontColor=#143642;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="412" width="340" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

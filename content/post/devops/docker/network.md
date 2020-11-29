@@ -13,6 +13,8 @@ date: 2020-07-11T15:31:32+08:00
 
 **模拟连网：**`docker network connect [OPTIONS] NETWORK CONTAINER`
 
+iptables -t nat -A  DOCKER -p tcp --dport 8081 -j DNAT --to-destination 172.17.0.3:81
+
 ### 实战
 
 - 断开sdra网络`docker network disconnect docker_default docker_soma_1`

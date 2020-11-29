@@ -48,11 +48,33 @@ date: 2020-05-16T17:39:11+08:00
 
 ### 配置
 
-**别名：**`git config --global alias.st status`
+别名
 
-**颜色：**`git config --global color.ui true`
+```shell
+git config --global alias.st status
+git config --global alias.cm commit
+```
 
-**全局ignore：**`git config --global core.excludesfile '~/.gitignore'`
+颜色
+
+```shell
+git config --global color.ui true
+```
+
+全局ignore
+
+```shell
+git config --global core.excludesfile '~/.gitignore'
+```
+
+配置用户名
+
+```shell
+git config user.name Peng.Xiao
+git config user.email peng.xiao@easystack.cn
+```
+
+
 
 ### 历史
 

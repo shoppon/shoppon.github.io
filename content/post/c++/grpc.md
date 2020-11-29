@@ -1,6 +1,7 @@
 ---
 title: "grpc学习"
 date: 2018-09-14T23:58:34+08:00
+categories: ["c++"]
 draft: true
 ---
 
