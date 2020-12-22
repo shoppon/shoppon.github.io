@@ -1,11 +1,9 @@
 ---
 title: "高级数据结构"
 categories: ["python"]
-tags: [""]
+tags: ["数据结构"]
 date: 2020-07-11T15:24:58+08:00
 ---
-
-# 高级数据结构
 
 ### defaultdict
 
@@ -55,3 +53,21 @@ q = heapq.heapify([1, 2, 3, 4, 5])
 heapq.heappop(q)
 ```
 
+### Array
+相当于C语言数组，只能存放制定类型的属性
+
+```python
+arr = array.array(‘i’)
+arr.append(‘abc’)
+```
+
+### bisect
+维护已排序的序列（升序）
+
+```python
+foo = []
+bisect.insert(foo, 2)
+bisect.insert(foo, 5)
+bisect.insert(foo, 3)
+bisect.
+```

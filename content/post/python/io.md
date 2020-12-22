@@ -1,7 +1,7 @@
 ---
 title: "IO"
 categories: ["python"]
-tags: [""]
+tags: ["io"]
 date: 2020-07-11T15:26:21+08:00
 ---
 

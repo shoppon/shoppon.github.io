@@ -22,15 +22,35 @@ date: 2020-05-16T17:39:11+08:00
 
 ### 代码
 
-**更新submodule：**`git submodule update --init --recursive`
+更新submodule
+
+```shell
+git submodule update --init --recursive
+```
 
 ### 工作区
 
-**更新代码永远使用：**`git pull --rebase`
+更新代码永远使用
 
-**删除untracked file：**`git clean -fdx`
+```shell
+git pull --rebase
+```
+使用stash替换工作区
+```shell
+git checkout stash -- .
+```
 
-**删除未提交的变更：** `git reset --hard HEAD`
+删除untracked file
+
+```shell
+git clean -fdx
+```
+
+删除未提交的变更
+
+```shell
+git reset --hard HEAD
+```
 
 ### 分支
 
@@ -53,6 +73,7 @@ date: 2020-05-16T17:39:11+08:00
 ```shell
 git config --global alias.st status
 git config --global alias.cm commit
+git config --global alias.co checkout
 ```
 
 颜色
@@ -73,8 +94,6 @@ git config --global core.excludesfile '~/.gitignore'
 git config user.name Peng.Xiao
 git config user.email peng.xiao@easystack.cn
 ```
-
-
 
 ### 历史
 

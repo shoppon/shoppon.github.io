@@ -46,3 +46,28 @@ for i in range(1, 3):
     print(i)  # 1 2
 ```
 
+## 生成器
+
+使用`yield`定义生成器
+
+```python
+def foo():
+  yield 0
+
+type(foo) # <class 'function'>
+type(foo()) # <class 'generator'>
+```
+
+## 推导式
+
+### 列表推导式
+
+### 生成器表达式
+```python
+foo = (i for i in range(10) if i % 2 == 0)
+print(type(foo))
+```
+
+### 字典推导式
+
+### 集合推导式

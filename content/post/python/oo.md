@@ -1,13 +1,30 @@
 ---
 title: "面向对象"
 categories: ["python"]
-tags: [""]
+tags: ["oo"]
 date: 2020-06-11T21:27:38+08:00
 ---
 
-# 面向对象
+# 类型
 
-## 拷贝
+python中一切都是对象，类也是对象。`type`是生成类的类。`type`生成类，类生成对象。
+
+`object`类是所有类都要继承的类，是最顶层的类。通过`__bases__`查看类的基类，`object`类的`__bases__`是空。
+
+```python
+type('abc') # <class 'str'>
+type(str) # <class 'type'>
+type(type) # <class 'type'>
+type(object) # <class 'type'>
+def foo():
+   pass
+type(foo) # <class 'function'>
+class Bar:
+  pass
+type(Bar) # <class 'type'>
+```
+
+# 拷贝
 
 **基本类型的拷贝均是深拷贝。**
 
@@ -36,7 +53,7 @@ print(l3) # [[1, 'a'], ['y', 'b']]
 print(l4) # [[1, 'a'], ['y', 'b']]
 ```
 
-## 继承
+# 继承
 
 以**单下划线**开头的成员变量叫**保护变量**。
 

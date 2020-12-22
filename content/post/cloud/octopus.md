@@ -1,113 +1,106 @@
-# 背景
+---
+title: "商业存储对接"
+categories: ["云计算"]
+tags: ["nova", "cinder"]
+date: 2020-11-30T11:30:00+08:00
+typora-root-url: ../
+---
 
-功能列表
+# 概览
 
-是否对接glance、cinder、nova？
+## 背景
 
-控制节点是否安装rpm包
+EasyStack作为开放、中立的云计算厂商，支持对接各类第三方商业存储。
 
-# 杉岩对接
+## 现状
 
-保存cinder配置
+当前的对接方式为由项目驱动，针对不同的项目的不同场景出不同的商业存储对接包，然后在现场通过`自动化中心`-->`高级配置`-->`对接第三方商业存储`工具进行对接。部分较标准的商业存储可通过工具制作对接包，部分商业存储如xky、杉岩等还需要手工出包。
 
-```python
-kubectl get configmap -n openstack cinder-etc -o yaml > /root/cinder-config-map.yaml
-```
+一般而言，一个商业存储对接包从需求接收到现场交付至少需要研发5人天工作量。80%对接都会出问题，大部分问题是环境本身（网络、账号）问题，还有部分云平台的问题（POD状态）。
 
-保存deployment
+## 问题
 
-```python
-kubectl get deployment -n openstack cinder-volume -o yaml > /root/cinder-volume-deployment.yaml
+当前对接过程主要存在以下问题：
 
-hostpath_volume:
-  - name: sandstone-ceph-driver
-    host_path: /var/lib/ceph/
-      container_path: /var/lib/ceph/
-```
+1. 不可测试：对接代码主要由shell和python编写，互相调用，基本的业务功能都没有**单元测试**防护，更没有temptest自动验证。
+2. 不可调试：对接代码**过程化**现象严重，没有合理的抽象，代码无法通过IDE或者pdb调试，完全依赖真实环境验证，开发效率低。对接过程无任何**日志**记录，出错时难以定位问题。
+3. 无法溯源：每次新增对接第三方商业存储都需要添加或者修改代码，部分项目代码甚至不用上库，仅通过MR跟踪。对接包制作过程不可重现，软件发布过程无法跟踪。
+4. 无法验证：对接完后需要手工验证所有块创建、删除、映射等功能，验证完还需要手动清理资源。这种方式一是效率低，二是可能验证不全面。
 
-修改cinder配置
+商业存储对接步骤繁琐但技术难度又不高，会让人觉得没有成就感，属于典型的**脏活累活**。
 
-```python
-kubectl edit cm -n openstack cinder-etc
+# 技术分析
 
-# 在cinder.conf中添加
-[DEFAULT]
-use_chap_auth = false
-enabled_backends = sds-sys, sds-data
-backup_ceph_conf = /opt/sandstone/etc/sds/sds.conf
-backup_ceph_user = cinder
-backup_ceph_chunk_size = 134217728
-backup_ceph_pool = backups
-backup_ceph_stripe_unit = 0
-backup_ceph_stripe_count = 0
-restore_discard_excess_bytes = true
-# 在backend中添加
-[sds-sys]
-rbd_flatten_volume_from_snapshot = true
-volume_driver = cinder.volume.drivers.rbd.RBDDriver
-volume_backend_name = sds-sys
-rbd_pool = vms
-rbd_ceph_conf = /var/lib/ceph/etc/ceph/pool.conf
-rbd_max_clone_depth = 5
-rbd_store_chunk_size = 4
-rados_connect_timeout = -1
-glance_api_version = 2
-[sds-data]
-rbd_flatten_volume_from_snapshot = true
-volume_driver = cinder.volume.drivers.rbd.RBDDriver
-volume_backend_name = sds-data
-rbd_pool = volumes
-rbd_ceph_conf = /var/lib/ceph/etc/ceph/pool.conf
-rbd_max_clone_depth = 5
-rbd_store_chunk_size = 4
-rados_connect_timeout = -1
-glance_api_version = 2
-```
+商业存储对接主要包含三方面的工作：**环境**、**软件**、**配置**。
 
-修改deployment
+## 环境
+
+对接前需要保证云平台与商业存储之间物理网络已经连通，脚本中通过`ovsctl`自动化配置对接所需的bridge。
+
+## 软件
+
+云平台通过openstack cinder、glance组件连接商业存储，商业存储各自提供其cinder driver驱动，有些是rpm包形式，有些是python文件形式。对接时需要在cinder volume pod中安装这些驱动及其依赖。
+
+## 配置
+
+大部分商业存储都是通过`cinder.conf`和`backend.conf`来配置对接参数，有些商业存储会使用额外的`xml`、`ceph.conf`、`keyring`等文件。此外，有些商业存储还会修改多路径配置文件`multpath.conf`。
+
+# 重构思路
+
+重构分为两个阶段：第一阶段是工程化；第二阶段是服务化。工程化阶段使用方式与当前保持一致，还是研发出对接包到现场升级；服务化阶段即完全使用自助式服务方式，不需要后端研发介入。
+
+## 工程化
+
+原有的`solution-storage`工程代码都是过程化的，按存储类型不同分类存放的，存在较多的重复代码。还有好多代码是以MR的形式存在，并没有最终上库。工程目录结构较为杂乱，shell脚本和python代码杂糅，已不具备继续向前演进的条件。
+
+因此，需要创建新的`octopus`标准python工程管理商业存储对接代码。
+
+`octopus`意为章鱼，旨在像章鱼的触角一样将商业存储连接到ECS云平台。
+
+重构后的`octopus`工程目录结构规划如下：
 
 ```python
-kubectl edit deployment -n openstack cinder-volume
+├── docs # 存放对接文档
+├── etc  # 存放配置文件模板
+└── octopus
+    ├── api # 定义对接API
+    ├── configuration # 配置文件相关操作模块
+    ├── environment # 环境相关操作模块，使用paramiko包装ssh操作
+    │   └── k8smgr # 使用kubernetes-client/python来包装对k8s的交互
+    ├── network # 网络配置相关模块
+    ├── tests # 单元测试及tempests目录
+    │   ├── tempests
+    │   └── tools
+    ├── tools # 存放工具代码，比如rados_connector等。
+    └── validation # 使用cinderclient等自动验证功能
 ```
 
-从存储节点拷贝ceph配置文件
+## 服务化
 
-```python
-scp -r root@192.168.4.61:/var/lib/ceph/etc/ceph/6d199430-f486-40d7-a688-9a1a35e7cf2f.conf /opt/solution/cinder-volume/sandstone
-scp -r root@192.168.4.61:/var/lib/ceph/etc/keyring/6d199430-f486-40d7-a688-9a1a35e7cf2f/client/client.admin.keyring /opt/solution/cinder-volume/sandstone
-```
+云计算(IaaS)的本质就是将计算、网络、存储等相关资源的使用**服务化**（自助、弹性）。
 
-添加杉岩的ld.conf，使用`rados`、`rbd`相关so用杉岩的
+商业存储对接最终也应该是以**服务**的形式对外提供，L2或者客户运维可以通过界面或者API自助完成对接工作，不需要后端研发介入。
 
-```python
-/var/lib/ceph/etc/ld.so.conf.d/sds-ceph.conf
-```
+服务又分成两层，一层提供最基础的配置修改、软件包上传、网络配置等**标准能力**，这一层不感知商业存储对接；另一层就是基于这些基础能力跟**搭积木**一样包装对接服务。
 
-# 问题
+初步的架构设想为
 
-rpm包安装后添加软链接失败
+![storage_solution](/imgs/storage_solution.png)
 
-```python
-ln: failed to create symbolic link ‘/etc/ceph’: File existsdstone/rbdcl
-ln: failed to create symbolic link ‘/usr/lib/python2.7/site-packages/ceph_argparse.py’: File exists
-ln: failed to create symbolic link ‘/usr/lib/python2.7/site-packages/ceph_argparse.pyc’: File exists
-ln: failed to create symbolic link ‘/usr/lib/python2.7/site-packages/ceph_argparse.pyo’: File exists
-ln: failed to create symbolic link ‘/usr/lib/python2.7/site-packages/ceph_daemon.py’: File exists
-ln: failed to create symbolic link ‘/usr/lib/python2.7/site-packages/ceph_daemon.pyc’: File exists
-ln: failed to create symbolic link ‘/usr/lib/python2.7/site-packages/ceph_daemon.pyo’: File exists
-ln: failed to create symbolic link ‘/usr/lib/python2.7/site-packages/ceph_volume_client.py’: File exists
-ln: failed to create symbolic link ‘/usr/lib/python2.7/site-packages/ceph_volume_client.pyc’: File exists
-ln: failed to create symbolic link ‘/usr/lib/python2.7/site-packages/ceph_volume_client.pyo’: File exists
-ln: failed to create symbolic link ‘/usr/bin/ceph’: File exists
-ln: failed to create symbolic link ‘/usr/bin/rbd’: File exists
-ln: failed to create symbolic link ‘/usr/bin/rados’: File exists
-```
+大致分为四个模块：WSGI、API、Engine、Database。
 
-# 定位
+### WSGI
 
-查看连接rados日志
+基于`flask`构建一个web服务，可以在界面输入各种对接参数（网络、设备）、上传软件包等。
 
-```shell
-k logs cinder-volume-7b867c9cb8-46xqr -n openstack|grep -C 10 "_connect_to_rados"
-```
+### API
 
+提供各种商业存储的对接**接口**，将engine提供的基础能力像搭积木一样组合起来。
+
+### Engine
+
+抽象出各种基础能力，包括配置管理、软件包管理、网络配置等。
+
+### Database
+
+持久化对接过程，使对接可追溯、可审计。

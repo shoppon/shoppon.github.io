@@ -18,3 +18,23 @@ cinder create --image-id centos --display_name=ceph1-sys 40
 ```shell
 cinder reset-state --state available --attach-status detached {volume_id}
 ```
+
+## 创卷流程
+
+拷贝镜像到卷
+
+挂载卷
+
+​	初始化连接
+
+​	连接设备（卷）
+
+​		获取可能的路径
+
+​			发现iscsi portals
+
+​	检查是否用
+
+写入数据
+
+卸载卷

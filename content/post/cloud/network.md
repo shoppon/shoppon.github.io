@@ -15,24 +15,41 @@ draft: false
 使用`nginx`作为反向代理，通过域名转发到不同后端，配置文件如下：
 
 ```shell
+upstream websocket_freenas {
+    server 192.168.5.27;
+}
+
 server
 {
-    listen 8080;
-    server_name freenas.shoppon.xyz;
+    listen 8443;
+    server_name freenas.shoppon.site;
     location / {
         proxy_redirect off;
-        proxy_set_header Host $host;
+        proxy_set_header Host $host:$server_port;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_pass http://192.168.5.27:80;
+        proxy_pass http://192.168.5.27;
+    }
+    location /websocket {
+        proxy_pass http://websocket_freenas;
+        proxy_read_timeout 300s;
+        proxy_send_timeout 300s;
+
+        proxy_set_header Host $host:$server_port;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection  $connection_upgrade;
     }
     access_log logs/freenas_access.log;
 }
 
 server
 {
-    listen 8080;
-    server_name blog.shoppon.xyz;
+    listen 8443;
+    server_name blog.shoppon.site;
     location / {
         proxy_redirect off;
         proxy_set_header Host $host;
@@ -43,24 +60,28 @@ server
     access_log logs/blog_access.log;
 }
 
+upstream openstack {
+        server 192.168.5.100:80;
+}
+
 server
 {
-    listen 8080;
-    server_name openstack.shoppon.xyz;
+    listen 8443;
+    server_name openstack.shoppon.site;
     location / {
         proxy_redirect off;
-        proxy_set_header Host $host;
+        proxy_set_header Host $host:$server_port;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_pass http://192.168.5.100:80;
+        proxy_pass http://openstack;
     }
     access_log logs/openstack_access.log;
 }
 
 server
 {
-    listen 8080;
-    server_name openwrt.shoppon.xyz;
+    listen 8443;
+    server_name openwrt.shoppon.site;
     location / {
         proxy_redirect off;
         proxy_set_header Host $host;
@@ -73,8 +94,8 @@ server
 
 server
 {
-    listen 8080;
-    server_name harbor.shoppon.xyz;
+    listen 8443;
+    server_name harbor.shoppon.site;
     location / {
         proxy_redirect off;
         proxy_set_header Host $host;
@@ -87,8 +108,8 @@ server
 
 server
 {
-    listen 8080;
-    server_name k8s.shoppon.xyz;
+    listen 8443;
+    server_name k8s.shoppon.site;
     location / {
         proxy_redirect off;
         proxy_set_header Host $host;
@@ -99,21 +120,49 @@ server
     access_log logs/k8s_access.log;
 }
 
+server
+{
+    listen 8443;
+    server_name manictime.shoppon.site;
+    location / {
+        proxy_redirect off;
+        proxy_set_header Host $host:$server_port;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://192.168.5.77:8086;
+    }
+    access_log logs/manictime_access.log;
+}
+
+server
+{
+    listen 8443;
+    server_name share.shoppon.site;
+    location / {
+        proxy_redirect off;
+        proxy_set_header Host $host:$server_port;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://192.168.5.27:8005;
+    }
+    access_log logs/share_access.log;
+}
+
 map $http_upgrade $connection_upgrade {
     default upgrade;
     '' close;
 }
 
-upstream websocket {
+upstream websocket_site {
     server 192.168.5.77:8088;
 }
 
 server
 {
-    listen 8080;
-    server_name js.shoppon.xyz;
+    listen 8443;
+    server_name js.shoppon.site;
     location / {
-        proxy_pass http://websocket;
+        proxy_pass http://websocket_site;
         proxy_read_timeout 300s;
         proxy_send_timeout 300s;
 
@@ -128,11 +177,29 @@ server
     access_log logs/js_access.log;
 }
 
+server
+{
+    listen 8443;
+    server_name ceph.shoppon.site;
+    location / {
+        proxy_redirect off;
+        proxy_set_header Host $host:$server_port;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://192.168.5.24:8080;
+    }
+    access_log logs/ceph_access.log;
+}
+
 ```
 
 使用`proxy_set_header Host $host:$server_port;`可使被反向代理的网站跳转时依旧使用监听端口。
 
 使用`proxy_set_header Host $host:$proxy_port;`可使被反向代理的网站跳转时依旧使用自身端口。
+
+### 代理httpd(openstack)
+
+反向代理后面是`httpd`，比如`openstack`，需要修改`/etc/httpd/conf.d/15-horizon_vhost.conf`配置文件，添加```ServerAlias openstack.shoppon.site```配置。
 
 # Neutron
 

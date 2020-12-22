@@ -1,7 +1,7 @@
 ---
 title: "vscode配置"
 categories: ["vscode"]
-tags: [""]
+tags: ["vscode"]
 date: 2020-02-28T17:05:23+08:00
 ---
 
