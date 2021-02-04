@@ -58,6 +58,12 @@ type(foo) # <class 'function'>
 type(foo()) # <class 'generator'>
 ```
 
+生成器可用于惰性求值，在数据量比较大的时候节省内存。
+
+Python代码执行时使用C语言编写的PyEval_EvalFramEx函数解释的，首先会创建一个栈帧stackframe，保存字节码对象，分配在堆上，可以独立于调用对象存在。
+
+生成器保存了函数执行的位置和局部变量。
+
 ## 推导式
 
 ### 列表推导式

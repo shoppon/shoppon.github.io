@@ -68,6 +68,8 @@ UML组成：**事物（点）**、**关系（线）**、**图（面）**
 
 泳道一般用于表示并发。
 
+活动图中不同实体的[区别](https://stackoverflow.com/questions/683825/in-uml-class-diagrams-what-are-boundary-classes-control-classes-and-entity-cl)
+
 #### 状态图
 
 状态(state)：

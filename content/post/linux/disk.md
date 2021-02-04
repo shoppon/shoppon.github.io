@@ -99,7 +99,11 @@ fio -filename=/dev/vdb -direct=1 -iodepth 1 -thread -rw=randwrite -ioengine=psyn
 
 # iostat
 
-**每隔1秒查看磁盘速率：** `iostat -m 1`
+每隔1秒查看磁盘速率： 
+
+```shell
+iostat -m 1
+```
 
 # 刷盘
 
@@ -126,4 +130,5 @@ NFS文件共享修改后无法通知内核，导致hugo的监听文件变化功�
 # 参考
 
 - [IO测试工具之fio详解](https://www.cnblogs.com/raykuan/p/6914748.html)
+- [dmsetup使用](https://www.cnblogs.com/ghl666/p/12074000.html)
 

@@ -88,6 +88,12 @@ git config --global color.ui true
 git config --global core.excludesfile '~/.gitignore'
 ```
 
+设置编辑器为vim
+
+```shell
+git config --global core.editor "vim"
+```
+
 配置用户名
 
 ```shell

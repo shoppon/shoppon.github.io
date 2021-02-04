@@ -201,6 +201,23 @@ server
 
 反向代理后面是`httpd`，比如`openstack`，需要修改`/etc/httpd/conf.d/15-horizon_vhost.conf`配置文件，添加```ServerAlias openstack.shoppon.site```配置。
 
+### 代理Mysql
+
+```shell
+stream {
+    upstream mysql {
+        hash $remote_addr consistent;
+        server 192.168.10.5:3306 max_fails=3 fail_timeout=30s;
+    }
+    server {
+        listen 3306;
+        proxy_connect_timeout 30s;
+        proxy_timeout 600s;
+        proxy_pass mysql;
+    }
+}
+```
+
 # Neutron
 
 ## 常用命令
@@ -208,6 +225,14 @@ server
 ### 绑定浮动IP
 ```shell
 openstack floating ip set --fixed-ip-address 10.8.1.232 --port b7de6a74-d626-41d2-8245-f4bed029deec 192.168.5.24
+```
+
+# 网络配置
+
+## 使用dnat端口转发
+
+```shell
+iptables -t nat -I PREROUTING -d 10.10.1.4 -p tcp -m tcp --dport 6443  -j DNAT --to-destination 192.168.4.43:6443
 ```
 
 # 参考
